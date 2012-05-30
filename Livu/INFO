@@ -1,0 +1,84 @@
+TODO:
+
+Configuration
+
+    Rather then dealing with LivuBroadcastConfig and having to use defines to access the information I suggest we 
+    add a class that handles this via properties. For instance we can add a LivuBroadcstProfile that is returned
+    from the LivuBroadcastConfig. This would be much nicer.
+
+    
+
+
+LivuBroadcastManager (Rewrite)
+
+    The rewrite has illiminated the issues with restarting the streaming after an error. Namely the capture session does not
+    choke when starting back up. This was accomplished simply by releasing everything, and changeing the broadcast manager
+    to a instance object rather then a singleton. This does suggest I was holding onto something.
+    
+    It still needs work. I suggest we move all capture code into a interface LivuCaptureManager. The just use composition
+    in LivuBroadcastManager for FFstream and the capturing. Essentially this breaks down as follows.
+    
+        LivuCaptureManager - Handle init, start, stop and monitoring of capturing
+        LivuBroadcastManager - Handle writing data and posting to FFstream. Handle errors
+        FFstream - stream
+
+    This is complete. Now I suggest trying the following. Rather then dump the broadcast manager totally after stream is
+    done, we can instead just dealloc the LivuCaptureManager. This way we can follow a more natural pattern of init and 
+    then start/stop cycles.
+    
+    The AVCaptureSession must be on the main thread in order for the preview to work.
+    
+    Starting the broadcast manager ties up the main thread. We should partition the various parts of startup. Then either
+    use messages to start the startup process, or use delayed GCD main queue blocks.
+
+
+Shutdown timer
+
+    Right now a shutdown timer is set when the user stops the broadcast. We are reseting this timer for each buffer
+    that gets processed from the queue. We should really give the user the opertunity to kill the broadcast, but 
+    this does pose a problem of 'two taps required'.
+    
+DNS Issues
+
+    It seems sometimes on the first try DNS will time out. I say we spawn a background process on startup, assuming
+    ther is a configured addresss, to touch the url. This way DNS should be resolved by the time this poke is done.
+
+
+
+Network 
+
+    Switching between wifi and 3G is a no go. For now we must implement a network handler within the broadcast manager
+    to detect changes. We could just restart FFstream after switching to a new network. 
+
+    FFstream will block in librtmp when a network is lost. Here is what I propose
+    
+    If streaming on WIFI
+        
+        If change to Cell
+            notify user switching to cell
+            throw SIGPIPE
+            cleanup 
+            restart
+                check stream size settings and adjust if nessasary
+            
+        if change to no network
+            notify user 
+            throw SIGPIPE
+            cleanup
+    
+    If streaming on WWAN
+    
+        If change to wifi
+            notify user switching to WIFI
+            stop FFstream
+            restart FFstream
+            
+        if change to no network
+            notify user
+            throw SIGPIPE
+            cleanup
+
+    SIGPIPE does not work al lthe time. When going from WiFi to cell no SIGPIPE is thrown. 
+
+
+test everything

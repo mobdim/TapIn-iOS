@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>default</key>
+	<dict>
+		<key>active</key>
+		<true/>
+		<key>av</key>
+		<dict>
+			<key>broadcastOption</key>
+			<integer>3</integer>
+			<key>broadcastType</key>
+			<string>2</string>
+			<key>fps</key>
+			<integer>30</integer>
+			<key>keyFrameInterval</key>
+			<string>30</string>
+			<key>videoMaxBitrateScalar</key>
+			<integer>1</integer>
+		</dict>
+		<key>name</key>
+		<string>default</string>
+		<key>network</key>
+		<dict>
+			<key>address</key>
+			<string></string>
+			<key>application</key>
+			<string>/rtplive/livu</string>
+			<key>autoBitrateAdjust</key>
+			<string>NO</string>
+			<key>autoRestart</key>
+			<string>YES</string>
+			<key>pass</key>
+			<string></string>
+			<key>port</key>
+			<integer>554</integer>
+			<key>user</key>
+			<string></string>
+			<key>useTCP</key>
+			<true/>
+		</dict>
+		<key>pid</key>
+		<string>default</string>
+		<key>version</key>
+		<integer>3</integer>
+	</dict>
+</dict>
+</plist>
