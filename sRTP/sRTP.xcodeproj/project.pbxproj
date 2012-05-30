@@ -1,0 +1,304 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		BA45F57913E3418200D35655 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BA45F57813E3418200D35655 /* Foundation.framework */; };
+		BA45F57C13E3418200D35655 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = BA45F57B13E3418200D35655 /* main.m */; };
+		BA45F59913E3419700D35655 /* debug.c in Sources */ = {isa = PBXBuildFile; fileRef = BA45F59013E3419700D35655 /* debug.c */; };
+		BA45F59A13E3419700D35655 /* drand48.c in Sources */ = {isa = PBXBuildFile; fileRef = BA45F59113E3419700D35655 /* drand48.c */; };
+		BA45F59B13E3419700D35655 /* inet_pton.c in Sources */ = {isa = PBXBuildFile; fileRef = BA45F59213E3419700D35655 /* inet_pton.c */; };
+		BA45F59C13E3419700D35655 /* memory.c in Sources */ = {isa = PBXBuildFile; fileRef = BA45F59313E3419700D35655 /* memory.c */; };
+		BA45F59D13E3419700D35655 /* net_udp.c in Sources */ = {isa = PBXBuildFile; fileRef = BA45F59413E3419700D35655 /* net_udp.c */; };
+		BA45F59E13E3419700D35655 /* ntp.c in Sources */ = {isa = PBXBuildFile; fileRef = BA45F59513E3419700D35655 /* ntp.c */; };
+		BA45F59F13E3419700D35655 /* rtp.c in Sources */ = {isa = PBXBuildFile; fileRef = BA45F59613E3419700D35655 /* rtp.c */; };
+		BA45F5A013E3419700D35655 /* sdp.c in Sources */ = {isa = PBXBuildFile; fileRef = BA45F59713E3419700D35655 /* sdp.c */; };
+		BA45F5A113E3419700D35655 /* util.c in Sources */ = {isa = PBXBuildFile; fileRef = BA45F59813E3419700D35655 /* util.c */; };
+		BA45F5EB13E345BF00D35655 /* base64.c in Sources */ = {isa = PBXBuildFile; fileRef = BA45F5EA13E345BF00D35655 /* base64.c */; };
+		BA83420513EC59BD00754600 /* net_tcp.c in Sources */ = {isa = PBXBuildFile; fileRef = BA83420313EC59BD00754600 /* net_tcp.c */; };
+		BA83420C13EC5B0500754600 /* net_common.c in Sources */ = {isa = PBXBuildFile; fileRef = BA83420A13EC5B0500754600 /* net_common.c */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		BA45F57213E3418200D35655 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = /usr/share/man/man1/;
+			dstSubfolderSpec = 0;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 1;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		BA45F57413E3418200D35655 /* sRTP */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = sRTP; sourceTree = BUILT_PRODUCTS_DIR; };
+		BA45F57813E3418200D35655 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		BA45F57B13E3418200D35655 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		BA45F57E13E3418200D35655 /* sRTP-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "sRTP-Prefix.pch"; sourceTree = "<group>"; };
+		BA45F57F13E3418200D35655 /* sRTP.1 */ = {isa = PBXFileReference; lastKnownFileType = text.man; path = sRTP.1; sourceTree = "<group>"; };
+		BA45F58513E3419700D35655 /* config_unix.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = config_unix.h; sourceTree = "<group>"; };
+		BA45F58613E3419700D35655 /* debug.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = debug.h; sourceTree = "<group>"; };
+		BA45F58713E3419700D35655 /* drand48.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = drand48.h; sourceTree = "<group>"; };
+		BA45F58813E3419700D35655 /* inet_pton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = inet_pton.h; sourceTree = "<group>"; };
+		BA45F58913E3419700D35655 /* memory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = memory.h; sourceTree = "<group>"; };
+		BA45F58A13E3419700D35655 /* net_udp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = net_udp.h; sourceTree = "<group>"; };
+		BA45F58B13E3419700D35655 /* ntp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ntp.h; sourceTree = "<group>"; };
+		BA45F58C13E3419700D35655 /* rtp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = rtp.h; sourceTree = "<group>"; };
+		BA45F58D13E3419700D35655 /* sdp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = sdp.h; sourceTree = "<group>"; };
+		BA45F58E13E3419700D35655 /* util.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = util.h; sourceTree = "<group>"; };
+		BA45F58F13E3419700D35655 /* TestRTP-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "TestRTP-Prefix.pch"; sourceTree = "<group>"; };
+		BA45F59013E3419700D35655 /* debug.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = debug.c; sourceTree = "<group>"; };
+		BA45F59113E3419700D35655 /* drand48.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = drand48.c; sourceTree = "<group>"; };
+		BA45F59213E3419700D35655 /* inet_pton.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = inet_pton.c; sourceTree = "<group>"; };
+		BA45F59313E3419700D35655 /* memory.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = memory.c; sourceTree = "<group>"; };
+		BA45F59413E3419700D35655 /* net_udp.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = net_udp.c; sourceTree = "<group>"; };
+		BA45F59513E3419700D35655 /* ntp.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = ntp.c; sourceTree = "<group>"; };
+		BA45F59613E3419700D35655 /* rtp.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = rtp.c; sourceTree = "<group>"; };
+		BA45F59713E3419700D35655 /* sdp.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = sdp.c; sourceTree = "<group>"; };
+		BA45F59813E3419700D35655 /* util.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = util.c; sourceTree = "<group>"; };
+		BA45F5E913E345BF00D35655 /* base64.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = base64.h; sourceTree = "<group>"; };
+		BA45F5EA13E345BF00D35655 /* base64.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = base64.c; sourceTree = "<group>"; };
+		BA83420313EC59BD00754600 /* net_tcp.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = net_tcp.c; sourceTree = "<group>"; };
+		BA83420413EC59BD00754600 /* net_tcp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = net_tcp.h; sourceTree = "<group>"; };
+		BA83420A13EC5B0500754600 /* net_common.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = net_common.c; sourceTree = "<group>"; };
+		BA83420B13EC5B0500754600 /* net_common.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = net_common.h; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		BA45F57113E3418200D35655 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BA45F57913E3418200D35655 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		BA45F56913E3418100D35655 = {
+			isa = PBXGroup;
+			children = (
+				BA45F57A13E3418200D35655 /* sRTP */,
+				BA45F57713E3418200D35655 /* Frameworks */,
+				BA45F57513E3418200D35655 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		BA45F57513E3418200D35655 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				BA45F57413E3418200D35655 /* sRTP */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		BA45F57713E3418200D35655 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				BA45F57813E3418200D35655 /* Foundation.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		BA45F57A13E3418200D35655 /* sRTP */ = {
+			isa = PBXGroup;
+			children = (
+				BA45F58C13E3419700D35655 /* rtp.h */,
+				BA45F58A13E3419700D35655 /* net_udp.h */,
+				BA83420413EC59BD00754600 /* net_tcp.h */,
+				BA83420B13EC5B0500754600 /* net_common.h */,
+				BA45F5E913E345BF00D35655 /* base64.h */,
+				BA45F58613E3419700D35655 /* debug.h */,
+				BA45F58713E3419700D35655 /* drand48.h */,
+				BA45F58813E3419700D35655 /* inet_pton.h */,
+				BA45F58913E3419700D35655 /* memory.h */,
+				BA45F58B13E3419700D35655 /* ntp.h */,
+				BA45F58D13E3419700D35655 /* sdp.h */,
+				BA45F58E13E3419700D35655 /* util.h */,
+				BA45F58513E3419700D35655 /* config_unix.h */,
+				BA45F59613E3419700D35655 /* rtp.c */,
+				BA45F59413E3419700D35655 /* net_udp.c */,
+				BA83420313EC59BD00754600 /* net_tcp.c */,
+				BA83420A13EC5B0500754600 /* net_common.c */,
+				BA45F5EA13E345BF00D35655 /* base64.c */,
+				BA45F59013E3419700D35655 /* debug.c */,
+				BA45F59113E3419700D35655 /* drand48.c */,
+				BA45F59213E3419700D35655 /* inet_pton.c */,
+				BA45F59313E3419700D35655 /* memory.c */,
+				BA45F59513E3419700D35655 /* ntp.c */,
+				BA45F59713E3419700D35655 /* sdp.c */,
+				BA45F59813E3419700D35655 /* util.c */,
+				BA45F57F13E3418200D35655 /* sRTP.1 */,
+				BA45F57D13E3418200D35655 /* Supporting Files */,
+			);
+			path = sRTP;
+			sourceTree = "<group>";
+		};
+		BA45F57D13E3418200D35655 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				BA45F57B13E3418200D35655 /* main.m */,
+				BA45F58F13E3419700D35655 /* TestRTP-Prefix.pch */,
+				BA45F57E13E3418200D35655 /* sRTP-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		BA45F57313E3418200D35655 /* sRTP */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = BA45F58213E3418200D35655 /* Build configuration list for PBXNativeTarget "sRTP" */;
+			buildPhases = (
+				BA45F57013E3418200D35655 /* Sources */,
+				BA45F57113E3418200D35655 /* Frameworks */,
+				BA45F57213E3418200D35655 /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = sRTP;
+			productName = sRTP;
+			productReference = BA45F57413E3418200D35655 /* sRTP */;
+			productType = "com.apple.product-type.tool";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		BA45F56B13E3418100D35655 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				ORGANIZATIONNAME = "Steve McFarlin";
+			};
+			buildConfigurationList = BA45F56E13E3418100D35655 /* Build configuration list for PBXProject "sRTP" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = BA45F56913E3418100D35655;
+			productRefGroup = BA45F57513E3418200D35655 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				BA45F57313E3418200D35655 /* sRTP */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXSourcesBuildPhase section */
+		BA45F57013E3418200D35655 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BA45F57C13E3418200D35655 /* main.m in Sources */,
+				BA45F59913E3419700D35655 /* debug.c in Sources */,
+				BA45F59A13E3419700D35655 /* drand48.c in Sources */,
+				BA45F59B13E3419700D35655 /* inet_pton.c in Sources */,
+				BA45F59C13E3419700D35655 /* memory.c in Sources */,
+				BA45F59D13E3419700D35655 /* net_udp.c in Sources */,
+				BA45F59E13E3419700D35655 /* ntp.c in Sources */,
+				BA45F59F13E3419700D35655 /* rtp.c in Sources */,
+				BA45F5A013E3419700D35655 /* sdp.c in Sources */,
+				BA45F5A113E3419700D35655 /* util.c in Sources */,
+				BA45F5EB13E345BF00D35655 /* base64.c in Sources */,
+				BA83420513EC59BD00754600 /* net_tcp.c in Sources */,
+				BA83420C13EC5B0500754600 /* net_common.c in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		BA45F58013E3418200D35655 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_64_BIT)";
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = DEBUG;
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.6;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		BA45F58113E3418200D35655 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_64_BIT)";
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.6;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		BA45F58313E3418200D35655 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				COPY_PHASE_STRIP = NO;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "sRTP/sRTP-Prefix.pch";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		BA45F58413E3418200D35655 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "sRTP/sRTP-Prefix.pch";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		BA45F56E13E3418100D35655 /* Build configuration list for PBXProject "sRTP" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BA45F58013E3418200D35655 /* Debug */,
+				BA45F58113E3418200D35655 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		BA45F58213E3418200D35655 /* Build configuration list for PBXNativeTarget "sRTP" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BA45F58313E3418200D35655 /* Debug */,
+				BA45F58413E3418200D35655 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = BA45F56B13E3418100D35655 /* Project object */;
+}

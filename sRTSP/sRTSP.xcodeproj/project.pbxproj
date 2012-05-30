@@ -1,0 +1,241 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		BA8341DC13EC49EF00754600 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BA8341DB13EC49EF00754600 /* Foundation.framework */; };
+		BA8341DF13EC49EF00754600 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = BA8341DE13EC49EF00754600 /* main.m */; };
+		BA8341EA13EC4A0E00754600 /* sRTSPClient.m in Sources */ = {isa = PBXBuildFile; fileRef = BA8341E913EC4A0E00754600 /* sRTSPClient.m */; };
+		BAC331DE13F1F951001E76E1 /* base64.c in Sources */ = {isa = PBXBuildFile; fileRef = BAC331DD13F1F951001E76E1 /* base64.c */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		BA8341D513EC49EF00754600 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = /usr/share/man/man1/;
+			dstSubfolderSpec = 0;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 1;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		BA8341D713EC49EF00754600 /* sRTSP */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = sRTSP; sourceTree = BUILT_PRODUCTS_DIR; };
+		BA8341DB13EC49EF00754600 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		BA8341DE13EC49EF00754600 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		BA8341E113EC49EF00754600 /* sRTSP-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "sRTSP-Prefix.pch"; sourceTree = "<group>"; };
+		BA8341E213EC49EF00754600 /* sRTSP.1 */ = {isa = PBXFileReference; lastKnownFileType = text.man; path = sRTSP.1; sourceTree = "<group>"; };
+		BA8341E813EC4A0E00754600 /* sRTSPClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = sRTSPClient.h; sourceTree = "<group>"; };
+		BA8341E913EC4A0E00754600 /* sRTSPClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = sRTSPClient.m; sourceTree = "<group>"; };
+		BAC331DC13F1F951001E76E1 /* base64.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = base64.h; sourceTree = "<group>"; };
+		BAC331DD13F1F951001E76E1 /* base64.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = base64.c; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		BA8341D413EC49EF00754600 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BA8341DC13EC49EF00754600 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		BA8341CC13EC49EF00754600 = {
+			isa = PBXGroup;
+			children = (
+				BA8341DD13EC49EF00754600 /* sRTSP */,
+				BA8341DA13EC49EF00754600 /* Frameworks */,
+				BA8341D813EC49EF00754600 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		BA8341D813EC49EF00754600 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				BA8341D713EC49EF00754600 /* sRTSP */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		BA8341DA13EC49EF00754600 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				BA8341DB13EC49EF00754600 /* Foundation.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		BA8341DD13EC49EF00754600 /* sRTSP */ = {
+			isa = PBXGroup;
+			children = (
+				BA8341E813EC4A0E00754600 /* sRTSPClient.h */,
+				BA8341E913EC4A0E00754600 /* sRTSPClient.m */,
+				BAC331DC13F1F951001E76E1 /* base64.h */,
+				BAC331DD13F1F951001E76E1 /* base64.c */,
+				BA8341DE13EC49EF00754600 /* main.m */,
+				BA8341E213EC49EF00754600 /* sRTSP.1 */,
+				BA8341E013EC49EF00754600 /* Supporting Files */,
+			);
+			path = sRTSP;
+			sourceTree = "<group>";
+		};
+		BA8341E013EC49EF00754600 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				BA8341E113EC49EF00754600 /* sRTSP-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		BA8341D613EC49EF00754600 /* sRTSP */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = BA8341E513EC49F000754600 /* Build configuration list for PBXNativeTarget "sRTSP" */;
+			buildPhases = (
+				BA8341D313EC49EF00754600 /* Sources */,
+				BA8341D413EC49EF00754600 /* Frameworks */,
+				BA8341D513EC49EF00754600 /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = sRTSP;
+			productName = sRTSP;
+			productReference = BA8341D713EC49EF00754600 /* sRTSP */;
+			productType = "com.apple.product-type.tool";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		BA8341CE13EC49EF00754600 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0420;
+				ORGANIZATIONNAME = "Steve McFarlin";
+			};
+			buildConfigurationList = BA8341D113EC49EF00754600 /* Build configuration list for PBXProject "sRTSP" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = BA8341CC13EC49EF00754600;
+			productRefGroup = BA8341D813EC49EF00754600 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				BA8341D613EC49EF00754600 /* sRTSP */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXSourcesBuildPhase section */
+		BA8341D313EC49EF00754600 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BA8341DF13EC49EF00754600 /* main.m in Sources */,
+				BA8341EA13EC4A0E00754600 /* sRTSPClient.m in Sources */,
+				BAC331DE13F1F951001E76E1 /* base64.c in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		BA8341E313EC49F000754600 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_64_BIT)";
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = DEBUG;
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.6;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		BA8341E413EC49F000754600 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_64_BIT)";
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.6;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		BA8341E613EC49F000754600 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				COPY_PHASE_STRIP = NO;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "sRTSP/sRTSP-Prefix.pch";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		BA8341E713EC49F000754600 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "sRTSP/sRTSP-Prefix.pch";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		BA8341D113EC49EF00754600 /* Build configuration list for PBXProject "sRTSP" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BA8341E313EC49F000754600 /* Debug */,
+				BA8341E413EC49F000754600 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		BA8341E513EC49F000754600 /* Build configuration list for PBXNativeTarget "sRTSP" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BA8341E613EC49F000754600 /* Debug */,
+				BA8341E713EC49F000754600 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = BA8341CE13EC49EF00754600 /* Project object */;
+}

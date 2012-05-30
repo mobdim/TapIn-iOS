@@ -1,0 +1,7 @@
+//
+// Prefix header for all source files of the 'sRTSP' target in the 'sRTSP' project
+//
+
+#ifdef __OBJC__
+	#import <Foundation/Foundation.h>
+#endif
