@@ -7,11 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "Utilities.h"
 
 @class SUIMaxSlider, LivuConfigViewController, LivuCaptureManager, LivuBroadcastManager, AVCaptureVideoPreviewLayer, LivuVideoView;
 @class AVCEncoder, AACEncoder, SUIMaxSlider;
 
-@interface LivuViewController : UIViewController {
+@interface LivuViewController : UIViewController <NetworkUtilitiesDelegate> {
 
     UIButton *broadcastButton;
     UIButton *configButton;

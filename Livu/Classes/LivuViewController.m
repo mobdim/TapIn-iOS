@@ -12,7 +12,6 @@
 
 #import <QuartzCore/QuartzCore.h>
 
-#import "Utilities.h"
 #import "LivuViewController.h"
 #import "LivuBroadcastConfig.h"
 #import "LivuBroadcastProfile.h"
@@ -97,7 +96,6 @@ static const unichar delta = 0x0394 ;
 
 - (void) viewDidAppear:(BOOL)animated {
     
-    [[Utilities sharedInstance] startLocationService];
     LivuBroadcastProfile *profile = [LivuBroadcastConfig activeProfile];
     
     if ([profile.address length] == 0) {
@@ -448,7 +446,7 @@ static const unichar delta = 0x0394 ;
     
     //TODO: We should not set it here. Let the call back set it.
     //      Move property settings into callback
-    
+       
     if([self remoteHostStatus] == NotReachable) {
         UIAlertView *alert = [[UIAlertView alloc]
                               initWithTitle: NSLocalizedString(@"Error", @"")
@@ -462,47 +460,9 @@ static const unichar delta = 0x0394 ;
     }
     
     if (!sender.selected) {
-        self.broadcastButton.enabled = NO;
-        self.configButton.enabled = NO;
-        
-		[self uiMessage:NSLocalizedString(@"Connecting", @"")];
-		
-        [UIView animateWithDuration:0.25f
-                         animations:^{
-                             self.status.alpha = 1.0;
-                             self.status.text = NSLocalizedString(@"Connecting", @"");
-                         }
-                         completion:nil];
-        
-        LivuBroadcastProfile* profile = [LivuBroadcastConfig activeProfile]; 
-       
-		if(profile.broadcastType == kBroadcastTypeAudioVideo || profile.broadcastType == kBroadcastTypeVideo) {
-			AVCParameters *params = [[AVCParameters alloc] init];
-			//NSLog(@" %dx%d", profile.broadcastWidth, profile.broadcastHeight);
-			params.outWidth = profile.broadcastWidth;
-			params.outHeight = profile.broadcastHeight;
-			params.videoProfileLevel = AVVideoProfileLevelH264Baseline30;
-			params.bps = (broadcastBitrates[profile.broadcastOption] * profile.bitrateScalar);// / kIPadScale;
-			params.keyFrameInterval = profile.keyFrameInterval;
-			avcEncoder.parameters = params;
-			
-			if(![avcEncoder prepareEncoder]) {
-				NSLog(@"Encoder Error: %@", avcEncoder.error);
-			}
-			broadcaster.spspps = avcEncoder.spspps;
-			broadcaster.pps = avcEncoder.pps;
-			broadcaster.sps = avcEncoder.sps;
-			//NSLog(@"%@", avcEncoder.sps);
-			//[broadcaster setEncoder:avcEncoder];
-			
-			[avcEncoder start];
-		}
-        [broadcaster connect:profile];
-        //Start these in callback when connection is started.
-        
-        self.streamBitrate.text = @"";
-        
-        self.previewButton.enabled = YES;
+        [[Utilities sharedInstance] setStreamID:@""]; //reset the streamID 
+        [[Utilities sharedInstance] setDelegate:self];
+        [[Utilities sharedInstance] startLocationService];
         
     }
     else {
@@ -888,5 +848,64 @@ static const unichar delta = 0x0394 ;
 
 - (void)cycleGravity {
 }
+
+#pragma mark - network utilities delegate
+-(void)didCompleteHandeshake:(NSString *)streamID
+{
+    NSLog(@"delegate did fire %@", streamID);
+    self.broadcastButton.enabled = NO;
+    self.configButton.enabled = NO;
+    
+    [self uiMessage:NSLocalizedString(@"Connecting", @"")];
+    
+    [UIView animateWithDuration:0.25f
+                     animations:^{
+                         self.status.alpha = 1.0;
+                         self.status.text = NSLocalizedString(@"Connecting", @"");
+                     }
+                     completion:nil];
+    
+    LivuBroadcastProfile* profile = [LivuBroadcastConfig activeProfile]; 
+     profile.address = @"ca1.stream.tapin.tv";
+    profile.application = [NSString stringWithFormat:@"/live/%@/stream", streamID];
+    NSLog(@"address: %@", profile.address);
+    NSLog(@"application: %@", profile.application);
+    NSLog(@"profile: %@", [profile description]);
+
+    
+    if(profile.broadcastType == kBroadcastTypeAudioVideo || profile.broadcastType == kBroadcastTypeVideo) {
+        AVCParameters *params = [[AVCParameters alloc] init];
+        //NSLog(@" %dx%d", profile.broadcastWidth, profile.broadcastHeight);
+        params.outWidth = profile.broadcastWidth;
+        params.outHeight = profile.broadcastHeight;
+        params.videoProfileLevel = AVVideoProfileLevelH264Baseline30;
+        params.bps = (broadcastBitrates[profile.broadcastOption] * profile.bitrateScalar);// / kIPadScale;
+        params.keyFrameInterval = profile.keyFrameInterval;
+        avcEncoder.parameters = params;
+        
+        if(![avcEncoder prepareEncoder]) {
+            NSLog(@"Encoder Error: %@", avcEncoder.error);
+        }
+        broadcaster.spspps = avcEncoder.spspps;
+        broadcaster.pps = avcEncoder.pps;
+        broadcaster.sps = avcEncoder.sps;
+        //NSLog(@"%@", avcEncoder.sps);
+        //[broadcaster setEncoder:avcEncoder];
+        
+        [avcEncoder start];
+    }
+    [broadcaster connect:profile];
+    //Start these in callback when connection is started.
+    
+    self.streamBitrate.text = @"";
+    
+    self.previewButton.enabled = YES;
+}
+
+-(void)handshakeDidFailWithErrors:(NSString *)error
+{
+    NSLog(@"%@", error);
+}
+
 
 @end

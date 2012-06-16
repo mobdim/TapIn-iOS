@@ -24,9 +24,9 @@
 		<key>network</key>
 		<dict>
 			<key>address</key>
-			<string></string>
+			<string>ca1.stream.tapin.tv</string>
 			<key>application</key>
-			<string>/rtplive/livu</string>
+			<string>/live</string>
 			<key>autoBitrateAdjust</key>
 			<string>NO</string>
 			<key>autoRestart</key>
@@ -34,9 +34,9 @@
 			<key>pass</key>
 			<string></string>
 			<key>port</key>
-			<integer>554</integer>
+			<integer>1935</integer>
 			<key>user</key>
-			<string></string>
+			<string>tapintv</string>
 			<key>useTCP</key>
 			<true/>
 		</dict>

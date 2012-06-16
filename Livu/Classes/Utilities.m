@@ -17,6 +17,9 @@
 #include <net/if_dl.h>
 
 @interface Utilities()
+{
+    BOOL throttle;
+}
 -(NSString*)getMacAddress;
 -(NSString*)getPrivateKey;
 +(NSString*)sha1:(NSString*)input;
@@ -24,7 +27,7 @@
 @end
 
 @implementation Utilities
-@synthesize location, uid;
+@synthesize location, uid, streamID, delegate;
 
 - (void)dealloc
 {
@@ -124,8 +127,11 @@
 
 -(void)startLocationService
 {
+    streamID = @"";
+    throttle = NO;
     locationManager = [[CLLocationManager alloc] init];
     locationManager.delegate = self; 
+    locationManager.distanceFilter = 10.0f;
     [locationManager startUpdatingLocation];
 }
 
@@ -138,7 +144,11 @@
 
 - (void)locationManager:(CLLocationManager *)manager didUpdateToLocation:(CLLocation *)newLocation fromLocation:(CLLocation *)oldLocation 
 {
-    [self postHandShakeWithCoordinate:newLocation];
+    if(!throttle)
+    {
+        [self postHandShakeWithCoordinate:newLocation];
+        throttle = YES;
+    }
     location = newLocation;
 }
 
@@ -146,9 +156,9 @@
 {
     NSDictionary * streamDict = [[NSDictionary alloc]initWithObjectsAndKeys:
                                  @"1.strm.tapin.tv", @"host",
-                                 @"2323", @"id", nil];
+                                 streamID, @"id", nil];
     
-    NSLog(@"%f", _location.coordinate.latitude);
+    NSLog(@"lat: %f, lon: %f", _location.coordinate.latitude, _location.coordinate.longitude);
     
     NSArray * coordinate = [[NSArray alloc] initWithObjects:[NSString stringWithFormat:@"%f",_location.coordinate.latitude], [NSString stringWithFormat:@"%f",_location.coordinate.longitude], [NSString stringWithFormat:@"%f", _location.altitude], nil];  
     
@@ -158,19 +168,21 @@
     
     NSMutableDictionary * dataDict = [[NSMutableDictionary alloc] initWithObjectsAndKeys:
                                       [Utilities sha1:[self getMacAddress]], @"pub",
-                                      [Utilities sha1:[self getMacAddress]], @"priv",
+                                      [Utilities sha1:[self getMacAddress]], @"prot",
                                       geo, @"geo",
                                       streamDict, @"stream", nil];
     
     NSDictionary * bigDict = [[NSDictionary alloc]initWithObjectsAndKeys:dataDict, @"data", nil];
+    NSString * jsonData = [bigDict JSONRepresentation];
     
-//    ASIFormDataRequest *request = [ASIFormDataRequest requestWithURL:[NSURL URLWithString:@"something"]];
-//    [request setRequestMethod:@"POST"];
-//    [request setPostValue:bigDict forKey:@"data"];
-//    [request setDelegate:self];
-//    [request startAsynchronous];    
     
-    NSLog(@"%@", [bigDict JSONRepresentation]);
+    ASIFormDataRequest *request = [ASIFormDataRequest requestWithURL:[NSURL URLWithString:@"http://stage.api.tapin.tv/mobile/updatelocation"]];
+    [request setRequestMethod:@"POST"];
+    [request setData:[jsonData dataUsingEncoding:NSUTF8StringEncoding] forKey:@"data"];
+    [request setDelegate:self];
+    [request startAsynchronous];    
+    
+    //    NSLog(@"%@", [bigDict JSONRepresentation]);
     [bigDict release];
     [geo release];
     [coordinate release];
@@ -181,9 +193,31 @@
 }
 
 - (void)requestFinished:(ASIHTTPRequest *)request {
-    NSLog(@"Response %d ==> %@", request.responseStatusCode, [request responseString]);
+    if(request.responseStatusCode == 200)
+    {
+        NSLog(@"Response %d ==> %@", request.responseStatusCode, [request responseString]);
+        NSDictionary * response = (NSDictionary*)[[request responseString] JSONValue];
+        streamID = [response objectForKey:@"streamid"];
+        if ([(NSObject *)delegate respondsToSelector:@selector(didCompleteHandeshake:)])
+        {
+            [delegate didCompleteHandeshake:streamID];
+        }
+
+    }
+    else
+    {
+        throttle = NO;
+    }
 }
 
+- (void) requestFailed:(ASIHTTPRequest *) request {
+    if ([(NSObject *)delegate respondsToSelector:@selector(handshakeDidFailWithError:)])
+    {
+        [self.delegate handshakeDidFailWithErrors:request.error ];
+    }
+//    NSLog(@"failed: %@", request.error);
+    throttle = NO;
+}
 -(NSString*)getPrivateKey
 {
     return [NSString stringWithFormat:@"%@banana", [self getMacAddress]];
@@ -193,6 +227,7 @@
 - (void)locationManager:(CLLocationManager *)manager didFailWithError:(NSError *)error
 {
     NSLog(@"%@", error);
+    throttle = NO;
 }
 
 @end
