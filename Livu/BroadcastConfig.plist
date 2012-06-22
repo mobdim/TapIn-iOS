@@ -9,7 +9,7 @@
 		<key>av</key>
 		<dict>
 			<key>broadcastOption</key>
-			<integer>3</integer>
+			<integer>6</integer>
 			<key>broadcastType</key>
 			<string>2</string>
 			<key>fps</key>
@@ -28,7 +28,7 @@
 			<key>application</key>
 			<string>/live</string>
 			<key>autoBitrateAdjust</key>
-			<string>NO</string>
+			<string>YES</string>
 			<key>autoRestart</key>
 			<string>YES</string>
 			<key>pass</key>

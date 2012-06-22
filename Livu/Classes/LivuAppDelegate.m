@@ -32,7 +32,7 @@
 #import "LivuViewController.h"
 #import "AssetLoader.h"
 #import "SMFileUtil.h"
-
+#import "Utilities.h"
 #include <stdio.h>
 #include <sys/sysctl.h>
 #include <sys/time.h>
@@ -59,10 +59,30 @@
     // Add the view controller's view to the window and display.
     [self.window addSubview:viewController.view];
     [self.window makeKeyAndVisible];
-
+        
+    // Let the device know we want to receive push notifications
+	[[UIApplication sharedApplication] registerForRemoteNotificationTypes:
+     (UIRemoteNotificationTypeBadge | UIRemoteNotificationTypeSound | UIRemoteNotificationTypeAlert)];
+    
     return YES;
 }
 
+- (void)application:(UIApplication*)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData*)deviceToken
+{
+	NSString * dt = [NSString stringWithFormat:@"%@", deviceToken];
+    dt = [dt stringByReplacingOccurrencesOfString:@" " withString:@""]; 
+    dt = [dt stringByReplacingOccurrencesOfString:@"<" withString:@""]; 
+    dt = [dt stringByReplacingOccurrencesOfString:@">" withString:@""]; 
+
+    NSLog(@"My token is: %@", dt);
+    [Utilities setUserDefaultValue:dt forKey:@"pushtoken"];
+    
+}
+
+- (void)application:(UIApplication*)application didFailToRegisterForRemoteNotificationsWithError:(NSError*)error
+{
+	NSLog(@"Failed to get token, error: %@", error);
+}
 
 - (void)applicationWillResignActive:(UIApplication *)application {
     /*

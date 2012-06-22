@@ -12,6 +12,7 @@
 @optional
 -(void)didCompleteHandeshake:(NSString*)streamID;
 -(void)handshakeDidFailWithErrors:(NSString*)error;
+-(void) responseDidSucceed:(NSDictionary*)data; 
 @end
 
 @interface Utilities : NSObject <CLLocationManagerDelegate>
@@ -25,6 +26,11 @@
 -(void)startLocationService;
 -(void)stopLocationService;
 +(id)sharedInstance;
++(void) setUserDefaultValue:(id)value forKey:(NSString *)key;
++(id) userDefaultValueforKey:(NSString *)key;
++(NSString*) phoneID;
+-(void)sendPost:(NSString*)host params:(NSMutableDictionary*)params;
+-(void)sendGet:(NSString*)host params:(NSMutableDictionary*)params;
 
 @property (nonatomic, retain) CLLocation *location;
 @property (nonatomic, retain) NSString *uid;

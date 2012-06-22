@@ -37,10 +37,10 @@
                 [self uiMessage:@"Stream Ended"];
                 self.broadcastButton.selected = NO;
                 self.broadcastButton.enabled = YES;
-                self.cameraButton.hidden = YES;
-                self.torchButton.hidden = YES;
+//                self.cameraButton.hidden = YES;
+//                self.torchButton.hidden = YES;
                 self.configButton.enabled = YES;
-                self.bitrateSlider.enabled = YES;
+//                self.bitrateSlider.enabled = YES;
                 //              self.settingsButton.enabled = YES;
                 
                 //                [self resetUI];
@@ -69,10 +69,10 @@
                 self.broadcastButton.enabled = YES;
                 self.broadcastButton.selected = NO;
                 self.microphoneButton.selected = NO;
-                self.cameraButton.hidden = YES;
-                self.torchButton.hidden = YES;
-                self.configButton.enabled = YES;
-                self.bitrateSlider.enabled = YES;
+//                self.cameraButton.hidden = YES;
+//                self.torchButton.hidden = YES;
+//                self.configButton.enabled = YES;
+//                self.bitrateSlider.enabled = YES;
 				
 				if(profile.autoRestart) {
 					
@@ -116,26 +116,26 @@
                 self.broadcastButton.enabled = YES;
                 self.broadcastButton.selected = NO;
                 self.microphoneButton.selected = NO;
-                self.cameraButton.hidden = YES;
-                self.torchButton.hidden = YES;
+//                self.cameraButton.hidden = YES;
+//                self.torchButton.hidden = YES;
                 self.configButton.enabled = YES;
-                self.bitrateSlider.enabled = YES;
+//                self.bitrateSlider.enabled = YES;
 				
 				break;
 				
             case kStreamStarted:
                 [self uiMessage:@"Stream Started"];
-                self.broadcastButton.enabled = YES;
+//                self.broadcastButton.enabled = YES;
                 self.broadcastButton.selected = YES;
                 self.microphoneButton.selected = NO;
                 self.configButton.enabled = NO;
                 
 				if(profile.broadcastType == kBroadcastTypeAudioVideo || profile.broadcastType == kBroadcastTypeVideo) {
 					[captureManager startCapture];
-					self.bitrateSlider.hidden = NO;
-					self.cameraButton.hidden = NO;
+//					self.bitrateSlider.hidden = NO;
+//					self.cameraButton.hidden = NO;
 					self.torchButton.hidden = NO;
-					self.bitrateSliderView.hidden = NO;
+//					self.bitrateSliderView.hidden = NO;
 					
 					if ([captureManager hasTorch]) {
 						self.torchButton.hidden = NO;
@@ -160,8 +160,8 @@
 				else {
 					self.bitrateSlider.hidden = YES;
 					self.bitrateSliderView.hidden = YES;
-					self.cameraButton.hidden = YES;
-					self.torchButton.hidden = YES;
+//					self.cameraButton.hidden = YES;
+//					self.torchButton.hidden = YES;
 				}
 				                
 				

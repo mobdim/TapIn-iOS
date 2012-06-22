@@ -25,11 +25,18 @@
     UIView *buttonPanel;
 	UIView *bitrateSilderView;
     UIImageView *backgroundImage;
-    
+    IBOutlet UIButton * twitterButton;
+    IBOutlet UILabel * userTitle;
+    IBOutlet UILabel * userPoints;
+    IBOutlet UILabel * nextTitle;
+    IBOutlet UIImageView * progressBar;
     UILabel *streamBitrate, *videoBitrate;
     UILabel *status;
+    IBOutlet UIView * loadingContainer;
+    IBOutlet UIActivityIndicatorView * activity;
+    IBOutlet UIView * progressContainer;
     
-    
+        
     SUIMaxSlider                *bitrateSlider;
     LivuConfigViewController    *configViewController;
     AVCaptureVideoPreviewLayer  *previewLayer;
@@ -60,6 +67,7 @@
 @property (nonatomic, retain) LivuCaptureManager *captureManager;
 @property (nonatomic, retain) AACEncoder *aacEncoder;
 @property (nonatomic, retain) AVCEncoder *avcEncoder;
+@property (nonatomic, retain) IBOutlet UIButton * twitterButton;
 
 - (IBAction) openConfig:(id) sender;
 - (IBAction) toggleBroadcast:(UIButton*) sender;
@@ -71,6 +79,7 @@
 - (IBAction) toggleToolbar:(UIButton*) sender;
 - (IBAction) changeBitrate:(id) sender;
 - (IBAction) changingBitrate:(SUIMaxSlider*) sender;
+- (IBAction) userButtonToucehd:(id)sender;
 
 - (void) uiMessage:(NSString*) message;
 

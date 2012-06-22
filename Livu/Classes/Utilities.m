@@ -15,15 +15,18 @@
 #include <sys/sysctl.h>
 #include <net/if.h>
 #include <net/if_dl.h>
+#import "ASIHTTPRequest.h"
 
 @interface Utilities()
 {
     BOOL throttle;
 }
--(NSString*)getMacAddress;
++(NSString*)getMacAddress;
 -(NSString*)getPrivateKey;
 +(NSString*)sha1:(NSString*)input;
 -(void)postHandShakeWithCoordinate:(CLLocation *)location;
+-(NSString*)generateUuidString;
+-(NSString*)urlStringForParams:(NSDictionary*)params path:(NSString*)path;
 @end
 
 @implementation Utilities
@@ -46,7 +49,7 @@
     return sharedInstance;
 }
 
-- (NSString *)getMacAddress
++ (NSString *)getMacAddress
 {
     int                 mgmtInfoBase[6];
     char                *msgBuffer = NULL;
@@ -158,6 +161,13 @@
                                  @"1.strm.tapin.tv", @"host",
                                  streamID, @"id", nil];
     
+    NSString * _uid = ([Utilities userDefaultValueforKey:@"uid"]) ? [Utilities userDefaultValueforKey:@"uid"] : [self generateUuidString];
+    [Utilities setUserDefaultValue:_uid forKey:@"uid"];
+    
+    NSString * user = ([Utilities userDefaultValueforKey:@"user"]) ? [Utilities userDefaultValueforKey:@"user"] : NULL;
+
+    
+    
     NSLog(@"lat: %f, lon: %f", _location.coordinate.latitude, _location.coordinate.longitude);
     
     NSArray * coordinate = [[NSArray alloc] initWithObjects:[NSString stringWithFormat:@"%f",_location.coordinate.latitude], [NSString stringWithFormat:@"%f",_location.coordinate.longitude], [NSString stringWithFormat:@"%f", _location.altitude], nil];  
@@ -167,16 +177,23 @@
     NSDictionary * geo = [[NSDictionary alloc] initWithObjectsAndKeys: coordinate, @"coord", accuracy, @"accuracy", nil];
     
     NSMutableDictionary * dataDict = [[NSMutableDictionary alloc] initWithObjectsAndKeys:
-                                      [Utilities sha1:[self getMacAddress]], @"pub",
-                                      [Utilities sha1:[self getMacAddress]], @"prot",
+                                      [Utilities sha1:[Utilities getMacAddress]], @"pub",
+                                      [Utilities sha1:[Utilities getMacAddress]], @"prot",
+                                      _uid, @"uid",
                                       geo, @"geo",
                                       streamDict, @"stream", nil];
+    //check if user is null
+    if(user)
+    {
+        [Utilities setUserDefaultValue:user forKey:@"user"];
+        [dataDict setObject:user forKey:@"user"];
+    }
     
     NSDictionary * bigDict = [[NSDictionary alloc]initWithObjectsAndKeys:dataDict, @"data", nil];
     NSString * jsonData = [bigDict JSONRepresentation];
     
     
-    ASIFormDataRequest *request = [ASIFormDataRequest requestWithURL:[NSURL URLWithString:@"http://stage.api.tapin.tv/mobile/updatelocation"]];
+    ASIFormDataRequest *request = [ASIFormDataRequest requestWithURL:[NSURL URLWithString:@"http://api.tapin.tv/mobile/updatelocation"]];
     [request setRequestMethod:@"POST"];
     [request setData:[jsonData dataUsingEncoding:NSUTF8StringEncoding] forKey:@"data"];
     [request setDelegate:self];
@@ -192,17 +209,29 @@
 //    [request release];
 }
 
++(NSString*) phoneID {
+    return [Utilities sha1:[Utilities getMacAddress]];
+}
+
 - (void)requestFinished:(ASIHTTPRequest *)request {
     if(request.responseStatusCode == 200)
     {
         NSLog(@"Response %d ==> %@", request.responseStatusCode, [request responseString]);
         NSDictionary * response = (NSDictionary*)[[request responseString] JSONValue];
-        streamID = [response objectForKey:@"streamid"];
-        if ([(NSObject *)delegate respondsToSelector:@selector(didCompleteHandeshake:)])
+        if([response objectForKey:@"streamid"])
         {
-            [delegate didCompleteHandeshake:streamID];
+            streamID = [response objectForKey:@"streamid"];
+            if ([(NSObject *)delegate respondsToSelector:@selector(didCompleteHandeshake:)])
+            {
+                [delegate didCompleteHandeshake:streamID];
+            }
         }
-
+        else {
+            if ([(NSObject *)delegate respondsToSelector:@selector(responseDidSucceed:)])
+            {
+                [delegate responseDidSucceed:response];
+            }
+        }
     }
     else
     {
@@ -220,7 +249,7 @@
 }
 -(NSString*)getPrivateKey
 {
-    return [NSString stringWithFormat:@"%@banana", [self getMacAddress]];
+    return [NSString stringWithFormat:@"%@banana", [Utilities getMacAddress]];
 }
 
 
@@ -228,6 +257,81 @@
 {
     NSLog(@"%@", error);
     throttle = NO;
+}
+
+-(void)sendPost:(NSString*)host params:(NSMutableDictionary*)params {
+    
+    ASIFormDataRequest *request = [ASIFormDataRequest requestWithURL:[NSURL URLWithString:host]];
+    [request setRequestMethod:@"POST"];
+    [request setDelegate:self];
+    
+    for (NSString * key in params)
+    {
+        id value = [params objectForKey:key];
+        [request setPostValue:value forKey:key];
+        NSLog(@"%@", value);
+        NSLog(@"%@", key);
+    }
+    [request startAsynchronous];   
+}
+
+-(void)sendGet:(NSString*)host params:(NSMutableDictionary*)params {
+        
+        NSString* urlString = [self urlStringForParams:params path:host];
+        NSLog(@"url string: %@", urlString);
+        
+        //	NSLog(@"%s urlString:%@", __FUNCTION__, urlString);
+        NSURL *url = [NSURL URLWithString:urlString];
+        ASIHTTPRequest *request = [ASIHTTPRequest requestWithURL:url];
+        request.timeOutSeconds = 15;
+        [request setDelegate:self];
+        [request setAllowCompressedResponse:YES];
+        [request startAsynchronous];
+}
+
++(void) setUserDefaultValue:(id)value forKey:(NSString* )key
+{
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    [defaults setValue:value forKey:key];
+}
+
++(id) userDefaultValueforKey:(NSString *)key
+{
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    return [defaults valueForKey:key];
+}   
+
+- (NSString *)generateUuidString
+{
+    // create a new UUID which you own
+    CFUUIDRef uuid = CFUUIDCreate(kCFAllocatorDefault);
+    
+    // create a new CFStringRef (toll-free bridged to NSString)
+    // that you own
+    NSString *uuidString = (NSString *)CFUUIDCreateString(kCFAllocatorDefault, uuid);
+    
+    // transfer ownership of the string
+    // to the autorelease pool
+    [uuidString autorelease];
+    
+    // release the UUID
+    CFRelease(uuid);
+    uuidString = [uuidString stringByReplacingOccurrencesOfString:@"-" withString:@""];
+    return uuidString;
+}
+
+#pragma mark - private
+-(NSString*)urlStringForParams:(NSDictionary*)params path:(NSString*)path {
+	NSString* fullPath = [NSString stringWithFormat:@"%@/%@/", @"http://api.tapin.tv", path];
+	NSMutableString* queryPath = [NSMutableString stringWithCapacity:100];
+	NSString* separator = @"?";
+	for (NSString* key in [params allKeys]) {
+		[queryPath appendFormat:@"%@%@=%@", separator, key, [params objectForKey:key]];
+		separator = @"&";
+	}
+	NSString* urlString = [[NSString stringWithFormat:@"%@%@", fullPath, queryPath] stringByAddingPercentEscapesUsingEncoding:NSASCIIStringEncoding];
+    
+	return urlString;
 }
 
 @end

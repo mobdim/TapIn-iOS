@@ -23,11 +23,11 @@
 				<string>icon@2x.png</string>
 			</array>
 			<key>UIPrerenderedIcon</key>
-			<false/>
+			<true/>
 		</dict>
 	</dict>
 	<key>CFBundleIdentifier</key>
-	<string>com.stevemcfarlin.livu</string>
+	<string>com.fsstack.tapin</string>
 	<key>CFBundleInfoDictionaryVersion</key>
 	<string>6.0</string>
 	<key>CFBundleName</key>
@@ -52,6 +52,8 @@
 		<string>video-camera</string>
 	</array>
 	<key>UIRequiresPersistentWiFi</key>
+	<true/>
+	<key>UIStatusBarHidden</key>
 	<true/>
 	<key>UIStatusBarStyle</key>
 	<string>UIStatusBarStyleBlackOpaque</string>

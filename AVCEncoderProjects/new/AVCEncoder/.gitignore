@@ -1,0 +1,11 @@
+MongooseDaemon/**/*
+MongooseDeamon/*
+assets/*
+DerivedData
+DerivedData/*
+build/*
+images/*
+Tests/*
+*.xcodeproj
+*.zip
+*.html

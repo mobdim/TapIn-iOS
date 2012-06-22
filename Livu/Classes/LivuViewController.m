@@ -9,7 +9,7 @@
 #import <AVFoundation/AVFoundation.h>
 #import <AudioToolbox/AudioToolbox.h>
 #import <CoreGraphics/CoreGraphics.h>
-
+#import "SignupViewController.h"
 #import <QuartzCore/QuartzCore.h>
 
 #import "LivuViewController.h"
@@ -25,7 +25,10 @@
 #import "LivuViewController+MessageHandlers.h"
 #import "LivuViewController+Reachability.h"
 #include "sm_math.h"
-
+#import "SHK.h"
+#import "SHKTwitter.h"
+#import "SHKTwitterForm.h"
+#import "UserViewController.h"
 
 #define kIPadScale 1
 
@@ -45,12 +48,17 @@ static const unichar delta = 0x0394 ;
 + (CGSize)sizeForGravity:(NSString *)gravity frameSize:(CGSize)frameSize apertureSize:(CGSize)apertureSize;
 - (void)drawFocusBoxAtPointOfInterest:(CGPoint)point;
 - (void)drawExposeBoxAtPointOfInterest:(CGPoint)point;
+-(void)updateUserData;
+- (void) throttleBroadcast;
 @end
 
 @interface LivuViewController ()
 @property (nonatomic, retain) LivuConfigViewController *configViewController;
 - (void) setupVideoPreviewLayer;
 - (void) removeVideoPreviewLayer;
+- (void) showActivityIndicator;
+- (void) hideActivityIndicator;
+
 @end
 
 
@@ -75,18 +83,37 @@ static const unichar delta = 0x0394 ;
 #pragma mark UIView methods
 #pragma mark -
 
+-(IBAction) shareButton:(id)sender
+{
+    NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"http://tapin.tv/#video/%@/", [Utilities userDefaultValueforKey:@"laststream"]]];
+	SHKItem *item = [SHKItem URL:url title:@"Check out my video @TapInTV"];
+    [SHKTwitter shareItem:item];
+}
+
 - (void) viewWillAppear:(BOOL)animated {
+    [[Utilities sharedInstance] setDelegate:self];
+    if([Utilities userDefaultValueforKey:@"user"])
+    {
+        NSTimer* theTimer = [NSTimer scheduledTimerWithTimeInterval:5.0f
+                                                             target:self
+                                                           selector:@selector(updateUserData)
+                                                           userInfo:nil
+                                                            repeats:YES];
+    }
     
 	LivuBroadcastProfile *profile = [LivuBroadcastConfig activeProfile];
-	
+	loadingContainer.layer.cornerRadius = 15;
+   
     self.broadcastButton.enabled = NO;
     self.configButton.enabled = NO;
-    self.torchButton.hidden = YES;
+    twitterButton.enabled = NO;
+    self.torchButton.hidden = NO;
     self.torchButton.selected = NO;
     self.torchButton.enabled = YES;
-    self.cameraButton.hidden = YES;
-	self.bitrateSlider.hidden = NO;
-	self.bitrateSliderView.hidden = NO;
+    self.cameraButton.hidden = NO;
+	self.bitrateSlider.hidden = YES;
+	self.bitrateSliderView.hidden = YES;
+    twitterButton.hidden = YES;
 	
 	if(profile.broadcastType == kBroadcastTypeAudio) {
 	   self.bitrateSlider.hidden = YES;
@@ -183,6 +210,10 @@ static const unichar delta = 0x0394 ;
     return NO ;
 }
 
+-(void)updateUserData {
+    [[Utilities sharedInstance] sendGet:[NSString stringWithFormat:@"web/get/user/%@", [Utilities userDefaultValueforKey:@"user"]] params:NULL];
+}
+
 - (void) willResignActive {
     willResignActive = TRUE;
 	if(broadcaster.broadcasting)
@@ -204,10 +235,16 @@ static const unichar delta = 0x0394 ;
 }
 
 
+
 // Implement viewDidLoad to do additional setup after loading the view, typically from a nib.
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
+    progressContainer.layer.borderColor = [UIColor whiteColor].CGColor;
+    progressContainer.layer.borderWidth = 1.0f;
+    progressBar.layer.borderColor = [UIColor clearColor].CGColor;
+    progressBar.layer.borderWidth = 1.0f;
+
+    [self updateUserData];
     willResignActive = NO;
     
     self.configViewController = [[LivuConfigViewController alloc] initWithNibName:@"LivuConfigViewController" bundle:nil];
@@ -233,7 +270,7 @@ static const unichar delta = 0x0394 ;
 	
     
     self.previewLayer = [AVCaptureVideoPreviewLayer layerWithSession:nil];
-    self.previewLayer.frame = CGRectMake(0, 0, 480, 300); //videoView.bounds; // Assume you want the preview layer to fill the view.
+    self.previewLayer.frame = CGRectMake(0, 0, 480, 320); //videoView.bounds; // Assume you want the preview layer to fill the view.
     self.previewLayer.videoGravity = AVLayerVideoGravityResizeAspectFill;
     self.previewLayer.orientation =  AVCaptureVideoOrientationLandscapeRight;
     self.previewLayer.automaticallyAdjustsMirroring = YES;
@@ -289,6 +326,17 @@ static const unichar delta = 0x0394 ;
     [LivuBroadcastConfig save];
     
     [[NSNotificationCenter defaultCenter] removeObserver:self];
+}
+
+- (IBAction) userButtonToucehd:(id)sender
+{
+    if(![Utilities userDefaultValueforKey:@"token"])
+    {
+        SignupViewController * vc = [[SignupViewController alloc]init];
+        [self presentModalViewController:vc animated:YES];
+    }
+    UserViewController * vc = [[UserViewController alloc]init];
+    [self presentModalViewController:vc animated:YES];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -442,11 +490,46 @@ static const unichar delta = 0x0394 ;
     }
 }
 
+-(void)showActivityIndicator
+{
+        [UIView animateWithDuration:.5
+                         animations:^{
+                             activity.hidden = NO;
+                             [activity startAnimating];
+                             loadingContainer.hidden = NO;
+                             [activity setAlpha:1];
+                             [loadingContainer setAlpha:.75f];
+                         } 
+                         completion:^(BOOL finished){
+                         }];
+}
+
+-(void)hideActivityIndicator
+{
+            [UIView animateWithDuration:.5
+                         animations:^{
+                             [activity setAlpha:0];
+                             [loadingContainer setAlpha:0];
+
+                         } 
+                         completion:^(BOOL finished){
+                             activity.hidden = YES;
+                             loadingContainer.hidden = YES;
+                             [activity stopAnimating];
+                         }];
+}
+
+- (void) throttleBroadcast 
+{
+    broadcastButton.enabled = YES;
+}
+
 - (IBAction) toggleBroadcast:(UIButton*) sender {
     
     //TODO: We should not set it here. Let the call back set it.
     //      Move property settings into callback
-       
+    
+    broadcastButton.enabled = NO;
     if([self remoteHostStatus] == NotReachable) {
         UIAlertView *alert = [[UIAlertView alloc]
                               initWithTitle: NSLocalizedString(@"Error", @"")
@@ -460,13 +543,16 @@ static const unichar delta = 0x0394 ;
     }
     
     if (!sender.selected) {
+        self.broadcastButton.imageView.image = [UIImage imageNamed:@"recordstart"];
+        [self performSelector:@selector(throttleBroadcast) withObject:nil afterDelay:12.0f];
+        [self showActivityIndicator];
         [[Utilities sharedInstance] setStreamID:@""]; //reset the streamID 
-        [[Utilities sharedInstance] setDelegate:self];
         [[Utilities sharedInstance] startLocationService];
         
     }
     else {
-        self.broadcastButton.enabled = NO;
+        self.broadcastButton.imageView.image = [UIImage imageNamed:@"recordbutton"];
+        self.broadcastButton.enabled = YES;
         [captureManager stopEncoding];
         [avcEncoder stop];
         [aacEncoder stop];
@@ -475,9 +561,13 @@ static const unichar delta = 0x0394 ;
         self.previewButton.enabled = NO;
         self.previewButton.selected = NO;
         self.configButton.enabled = YES;
-        self.torchButton.hidden = YES;
         self.torchButton.enabled = YES;
-        self.cameraButton.hidden = YES;
+        self.torchButton.hidden = NO;
+        self.cameraButton.hidden = NO;
+        if(![Utilities userDefaultValueforKey:@"user"]){
+            SignupViewController * vc = [[SignupViewController alloc]init];
+            [self presentModalViewController:vc animated:YES];
+        }
     }
     
 }
@@ -852,9 +942,17 @@ static const unichar delta = 0x0394 ;
 #pragma mark - network utilities delegate
 -(void)didCompleteHandeshake:(NSString *)streamID
 {
+    [self hideActivityIndicator];
     NSLog(@"delegate did fire %@", streamID);
-    self.broadcastButton.enabled = NO;
+    self.broadcastButton.selected = YES;
+    [Utilities setUserDefaultValue:streamID forKey:@"laststream"];
     self.configButton.enabled = NO;
+    twitterButton.enabled = YES;
+    twitterButton.hidden = NO;
+    self.cameraButton.hidden = NO;
+    self.torchButton.hidden = NO;
+    self.bitrateSliderView.hidden = YES;
+    self.bitrateSlider.hidden = YES;
     
     [self uiMessage:NSLocalizedString(@"Connecting", @"")];
     
@@ -900,6 +998,22 @@ static const unichar delta = 0x0394 ;
     self.streamBitrate.text = @"";
     
     self.previewButton.enabled = YES;
+}
+
+- (void) responseDidSucceed:(NSDictionary*)data {
+    NSLog(@"%@", [data description]);
+    userTitle.text = [data objectForKey:@"title"];
+    if([data objectForKey:@"points"])
+    {
+        progressContainer.hidden = NO;
+        userPoints.hidden = NO;
+        nextTitle.hidden = NO;
+        userTitle.hidden = NO;
+        
+        userPoints.text = [NSString stringWithFormat:@"%@ pts", [data objectForKey:@"points"]];
+        nextTitle.text = [NSString stringWithFormat:[data objectForKey:@"nexttitle"]];
+        progressBar.frame = CGRectMake(progressBar.frame.origin.x, progressBar.frame.origin.y, (150 * ([[data objectForKey:@"points"] floatValue] / [[data objectForKey:@"next"] floatValue])), progressBar.frame.size.height);
+    }
 }
 
 -(void)handshakeDidFailWithErrors:(NSString *)error
