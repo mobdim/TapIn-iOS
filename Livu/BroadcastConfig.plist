@@ -30,7 +30,7 @@
 			<key>autoBitrateAdjust</key>
 			<string>YES</string>
 			<key>autoRestart</key>
-			<string>YES</string>
+			<string>NO</string>
 			<key>pass</key>
 			<string></string>
 			<key>port</key>

@@ -36,6 +36,7 @@
 @synthesize textView;
 @synthesize counter;
 @synthesize hasAttachment;
+@synthesize parentNavigation;
 
 - (void)dealloc 
 {
@@ -200,9 +201,9 @@
 
 - (void)cancel
 {	
+    NSLog(@"AHHH");
+    [self.view endEditing:TRUE];
 	[[SHK currentHelper] hideCurrentViewControllerAnimated:YES];
-    [self removeFromParentViewController];
-    [self dismissModalViewControllerAnimated:YES];
 }
 
 - (void)save

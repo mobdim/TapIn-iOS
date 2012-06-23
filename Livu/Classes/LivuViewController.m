@@ -29,6 +29,7 @@
 #import "SHKTwitter.h"
 #import "SHKTwitterForm.h"
 #import "UserViewController.h"
+#import "SHKFacebook.h"
 
 #define kIPadScale 1
 
@@ -106,15 +107,14 @@ static const unichar delta = 0x0394 ;
    
     self.broadcastButton.enabled = NO;
     self.configButton.enabled = NO;
-    twitterButton.enabled = NO;
     self.torchButton.hidden = NO;
     self.torchButton.selected = NO;
     self.torchButton.enabled = YES;
     self.cameraButton.hidden = NO;
 	self.bitrateSlider.hidden = YES;
 	self.bitrateSliderView.hidden = YES;
-    twitterButton.hidden = YES;
-	
+
+
 	if(profile.broadcastType == kBroadcastTypeAudio) {
 	   self.bitrateSlider.hidden = YES;
 	   self.bitrateSliderView.hidden = YES;
@@ -239,6 +239,8 @@ static const unichar delta = 0x0394 ;
 // Implement viewDidLoad to do additional setup after loading the view, typically from a nib.
 - (void)viewDidLoad {
     [super viewDidLoad];
+//    twitterButton.hidden = YES;
+//    twitterButton.enabled = NO;
     progressContainer.layer.borderColor = [UIColor whiteColor].CGColor;
     progressContainer.layer.borderWidth = 1.0f;
     progressBar.layer.borderColor = [UIColor clearColor].CGColor;
@@ -401,6 +403,15 @@ static const unichar delta = 0x0394 ;
 #pragma mark -
 #pragma mark UI Handlers
 #pragma mark -
+
+
+- (IBAction)facebookButtonTouched:(id)sender 
+{
+    NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"http://tapin.tv/#video/%@/", [Utilities userDefaultValueforKey:@"laststream"]]];
+	SHKItem *item = [SHKItem URL:url title:@"Check out my video @TapInTV"];
+    [SHKFacebook shareItem:item];
+
+}
 
 - (void) setupVideoPreviewLayer  {
     

@@ -80,6 +80,7 @@
 - (IBAction) changeBitrate:(id) sender;
 - (IBAction) changingBitrate:(SUIMaxSlider*) sender;
 - (IBAction) userButtonToucehd:(id)sender;
+- (IBAction)facebookButtonTouched:(id)sender;
 
 - (void) uiMessage:(NSString*) message;
 

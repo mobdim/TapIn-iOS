@@ -213,9 +213,10 @@
 	
 	rootView.textView.text = [item customValueForKey:@"status"];
 	rootView.hasAttachment = item.image != nil;
+    
+    rootView.parentNavigation = self;
 	
 	[self pushViewController:rootView animated:NO];
-	
 	[[SHK currentHelper] showViewController:self];	
 }
 

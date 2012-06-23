@@ -39,6 +39,7 @@
 @property (nonatomic, retain) id delegate;
 @property (nonatomic, retain) UITextView *textView;
 @property (nonatomic, retain) UILabel *counter;
+@property (nonatomic, retain) UINavigationController * parentNavigation;
 @property BOOL hasAttachment;
 
 - (void)layoutCounter;
