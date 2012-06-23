@@ -35,7 +35,7 @@
 }
 
 @property BOOL xAuth;
-
+@property (nonatomic, retain) UIViewController * rootController;
 
 #pragma mark -
 #pragma mark UI Implementation

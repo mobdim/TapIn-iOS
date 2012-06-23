@@ -151,8 +151,14 @@ BOOL SHKinit;
 		
 		if ([vc respondsToSelector:@selector(modalTransitionStyle)])
 			vc.modalTransitionStyle = [SHK modalTransitionStyle];
-		
-		[topViewController presentModalViewController:vc animated:YES];
+        CGAffineTransform transform = CGAffineTransformMakeRotation(-3.14159/2);
+        vc.view.transform = transform;
+        
+        // Repositions and resizes the view.
+        CGRect contentRect = CGRectMake(0,0, 480, 320);
+        vc.view.bounds = contentRect;
+		[topViewController.view addSubview:vc.view];
+//        [topViewController presentModalViewController:vc animated:YES];
 		[(UINavigationController *)vc navigationBar].barStyle = 
 		[(UINavigationController *)vc toolbar].barStyle = [SHK barStyle];
 		self.currentView = vc;
@@ -177,9 +183,13 @@ BOOL SHKinit;
         if ([currentView parentViewController] != nil)
         {
             self.isDismissingView = YES;
+            [currentView.view removeFromSuperview];
+            [[[currentView parentViewController] view] removeFromSuperview];
             [[currentView parentViewController] dismissModalViewControllerAnimated:animated];
         } else if ([currentView presentingViewController] != nil) {
             self.isDismissingView = YES;
+            [[[currentView parentViewController] view] removeFromSuperview];
+            [currentView.view removeFromSuperview];
             [[currentView presentingViewController] dismissModalViewControllerAnimated:animated];
         }
         
