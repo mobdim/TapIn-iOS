@@ -137,9 +137,20 @@ BOOL SHKinit;
 		if ([nav respondsToSelector:@selector(modalTransitionStyle)])
 			nav.modalTransitionStyle = [SHK modalTransitionStyle];
 		
-		nav.navigationBar.barStyle = nav.toolbar.barStyle = [SHK barStyle];
+//        CGAffineTransform transform = CGAffineTransformMakeRotation(-3.14159/2);
+//        nav.view.transform = transform;
+        nav.view.frame = CGRectMake(3,480, 470, 314);;
+		[topViewController.view addSubview:nav.view];
+        
+        [UIView animateWithDuration:.3 delay:0.0 options:UIViewAnimationOptionCurveEaseInOut animations:^{
+            nav.view.frame = CGRectMake(3,3, 470, 314);;
+        }
+                         completion:^(BOOL done){ }
+         ];
+        
+//		nav.navigationBar.barStyle = nav.toolbar.barStyle = [SHK barStyle];
 		
-		[topViewController presentModalViewController:nav animated:YES];			
+//		[topViewController presentModalViewController:nav animated:YES];			
 		self.currentView = nav;
 	}
 	
@@ -151,13 +162,21 @@ BOOL SHKinit;
 		
 		if ([vc respondsToSelector:@selector(modalTransitionStyle)])
 			vc.modalTransitionStyle = [SHK modalTransitionStyle];
-        CGAffineTransform transform = CGAffineTransformMakeRotation(-3.14159/2);
-        vc.view.transform = transform;
+//        CGAffineTransform transform = CGAffineTransformMakeRotation(-3.14159/2);
+//        vc.view.transform = transform;
+        
+        
         
         // Repositions and resizes the view.
-        CGRect contentRect = CGRectMake(0,0, 480, 320);
-        vc.view.bounds = contentRect;
+        vc.view.frame = CGRectMake(3,480, 470, 314);;
 		[topViewController.view addSubview:vc.view];
+        
+        [UIView animateWithDuration:0.4 delay:0.0 options:UIViewAnimationOptionCurveEaseInOut animations:^{
+            vc.view.frame = CGRectMake(3,3, 470, 314);;
+        }
+                         completion:^(BOOL done){ }
+         ];
+        
 //        [topViewController presentModalViewController:vc animated:YES];
 		[(UINavigationController *)vc navigationBar].barStyle = 
 		[(UINavigationController *)vc toolbar].barStyle = [SHK barStyle];
@@ -194,6 +213,13 @@ BOOL SHKinit;
         }
         
         else
+            [UIView animateWithDuration:0.4 delay:0.0 options:UIViewAnimationOptionCurveEaseInOut animations:^{
+                currentView.view.frame = CGRectMake(3,480, 470, 314);;
+            }
+                             completion:^(BOOL done){ 
+                                 [currentView.view removeFromSuperview];
+                                }
+             ];
             self.currentView = nil;
     }
 }

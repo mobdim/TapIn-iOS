@@ -132,7 +132,6 @@
 	
 	// Find the bottom of the screen (accounting for keyboard overlay)
 	// This is pretty much only for pagesheet's on the iPad
-    [UIApplication sharedApplication].statusBarOrientation = UIInterfaceOrientationPortrait;
 	UIInterfaceOrientation orient = [[UIApplication sharedApplication] statusBarOrientation];
 	BOOL inLandscape = orient == UIInterfaceOrientationLandscapeLeft || orient == UIInterfaceOrientationLandscapeRight;
 	BOOL upsideDown = orient == UIInterfaceOrientationPortraitUpsideDown || orient == UIInterfaceOrientationLandscapeRight;
