@@ -62,7 +62,7 @@ static NetworkStatus remoteHostStatus;
     
     inetReach = [[Reachability reachabilityForInternetConnection] retain] ;
     [inetReach connectionRequired] ;
-    [inetReach startNotifer] ;
+//    [inetReach startNotifer] ;
     
     remoteHostStatus = [inetReach currentReachabilityStatus];
     

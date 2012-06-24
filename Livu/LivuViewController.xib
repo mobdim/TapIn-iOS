@@ -295,7 +295,7 @@
 					</object>
 					<object class="IBUIButton" id="824221076">
 						<reference key="NSNextResponder" ref="774585933"/>
-						<int key="NSvFlags">292</int>
+						<int key="NSvFlags">-2147483356</int>
 						<string key="NSFrame">{{363, 258}, {51, 56}}</string>
 						<reference key="NSSuperview" ref="774585933"/>
 						<reference key="NSWindow"/>
@@ -328,7 +328,6 @@
 						<string key="NSFrame">{{428, 263}, {51, 56}}</string>
 						<reference key="NSSuperview" ref="774585933"/>
 						<reference key="NSWindow"/>
-						<reference key="NSNextKeyView"/>
 						<object class="NSColor" key="IBUIBackgroundColor">
 							<int key="NSColorSpace">1</int>
 							<bytes key="NSRGB">MCAwIDAgMAA</bytes>
@@ -1542,7 +1541,7 @@
 		<int key="IBDocument.defaultPropertyAccessControl">3</int>
 		<dictionary class="NSMutableDictionary" key="IBDocument.LastKnownImageSizes">
 			<string key="broadcaston.png">{50, 50}</string>
-			<string key="fbicon.png">{14, 14}</string>
+			<string key="fbicon.png">{33, 31}</string>
 			<string key="flipbutton.png">{49, 26}</string>
 			<string key="gearbutton.png">{40, 38}</string>
 			<string key="mik.png">{50, 50}</string>

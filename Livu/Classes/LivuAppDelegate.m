@@ -36,7 +36,10 @@
 #include <stdio.h>
 #include <sys/sysctl.h>
 #include <sys/time.h>
-
+#import "DefaultSHKConfigurator.h"
+#import "MySHKConfigurator.h"
+#import "SHKConfiguration.h"
+#import "SHKFacebook.h"
 
 @implementation LivuAppDelegate
 
@@ -51,6 +54,8 @@
     
     // Override point for customization after application launch
 
+    DefaultSHKConfigurator *configurator = [[MySHKConfigurator alloc] init];
+    [SHKConfiguration sharedInstanceWithConfigurator:configurator];
     
     [UIApplication sharedApplication].idleTimerDisabled = YES; 
     [UIApplication sharedApplication].statusBarStyle = UIStatusBarStyleBlackOpaque;
@@ -105,6 +110,24 @@
     //TODO: Stop broadcast
 }
 
+- (BOOL)handleOpenURL:(NSURL*)url
+{
+    NSString* scheme = [url scheme];
+    NSString* prefix = [NSString stringWithFormat:@"fb%@", SHKCONFIG(facebookAppId)];
+    if ([scheme hasPrefix:prefix])
+        return [SHKFacebook handleOpenURL:url];
+    return YES;
+}
+
+- (BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation 
+{
+    return [self handleOpenURL:url];
+}
+
+- (BOOL)application:(UIApplication *)application handleOpenURL:(NSURL *)url 
+{
+    return [self handleOpenURL:url];  
+}
 
 - (void)applicationWillEnterForeground:(UIApplication *)application {
     /*

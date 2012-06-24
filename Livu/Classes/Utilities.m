@@ -269,8 +269,6 @@
     {
         id value = [params objectForKey:key];
         [request setPostValue:value forKey:key];
-        NSLog(@"%@", value);
-        NSLog(@"%@", key);
     }
     [request startAsynchronous];   
 }

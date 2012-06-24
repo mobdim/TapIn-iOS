@@ -27,7 +27,6 @@
 #include "sm_math.h"
 #import "SHK.h"
 #import "SHKTwitter.h"
-#import "SHKTwitterForm.h"
 #import "UserViewController.h"
 #import "SHKFacebook.h"
 
@@ -87,7 +86,7 @@ static const unichar delta = 0x0394 ;
 -(IBAction) shareButton:(id)sender
 {
     NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"http://tapin.tv/#video/%@/", [Utilities userDefaultValueforKey:@"laststream"]]];
-	SHKItem *item = [SHKItem URL:url title:@"Check out my video @TapInTV"];
+	SHKItem *item = [SHKItem URL:url title:@"Check out my video #TapInTV"];
     [SHKTwitter shareItem:item];
 }
 
@@ -239,8 +238,8 @@ static const unichar delta = 0x0394 ;
 // Implement viewDidLoad to do additional setup after loading the view, typically from a nib.
 - (void)viewDidLoad {
     [super viewDidLoad];
-//    twitterButton.hidden = YES;
-//    twitterButton.enabled = NO;
+    twitterButton.hidden = YES;
+    twitterButton.enabled = NO;
     progressContainer.layer.borderColor = [UIColor whiteColor].CGColor;
     progressContainer.layer.borderWidth = 1.0f;
     progressBar.layer.borderColor = [UIColor clearColor].CGColor;

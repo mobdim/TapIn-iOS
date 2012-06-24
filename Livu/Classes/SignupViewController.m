@@ -97,7 +97,7 @@
 }
 
 -(void) responseDidSucceed:(NSDictionary*)data {
-    
+    NSLog(@"%@", [data description]);
     if([data objectForKey:@"token"]) {
         [Utilities setUserDefaultValue:[data objectForKey:@"token"] forKey:@"token"];
         [Utilities setUserDefaultValue:[data objectForKey:@"user"] forKey:@"user"];
