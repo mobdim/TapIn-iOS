@@ -9,19 +9,29 @@
 	<key>CFBundleExecutable</key>
 	<string>${EXECUTABLE_NAME}</string>
 	<key>CFBundleIconFiles</key>
-	<array/>
+	<array>
+		<string>Default.png</string>
+		<string>Default@2x.png</string>
+		<string>Icon.png</string>
+		<string>icon@2x.png</string>
+	</array>
 	<key>CFBundleIcons</key>
 	<dict>
 		<key>CFBundlePrimaryIcon</key>
 		<dict>
 			<key>CFBundleIconFiles</key>
-			<array/>
+			<array>
+				<string>Default.png</string>
+				<string>Default@2x.png</string>
+				<string>Icon.png</string>
+				<string>icon@2x.png</string>
+			</array>
 			<key>UIPrerenderedIcon</key>
 			<true/>
 		</dict>
 	</dict>
 	<key>CFBundleIdentifier</key>
-	<string>com.fsstack.tapin</string>
+	<string>com.fsstack.tv.tapin</string>
 	<key>CFBundleInfoDictionaryVersion</key>
 	<string>6.0</string>
 	<key>CFBundleName</key>

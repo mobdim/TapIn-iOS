@@ -23,8 +23,14 @@
 
 - (IBAction)backButtonTouched:(id)sender
 {
-    [self dismissModalViewControllerAnimated:YES];
-}
+    [UIView animateWithDuration:.4
+                     animations:^{
+                         self.view.frame = CGRectMake(self.view.frame.origin.x, self.view.frame.origin.y+480, self.view.frame.size.width, self.view.frame.size.height);
+                     } 
+                     completion:^(BOOL finished){
+                         [self.view removeFromSuperview];
+                         [self release];
+                     }];}
 
 - (void)didReceiveMemoryWarning
 {
@@ -39,13 +45,18 @@
 -(void)viewWillAppear:(BOOL)animated
 {
 
-    [webview loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"tapin.tv/mobile.html#profile/%@", [Utilities userDefaultValueforKey:@"user"]]]]];
+    [webview loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"http://tapin.tv/mobile.html#profile/%@", [Utilities userDefaultValueforKey:@"user"]]]]];
 }
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-
+    if([Utilities userDefaultValueforKey:@"user"]){
+        navbar.topItem.title = [Utilities userDefaultValueforKey:@"user"];;
+    }
+    else {
+        navbar.topItem.title = @"User";
+    }
     // Do any additional setup after loading the view from its nib.
 }
 

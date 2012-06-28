@@ -8,15 +8,19 @@
 
 #import <UIKit/UIKit.h>
 #import "Utilities.h"
+#import "LivuViewController.h"
 
 @interface SignupViewController : UIViewController <NetworkUtilitiesDelegate, UITextFieldDelegate>
 {
     IBOutlet UITextField * username;
     IBOutlet UITextField * password;
     IBOutlet UIView * container;
+    IBOutlet UIScrollView * scrollview;
 }
 -(void)sendPost:(NSString*)host params:(NSMutableDictionary*)params;
 -(IBAction)doneButtonTouched:(id)sender;
 -(IBAction)signButtonTouched:(id)sender;
 -(IBAction)cancelButton:(id)sender;
+
+@property(nonatomic, retain) LivuViewController * root;
 @end

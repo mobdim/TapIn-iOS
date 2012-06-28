@@ -2,6 +2,6 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "self:Livu.xcodeproj">
+      location = "self:TapIn.xcodeproj">
    </FileRef>
 </Workspace>

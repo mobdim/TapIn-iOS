@@ -59,6 +59,7 @@
     
     [UIApplication sharedApplication].idleTimerDisabled = YES; 
     [UIApplication sharedApplication].statusBarStyle = UIStatusBarStyleBlackOpaque;
+    [UIApplication sharedApplication].statusBarHidden = NO;
     [AssetLoader copyAssetsToDocumentsDirectory];
 
     // Add the view controller's view to the window and display.
@@ -68,7 +69,8 @@
     // Let the device know we want to receive push notifications
 	[[UIApplication sharedApplication] registerForRemoteNotificationTypes:
      (UIRemoteNotificationTypeBadge | UIRemoteNotificationTypeSound | UIRemoteNotificationTypeAlert)];
-    
+    application.applicationIconBadgeNumber = 0;
+
     return YES;
 }
 
@@ -96,7 +98,7 @@
      */
      //NSLog(@"Will Resign Active") ;
      //TODO: Send message to pause caputure
-     [self.viewController willResignActive] ;
+//     [self.viewController willResignActive] ;
 }
 
 
@@ -106,12 +108,13 @@
      If your application supports background execution, called instead of applicationWillTerminate: when the user quits.
      */
      //NSLog(@"Did enter background") ;
-     [self.viewController willEnterBackground] ;
+//     [self.viewController willEnterBackground] ;
     //TODO: Stop broadcast
 }
 
 - (BOOL)handleOpenURL:(NSURL*)url
 {
+    NSLog(@"FLKWEWFWFWE");
     NSString* scheme = [url scheme];
     NSString* prefix = [NSString stringWithFormat:@"fb%@", SHKCONFIG(facebookAppId)];
     if ([scheme hasPrefix:prefix])
@@ -142,7 +145,7 @@
      */
      //TODO: startup caputre if we need to. This is called after the main view is loaded and presented
      
-     [self.viewController didBecomeActive] ;
+//     [self.viewController didBecomeActive] ;
 }
 
 

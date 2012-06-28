@@ -13,6 +13,7 @@
 {
     IBOutlet UIWebView * webview;
     IBOutlet UIView * signupView;
+    IBOutlet UINavigationBar * navbar;
 }
 - (IBAction)backButtonTouched:(id)sender;
 @end

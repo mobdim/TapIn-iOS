@@ -10,7 +10,7 @@
 #import "ASIFormDataRequest.h"
 #import "SBJson.h"
 #import "Utilities.h"
-
+#import "LivuViewController.h"
 @interface SignupViewController()
 {
     BOOL editing;
@@ -18,7 +18,7 @@
 @end
 
 @implementation SignupViewController
-
+@synthesize root;
 - (BOOL) shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation {
     if (toInterfaceOrientation == UIInterfaceOrientationLandscapeRight) {
         return YES ; 
@@ -33,7 +33,7 @@
     {
         [postData setObject:[Utilities userDefaultValueforKey:@"pushtoken"] forKey:@"pushtoken"];
     }
-
+    
     [[Utilities sharedInstance] sendPost:@"http://api.tapin.tv/web/login" params:postData];
     
 }
@@ -60,11 +60,12 @@
 {
     [UIView animateWithDuration:.4
                      animations:^{
-                         container.frame = CGRectMake(container.frame.origin.x, container.frame.origin.y+92, container.frame.size.width, container.frame.size.height);
+                         self.view.frame = CGRectMake(self.view.frame.origin.x, self.view.frame.origin.y+480, self.view.frame.size.width, self.view.frame.size.height);
                      } 
                      completion:^(BOOL finished){
+                         [self.view removeFromSuperview];
+                         [self release];
                      }];
-    [self dismissModalViewControllerAnimated:YES];
 }
 
 
@@ -107,7 +108,9 @@
                          } 
                          completion:^(BOOL finished){
                          }];
-        [self dismissModalViewControllerAnimated:YES];
+        [self cancelButton:nil];
+        [root startUserTimer];
+        [[Utilities sharedInstance] setDelegate:root];
     }
     else if([data objectForKey:@"error"])
     {
@@ -115,7 +118,8 @@
         [alert show];
         NSLog(@"%@", [data objectForKey:@"error"]);
     }
-
+    
+    
 }
 
 - (void)requestFinished:(ASIHTTPRequest *)request {
@@ -135,6 +139,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    scrollview.contentSize = container.frame.size;
 //    UIGestureRecognizer * gesture = [[UIGestureRecognizer alloc]initWithTarget:self action:@selector(textFieldShouldReturn:)];
 //    [self.view setUserInteractionEnabled:YES];
 //    [self.view addGestureRecognizer:gesture];
@@ -162,7 +167,7 @@
     {
         [UIView animateWithDuration:.5
                          animations:^{
-                             container.frame = CGRectMake(container.frame.origin.x, container.frame.origin.y-92, container.frame.size.width, container.frame.size.height);
+                             scrollview.frame = CGRectMake(scrollview.frame.origin.x, scrollview.frame.origin.y-70, scrollview.frame.size.width, scrollview.frame.size.height-70);
                          } 
                          completion:^(BOOL finished){
                          }];
@@ -173,9 +178,17 @@
 }
 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField {
-    NSLog(@"here");
-    [self doneButtonTouched:self];
+//    NSLog(@"here");
+//    [self doneButtonTouched:self];
+    [textField resignFirstResponder];
+    [UIView animateWithDuration:.5
+                     animations:^{
+                         scrollview.frame = CGRectMake(scrollview.frame.origin.x, scrollview.frame.origin.y+70, scrollview.frame.size.width, scrollview.frame.size.height+70);
+                     } 
+                     completion:^(BOOL finished){
+                     }];
     editing = NO;
+    
 }
 
 - (void)viewDidUnload

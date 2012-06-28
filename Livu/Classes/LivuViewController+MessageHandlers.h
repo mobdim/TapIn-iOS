@@ -125,7 +125,7 @@
 				
             case kStreamStarted:
                 [self uiMessage:@"Stream Started"];
-//                self.broadcastButton.enabled = YES;
+                self.broadcastButton.enabled = YES;
                 self.broadcastButton.selected = YES;
                 self.microphoneButton.selected = NO;
                 self.configButton.enabled = NO;

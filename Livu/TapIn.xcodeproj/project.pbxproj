@@ -19,6 +19,13 @@
 		28AD733F0D9D9553002E5188 /* MainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 28AD733E0D9D9553002E5188 /* MainWindow.xib */; };
 		28D7ACF80DDB3853001CB0EB /* LivuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 28D7ACF70DDB3853001CB0EB /* LivuViewController.m */; };
 		9701D9CC15979FC900AA9C0A /* Twitter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9701D9CB15979FC900AA9C0A /* Twitter.framework */; };
+		97123295159A3BE20054F9ED /* signin.png in Resources */ = {isa = PBXBuildFile; fileRef = 97123293159A3BE20054F9ED /* signin.png */; };
+		97123296159A3BE20054F9ED /* signin@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 97123294159A3BE20054F9ED /* signin@2x.png */; };
+		97123298159A3DC00054F9ED /* signup@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 97123297159A3DC00054F9ED /* signup@2x.png */; };
+		9712329A159A3DF00054F9ED /* signup.png in Resources */ = {isa = PBXBuildFile; fileRef = 97123299159A3DF00054F9ED /* signup.png */; };
+		9712329D159A3F7D0054F9ED /* bg.png in Resources */ = {isa = PBXBuildFile; fileRef = 9712329B159A3F7D0054F9ED /* bg.png */; };
+		9712329E159A3F7D0054F9ED /* bg@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9712329C159A3F7D0054F9ED /* bg@2x.png */; };
+		971ACF6D159BD5EA004CF8E3 /* icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 97CE0FB41598094900E2943E /* icon@2x.png */; };
 		97226A66159645F10064722E /* fbicon.png in Resources */ = {isa = PBXBuildFile; fileRef = 97226A64159645F10064722E /* fbicon.png */; };
 		97226A67159645F10064722E /* fbicon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 97226A65159645F10064722E /* fbicon@2x.png */; };
 		972960361592DB21009587E9 /* user.png in Resources */ = {isa = PBXBuildFile; fileRef = 972960341592DB20009587E9 /* user.png */; };
@@ -27,6 +34,8 @@
 		97336F2E159119DF00653EE3 /* SignupViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 97336F2C159119DF00653EE3 /* SignupViewController.xib */; };
 		97669FA71592D6BA00BF76E6 /* UserViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 97669FA51592D6BA00BF76E6 /* UserViewController.m */; };
 		97669FA81592D6BA00BF76E6 /* UserViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 97669FA61592D6BA00BF76E6 /* UserViewController.xib */; };
+		976C60A31599A1B300180096 /* onbutton.png in Resources */ = {isa = PBXBuildFile; fileRef = 976C60A11599A1B300180096 /* onbutton.png */; };
+		976C60A41599A1B300180096 /* onbutton@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 976C60A21599A1B300180096 /* onbutton@2x.png */; };
 		97885005158FC1E200531A1A /* offbutton.png in Resources */ = {isa = PBXBuildFile; fileRef = 97884FFD158FC1E200531A1A /* offbutton.png */; };
 		97885006158FC1E200531A1A /* offbutton@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 97884FFE158FC1E200531A1A /* offbutton@2x.png */; };
 		97885007158FC1E200531A1A /* recordbutton.png in Resources */ = {isa = PBXBuildFile; fileRef = 97884FFF158FC1E200531A1A /* recordbutton.png */; };
@@ -43,12 +52,14 @@
 		97885019158FC62100531A1A /* twitterbutton@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 97885017158FC62100531A1A /* twitterbutton@2x.png */; };
 		978DCE12159292AF000CAEDC /* progressbar.png in Resources */ = {isa = PBXBuildFile; fileRef = 978DCE10159292AF000CAEDC /* progressbar.png */; };
 		978DCE13159292AF000CAEDC /* progressbar@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 978DCE11159292AF000CAEDC /* progressbar@2x.png */; };
-		97CD6D16159662B600E676B1 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 97CD6D14159662B600E676B1 /* Default.png */; };
-		97CD6D17159662B600E676B1 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 97CD6D15159662B600E676B1 /* Default@2x.png */; };
 		97CE0F931597A92D00E2943E /* ShareKit.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 97CE0F8C1597A91C00E2943E /* ShareKit.bundle */; };
 		97CE0F941597A93B00E2943E /* libShareKit.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 97CE0F8A1597A91C00E2943E /* libShareKit.a */; };
 		97CE0F9B1597AD6300E2943E /* SMFileUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 97CE0F9A1597AD6300E2943E /* SMFileUtil.m */; };
 		97CE0FAD1597B4F000E2943E /* MySHKConfigurator.m in Sources */ = {isa = PBXBuildFile; fileRef = 97CE0FAC1597B4F000E2943E /* MySHKConfigurator.m */; };
+		97CE0FB01597C9BF00E2943E /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 97CE0FAF1597C9BF00E2943E /* Default@2x.png */; };
+		97CE0FB21597C9C200E2943E /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 97CE0FB11597C9C200E2943E /* Default.png */; };
+		97CE0FB51598094900E2943E /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 97CE0FB31598094900E2943E /* icon.png */; };
+		97CE0FBB159809A300E2943E /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 97CE0FBA159809A300E2943E /* Icon.png */; };
 		97DAA88D158C32F900627F39 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 97DAA88C158C32F900627F39 /* MessageUI.framework */; };
 		97DAA88F158C330000627F39 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 97DAA88E158C32FF00627F39 /* Security.framework */; };
 		97E3175515747273003C9126 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 97E3175415747273003C9126 /* MobileCoreServices.framework */; };
@@ -288,18 +299,22 @@
 		1D30AB110D05D00D00671497 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		1D3623240D0F684500981E51 /* LivuAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LivuAppDelegate.h; sourceTree = "<group>"; };
 		1D3623250D0F684500981E51 /* LivuAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LivuAppDelegate.m; sourceTree = "<group>"; };
-		1D6058910D05DD3D006BFB54 /* Livu.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Livu.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		1D6058910D05DD3D006BFB54 /* TapIn.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TapIn.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2899E5210DE3E06400AC0155 /* LivuViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = LivuViewController.xib; path = ../LivuViewController.xib; sourceTree = "<group>"; };
 		28AD733E0D9D9553002E5188 /* MainWindow.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MainWindow.xib; sourceTree = "<group>"; };
 		28D7ACF60DDB3853001CB0EB /* LivuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LivuViewController.h; sourceTree = "<group>"; };
 		28D7ACF70DDB3853001CB0EB /* LivuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LivuViewController.m; sourceTree = "<group>"; };
-		32CA4F630368D1EE00C91783 /* Livu_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Livu_Prefix.pch; sourceTree = "<group>"; };
-		8D1107310486CEB800E47090 /* Livu-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Livu-Info.plist"; plistStructureDefinitionIdentifier = "com.apple.xcode.plist.structure-definition.iphone.info-plist"; sourceTree = "<group>"; };
+		32CA4F630368D1EE00C91783 /* TapIn_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TapIn_Prefix.pch; sourceTree = "<group>"; };
+		8D1107310486CEB800E47090 /* TapIn-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "TapIn-Info.plist"; plistStructureDefinitionIdentifier = "com.apple.xcode.plist.structure-definition.iphone.info-plist"; sourceTree = "<group>"; };
 		9701D9CB15979FC900AA9C0A /* Twitter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Twitter.framework; path = System/Library/Frameworks/Twitter.framework; sourceTree = SDKROOT; };
+		97123293159A3BE20054F9ED /* signin.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = signin.png; sourceTree = "<group>"; };
+		97123294159A3BE20054F9ED /* signin@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "signin@2x.png"; sourceTree = "<group>"; };
+		97123297159A3DC00054F9ED /* signup@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "signup@2x.png"; sourceTree = "<group>"; };
+		97123299159A3DF00054F9ED /* signup.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = signup.png; sourceTree = "<group>"; };
+		9712329B159A3F7D0054F9ED /* bg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bg.png; sourceTree = "<group>"; };
+		9712329C159A3F7D0054F9ED /* bg@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bg@2x.png"; sourceTree = "<group>"; };
 		97226A64159645F10064722E /* fbicon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = fbicon.png; sourceTree = "<group>"; };
 		97226A65159645F10064722E /* fbicon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "fbicon@2x.png"; sourceTree = "<group>"; };
-		97237ECE154C7D18009F46C1 /* icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = icon.png; path = ../../../../Tapin/Livu/images/icons/icon.png; sourceTree = "<group>"; };
-		97237ECF154C7D18009F46C1 /* icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "icon@2x.png"; path = "../../../../Tapin/Livu/images/icons/icon@2x.png"; sourceTree = "<group>"; };
 		972960341592DB20009587E9 /* user.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = user.png; sourceTree = "<group>"; };
 		972960351592DB20009587E9 /* user@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "user@2x.png"; sourceTree = "<group>"; };
 		97336F2A159119DF00653EE3 /* SignupViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SignupViewController.h; sourceTree = "<group>"; };
@@ -308,6 +323,8 @@
 		97669FA41592D6BA00BF76E6 /* UserViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserViewController.h; sourceTree = "<group>"; };
 		97669FA51592D6BA00BF76E6 /* UserViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserViewController.m; sourceTree = "<group>"; };
 		97669FA61592D6BA00BF76E6 /* UserViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = UserViewController.xib; sourceTree = "<group>"; };
+		976C60A11599A1B300180096 /* onbutton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = onbutton.png; sourceTree = "<group>"; };
+		976C60A21599A1B300180096 /* onbutton@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "onbutton@2x.png"; sourceTree = "<group>"; };
 		97884FFD158FC1E200531A1A /* offbutton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = offbutton.png; sourceTree = "<group>"; };
 		97884FFE158FC1E200531A1A /* offbutton@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "offbutton@2x.png"; sourceTree = "<group>"; };
 		97884FFF158FC1E200531A1A /* recordbutton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = recordbutton.png; sourceTree = "<group>"; };
@@ -324,13 +341,16 @@
 		97885017158FC62100531A1A /* twitterbutton@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "twitterbutton@2x.png"; sourceTree = "<group>"; };
 		978DCE10159292AF000CAEDC /* progressbar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = progressbar.png; sourceTree = "<group>"; };
 		978DCE11159292AF000CAEDC /* progressbar@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "progressbar@2x.png"; sourceTree = "<group>"; };
-		97CD6D14159662B600E676B1 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
-		97CD6D15159662B600E676B1 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
 		97CE0F7C1597A91B00E2943E /* ShareKit.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = ShareKit.xcodeproj; path = ../Submodules/ShareKit/ShareKit.xcodeproj; sourceTree = "<group>"; };
 		97CE0F991597AD6300E2943E /* SMFileUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SMFileUtil.h; path = Classes/SMFileUtil.h; sourceTree = "<group>"; };
 		97CE0F9A1597AD6300E2943E /* SMFileUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SMFileUtil.m; path = Classes/SMFileUtil.m; sourceTree = "<group>"; };
 		97CE0FAB1597B4F000E2943E /* MySHKConfigurator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MySHKConfigurator.h; path = Classes/MySHKConfigurator.h; sourceTree = "<group>"; };
 		97CE0FAC1597B4F000E2943E /* MySHKConfigurator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MySHKConfigurator.m; path = Classes/MySHKConfigurator.m; sourceTree = "<group>"; };
+		97CE0FAF1597C9BF00E2943E /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
+		97CE0FB11597C9C200E2943E /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
+		97CE0FB31598094900E2943E /* icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon.png; sourceTree = "<group>"; };
+		97CE0FB41598094900E2943E /* icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon@2x.png"; sourceTree = "<group>"; };
+		97CE0FBA159809A300E2943E /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon.png; sourceTree = "<group>"; };
 		97DAA88C158C32F900627F39 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
 		97DAA88E158C32FF00627F39 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		97E3175415747273003C9126 /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
@@ -375,16 +395,16 @@
 		BA21771112F00BAC0093DC50 /* LivuBroadcastManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LivuBroadcastManager.h; path = Classes/LivuBroadcastManager.h; sourceTree = "<group>"; };
 		BA21771212F00BAC0093DC50 /* LivuBroadcastManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LivuBroadcastManager.m; path = Classes/LivuBroadcastManager.m; sourceTree = "<group>"; };
 		BA21771512F00BC70093DC50 /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		BA2FDF9F12EE1982006AEF40 /* config_background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = config_background.png; path = ../Livu/images/LivuConfigView/config_background.png; sourceTree = SOURCE_ROOT; };
-		BA2FDFA012EE1982006AEF40 /* config_background@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "config_background@2x.png"; path = "../Livu/images/LivuConfigView/config_background@2x.png"; sourceTree = SOURCE_ROOT; };
-		BA2FDFA112EE1982006AEF40 /* config_button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = config_button.png; path = ../Livu/images/LivuConfigView/config_button.png; sourceTree = SOURCE_ROOT; };
-		BA2FDFA212EE1982006AEF40 /* config_button@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "config_button@2x.png"; path = "../Livu/images/LivuConfigView/config_button@2x.png"; sourceTree = SOURCE_ROOT; };
-		BA2FDFA312EE1982006AEF40 /* config_button_down.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = config_button_down.png; path = ../Livu/images/LivuConfigView/config_button_down.png; sourceTree = SOURCE_ROOT; };
-		BA2FDFA412EE1982006AEF40 /* config_button_down@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "config_button_down@2x.png"; path = "../Livu/images/LivuConfigView/config_button_down@2x.png"; sourceTree = SOURCE_ROOT; };
-		BA2FDFA512EE1982006AEF40 /* config_close_button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = config_close_button.png; path = ../Livu/images/LivuConfigView/config_close_button.png; sourceTree = SOURCE_ROOT; };
-		BA2FDFA612EE1982006AEF40 /* config_close_button@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "config_close_button@2x.png"; path = "../Livu/images/LivuConfigView/config_close_button@2x.png"; sourceTree = SOURCE_ROOT; };
-		BA2FDFA712EE1982006AEF40 /* config_close_button_down.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = config_close_button_down.png; path = ../Livu/images/LivuConfigView/config_close_button_down.png; sourceTree = SOURCE_ROOT; };
-		BA2FDFA812EE1982006AEF40 /* config_close_button_down@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "config_close_button_down@2x.png"; path = "../Livu/images/LivuConfigView/config_close_button_down@2x.png"; sourceTree = SOURCE_ROOT; };
+		BA2FDF9F12EE1982006AEF40 /* config_background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = config_background.png; path = images/LivuConfigView/config_background.png; sourceTree = SOURCE_ROOT; };
+		BA2FDFA012EE1982006AEF40 /* config_background@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "config_background@2x.png"; path = "images/LivuConfigView/config_background@2x.png"; sourceTree = SOURCE_ROOT; };
+		BA2FDFA112EE1982006AEF40 /* config_button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = config_button.png; path = images/LivuConfigView/config_button.png; sourceTree = SOURCE_ROOT; };
+		BA2FDFA212EE1982006AEF40 /* config_button@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "config_button@2x.png"; path = "images/LivuConfigView/config_button@2x.png"; sourceTree = SOURCE_ROOT; };
+		BA2FDFA312EE1982006AEF40 /* config_button_down.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = config_button_down.png; path = images/LivuConfigView/config_button_down.png; sourceTree = SOURCE_ROOT; };
+		BA2FDFA412EE1982006AEF40 /* config_button_down@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "config_button_down@2x.png"; path = "images/LivuConfigView/config_button_down@2x.png"; sourceTree = SOURCE_ROOT; };
+		BA2FDFA512EE1982006AEF40 /* config_close_button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = config_close_button.png; path = images/LivuConfigView/config_close_button.png; sourceTree = SOURCE_ROOT; };
+		BA2FDFA612EE1982006AEF40 /* config_close_button@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "config_close_button@2x.png"; path = "images/LivuConfigView/config_close_button@2x.png"; sourceTree = SOURCE_ROOT; };
+		BA2FDFA712EE1982006AEF40 /* config_close_button_down.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = config_close_button_down.png; path = images/LivuConfigView/config_close_button_down.png; sourceTree = SOURCE_ROOT; };
+		BA2FDFA812EE1982006AEF40 /* config_close_button_down@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "config_close_button_down@2x.png"; path = "images/LivuConfigView/config_close_button_down@2x.png"; sourceTree = SOURCE_ROOT; };
 		BA3150E212C86AFC00CF0E5F /* CoreFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreFoundation.framework; path = System/Library/Frameworks/CoreFoundation.framework; sourceTree = SDKROOT; };
 		BA3150E412C86AFC00CF0E5F /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
 		BA3150E512C86AFC00CF0E5F /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
@@ -393,7 +413,7 @@
 		BA3150E812C86AFC00CF0E5F /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		BA3150E912C86AFC00CF0E5F /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		BA3150EA12C86AFC00CF0E5F /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
-		BA3151F112C8802200CF0E5F /* LivuTests_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LivuTests_Prefix.pch; sourceTree = "<group>"; };
+		BA3151F112C8802200CF0E5F /* TapInTests_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TapInTests_Prefix.pch; sourceTree = "<group>"; };
 		BA31524B12C8865A00CF0E5F /* LivuBroadcastConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LivuBroadcastConfig.h; path = Classes/LivuBroadcastConfig.h; sourceTree = "<group>"; };
 		BA31524C12C8865A00CF0E5F /* LivuBroadcastConfig.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LivuBroadcastConfig.m; path = Classes/LivuBroadcastConfig.m; sourceTree = "<group>"; };
 		BA31524E12C8866500CF0E5F /* SynthesizeSingleton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SynthesizeSingleton.h; path = Classes/SynthesizeSingleton.h; sourceTree = "<group>"; };
@@ -443,14 +463,14 @@
 		BA61A29E1300920E0018A4B0 /* sm_math.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = sm_math.h; path = Classes/sm_math.h; sourceTree = "<group>"; };
 		BA61A29F1300920F0018A4B0 /* sm_math.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = sm_math.m; path = Classes/sm_math.m; sourceTree = "<group>"; };
 		BA654BB212D10A6E00F9D374 /* VideoOrientationSettings.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = VideoOrientationSettings.plist; sourceTree = "<group>"; };
-		BA654BF212D114D200F9D374 /* AssetLoader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AssetLoader.h; path = ../Livu/Classes/AssetLoader.h; sourceTree = SOURCE_ROOT; };
-		BA654BF312D114D200F9D374 /* UIButton+TextProperty.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIButton+TextProperty.h"; path = "../Livu/Classes/UIButton+TextProperty.h"; sourceTree = SOURCE_ROOT; };
-		BA654BF412D114D200F9D374 /* UIView+TextUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIView+TextUtil.h"; path = "../Livu/Classes/UIView+TextUtil.h"; sourceTree = SOURCE_ROOT; };
-		BA654BF512D114D200F9D374 /* AssetLoader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AssetLoader.m; path = ../Livu/Classes/AssetLoader.m; sourceTree = SOURCE_ROOT; };
-		BA654BF712D114D200F9D374 /* UIButton+TextProperty.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIButton+TextProperty.m"; path = "../Livu/Classes/UIButton+TextProperty.m"; sourceTree = SOURCE_ROOT; };
-		BA654BF812D114D200F9D374 /* UIView+TextUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIView+TextUtil.m"; path = "../Livu/Classes/UIView+TextUtil.m"; sourceTree = SOURCE_ROOT; };
-		BA654C1612D115A800F9D374 /* netutil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = netutil.h; path = ../Livu/Classes/netutil.h; sourceTree = SOURCE_ROOT; };
-		BA654C1712D115B800F9D374 /* netutil.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = netutil.c; path = ../Livu/Classes/netutil.c; sourceTree = SOURCE_ROOT; };
+		BA654BF212D114D200F9D374 /* AssetLoader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AssetLoader.h; path = Classes/AssetLoader.h; sourceTree = SOURCE_ROOT; };
+		BA654BF312D114D200F9D374 /* UIButton+TextProperty.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIButton+TextProperty.h"; path = "Classes/UIButton+TextProperty.h"; sourceTree = SOURCE_ROOT; };
+		BA654BF412D114D200F9D374 /* UIView+TextUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIView+TextUtil.h"; path = "Classes/UIView+TextUtil.h"; sourceTree = SOURCE_ROOT; };
+		BA654BF512D114D200F9D374 /* AssetLoader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AssetLoader.m; path = Classes/AssetLoader.m; sourceTree = SOURCE_ROOT; };
+		BA654BF712D114D200F9D374 /* UIButton+TextProperty.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIButton+TextProperty.m"; path = "Classes/UIButton+TextProperty.m"; sourceTree = SOURCE_ROOT; };
+		BA654BF812D114D200F9D374 /* UIView+TextUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIView+TextUtil.m"; path = "Classes/UIView+TextUtil.m"; sourceTree = SOURCE_ROOT; };
+		BA654C1612D115A800F9D374 /* netutil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = netutil.h; path = Classes/netutil.h; sourceTree = SOURCE_ROOT; };
+		BA654C1712D115B800F9D374 /* netutil.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = netutil.c; path = Classes/netutil.c; sourceTree = SOURCE_ROOT; };
 		BA69CF9212E4F24800D4FEFC /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		BA82516512ED72C100F1FABE /* LivuConfigViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = LivuConfigViewController.xib; path = ../LivuConfigViewController.xib; sourceTree = "<group>"; };
 		BA83420713EC5A1700754600 /* net_tcp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = net_tcp.h; path = ../sRTP/sRTP/net_tcp.h; sourceTree = "<group>"; };
@@ -489,9 +509,9 @@
 		BAB9FCA61336AAC500EFFAED /* LivuBroadcastProfileTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LivuBroadcastProfileTest.h; sourceTree = "<group>"; };
 		BAB9FCA71336AAC500EFFAED /* LivuBroadcastProfileTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LivuBroadcastProfileTest.m; sourceTree = "<group>"; };
 		BAB9FD1D1336C85600EFFAED /* LivuBroadcastConfigTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LivuBroadcastConfigTest.m; path = ApplicationTests/LivuBroadcastConfigTest.m; sourceTree = "<group>"; };
-		BAB9FDAF1336EF0600EFFAED /* LivuTests.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LivuTests.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		BAB9FDAF1336EF0600EFFAED /* TapInTests.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TapInTests.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BAB9FE1F1336F28B00EFFAED /* GHUnitiOSTestMain.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GHUnitiOSTestMain.m; sourceTree = "<group>"; };
-		BAB9FE4E133717D200EFFAED /* LivuTests-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "LivuTests-Info.plist"; sourceTree = "<group>"; };
+		BAB9FE4E133717D200EFFAED /* TapInTests-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "TapInTests-Info.plist"; sourceTree = "<group>"; };
 		BACA026D12C95FC40058A595 /* TableCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TableCell.xib; sourceTree = "<group>"; };
 		BADCA526130EE58D0017812A /* ExpandyButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ExpandyButton.h; sourceTree = "<group>"; };
 		BADCA527130EE58D0017812A /* ExpandyButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ExpandyButton.m; sourceTree = "<group>"; };
@@ -587,9 +607,9 @@
 		19C28FACFE9D520D11CA2CBB /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				1D6058910D05DD3D006BFB54 /* Livu.app */,
+				1D6058910D05DD3D006BFB54 /* TapIn.app */,
 				BA45D5AC13369A5F0084E2EC /* LogicTests.octest */,
-				BAB9FDAF1336EF0600EFFAED /* LivuTests.app */,
+				BAB9FDAF1336EF0600EFFAED /* TapInTests.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -597,6 +617,9 @@
 		29B97314FDCFA39411CA2CEA /* CustomTemplate */ = {
 			isa = PBXGroup;
 			children = (
+				97CE0FBA159809A300E2943E /* Icon.png */,
+				97CE0FB11597C9C200E2943E /* Default.png */,
+				97CE0FAF1597C9BF00E2943E /* Default@2x.png */,
 				97CE0F7C1597A91B00E2943E /* ShareKit.xcodeproj */,
 				9701D9CB15979FC900AA9C0A /* Twitter.framework */,
 				97DAA88E158C32FF00627F39 /* Security.framework */,
@@ -625,8 +648,8 @@
 			children = (
 				BA95F2B5140456C200BC4051 /* defines.h */,
 				BA21771512F00BC70093DC50 /* main.m */,
-				BA3151F112C8802200CF0E5F /* LivuTests_Prefix.pch */,
-				32CA4F630368D1EE00C91783 /* Livu_Prefix.pch */,
+				BA3151F112C8802200CF0E5F /* TapInTests_Prefix.pch */,
+				32CA4F630368D1EE00C91783 /* TapIn_Prefix.pch */,
 				BAB9FE1F1336F28B00EFFAED /* GHUnitiOSTestMain.m */,
 			);
 			name = "Other Sources";
@@ -744,18 +767,17 @@
 				BA2FDF9E12EE1982006AEF40 /* LivuConfigView */,
 				BA2FDFA912EE1982006AEF40 /* LivuView */,
 			);
-			name = images;
-			path = ../Livu/images;
+			path = images;
 			sourceTree = SOURCE_ROOT;
 		};
 		BA2FDF9B12EE1982006AEF40 /* icons */ = {
 			isa = PBXGroup;
 			children = (
-				97237ECE154C7D18009F46C1 /* icon.png */,
-				97237ECF154C7D18009F46C1 /* icon@2x.png */,
+				97CE0FB31598094900E2943E /* icon.png */,
+				97CE0FB41598094900E2943E /* icon@2x.png */,
 			);
 			name = icons;
-			path = ../Livu/images/icons;
+			path = images/icons;
 			sourceTree = SOURCE_ROOT;
 		};
 		BA2FDF9E12EE1982006AEF40 /* LivuConfigView */ = {
@@ -773,7 +795,7 @@
 				BA2FDFA812EE1982006AEF40 /* config_close_button_down@2x.png */,
 			);
 			name = LivuConfigView;
-			path = ../Livu/images/LivuConfigView;
+			path = images/LivuConfigView;
 			sourceTree = SOURCE_ROOT;
 		};
 		BA2FDFA912EE1982006AEF40 /* LivuView */ = {
@@ -789,8 +811,12 @@
 				97885010158FC1ED00531A1A /* gearbutton.png */,
 				97885011158FC1ED00531A1A /* gearbutton@2x.png */,
 				BAACD551131F44EA00F0E5B0 /* broadcaston@2x.png */,
+				976C60A11599A1B300180096 /* onbutton.png */,
+				976C60A21599A1B300180096 /* onbutton@2x.png */,
 				97884FFD158FC1E200531A1A /* offbutton.png */,
 				97884FFE158FC1E200531A1A /* offbutton@2x.png */,
+				9712329B159A3F7D0054F9ED /* bg.png */,
+				9712329C159A3F7D0054F9ED /* bg@2x.png */,
 				97884FFF158FC1E200531A1A /* recordbutton.png */,
 				97885000158FC1E200531A1A /* recordbutton@2x.png */,
 				97885001158FC1E200531A1A /* recordstart.png */,
@@ -802,13 +828,15 @@
 				BAACD554131F44EA00F0E5B0 /* cog.png */,
 				BAACD555131F44EA00F0E5B0 /* cog@2x.png */,
 				BAACD556131F44EA00F0E5B0 /* lit.png */,
-				97CD6D14159662B600E676B1 /* Default.png */,
-				97CD6D15159662B600E676B1 /* Default@2x.png */,
 				BAACD557131F44EA00F0E5B0 /* lit@2x.png */,
+				97123293159A3BE20054F9ED /* signin.png */,
+				97123294159A3BE20054F9ED /* signin@2x.png */,
 				BAACD558131F44EA00F0E5B0 /* liton.png */,
 				97226A64159645F10064722E /* fbicon.png */,
 				97226A65159645F10064722E /* fbicon@2x.png */,
 				BAACD559131F44EA00F0E5B0 /* liton@2x.png */,
+				97123299159A3DF00054F9ED /* signup.png */,
+				97123297159A3DC00054F9ED /* signup@2x.png */,
 				BAACD55A131F44EA00F0E5B0 /* mik.png */,
 				BAACD55B131F44EA00F0E5B0 /* mik@2x.png */,
 				BAACD55C131F44EA00F0E5B0 /* mikon.png */,
@@ -821,7 +849,7 @@
 				BAACD55F131F44EA00F0E5B0 /* xbutton@2x.png */,
 			);
 			name = LivuView;
-			path = ../Livu/images/LivuView;
+			path = images/LivuView;
 			sourceTree = SOURCE_ROOT;
 		};
 		BA314F8012C86A6A00CF0E5F /* AV Classes */ = {
@@ -955,8 +983,8 @@
 		BA31536612C9306600CF0E5F /* plists */ = {
 			isa = PBXGroup;
 			children = (
-				8D1107310486CEB800E47090 /* Livu-Info.plist */,
-				BAB9FE4E133717D200EFFAED /* LivuTests-Info.plist */,
+				8D1107310486CEB800E47090 /* TapIn-Info.plist */,
+				BAB9FE4E133717D200EFFAED /* TapInTests-Info.plist */,
 				BA31535212C92ADC00CF0E5F /* BroadcastOptions.plist */,
 				BA31536412C92FE100CF0E5F /* BroadcastConfig.plist */,
 				BA654BB212D10A6E00F9D374 /* VideoOrientationSettings.plist */,
@@ -1076,9 +1104,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		1D6058900D05DD3D006BFB54 /* Livu */ = {
+		1D6058900D05DD3D006BFB54 /* TapIn */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 1D6058960D05DD3E006BFB54 /* Build configuration list for PBXNativeTarget "Livu" */;
+			buildConfigurationList = 1D6058960D05DD3E006BFB54 /* Build configuration list for PBXNativeTarget "TapIn" */;
 			buildPhases = (
 				1D60588D0D05DD3D006BFB54 /* Resources */,
 				1D60588E0D05DD3D006BFB54 /* Sources */,
@@ -1090,9 +1118,9 @@
 				97CE0F901597A92400E2943E /* PBXTargetDependency */,
 				97CE0F921597A92400E2943E /* PBXTargetDependency */,
 			);
-			name = Livu;
+			name = TapIn;
 			productName = Livu;
-			productReference = 1D6058910D05DD3D006BFB54 /* Livu.app */;
+			productReference = 1D6058910D05DD3D006BFB54 /* TapIn.app */;
 			productType = "com.apple.product-type.application";
 		};
 		BA45D5AB13369A5F0084E2EC /* LogicTests */ = {
@@ -1113,9 +1141,9 @@
 			productReference = BA45D5AC13369A5F0084E2EC /* LogicTests.octest */;
 			productType = "com.apple.product-type.bundle";
 		};
-		BAB9FDAE1336EF0600EFFAED /* LivuTests */ = {
+		BAB9FDAE1336EF0600EFFAED /* TapInTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = BAB9FDC91336EF0700EFFAED /* Build configuration list for PBXNativeTarget "LivuTests" */;
+			buildConfigurationList = BAB9FDC91336EF0700EFFAED /* Build configuration list for PBXNativeTarget "TapInTests" */;
 			buildPhases = (
 				BAB9FDAB1336EF0600EFFAED /* Sources */,
 				BAB9FDAC1336EF0600EFFAED /* Frameworks */,
@@ -1125,9 +1153,9 @@
 			);
 			dependencies = (
 			);
-			name = LivuTests;
+			name = TapInTests;
 			productName = LivuTests;
-			productReference = BAB9FDAF1336EF0600EFFAED /* LivuTests.app */;
+			productReference = BAB9FDAF1336EF0600EFFAED /* TapInTests.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -1137,9 +1165,9 @@
 			isa = PBXProject;
 			attributes = {
 				LastUpgradeCheck = 0420;
-				ORGANIZATIONNAME = "Steve McFarlin";
+				ORGANIZATIONNAME = "Vu Tran";
 			};
-			buildConfigurationList = C01FCF4E08A954540054247B /* Build configuration list for PBXProject "Livu" */;
+			buildConfigurationList = C01FCF4E08A954540054247B /* Build configuration list for PBXProject "TapIn" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 1;
@@ -1161,9 +1189,9 @@
 			);
 			projectRoot = "";
 			targets = (
-				1D6058900D05DD3D006BFB54 /* Livu */,
+				1D6058900D05DD3D006BFB54 /* TapIn */,
 				BA45D5AB13369A5F0084E2EC /* LogicTests */,
-				BAB9FDAE1336EF0600EFFAED /* LivuTests */,
+				BAB9FDAE1336EF0600EFFAED /* TapInTests */,
 			);
 		};
 /* End PBXProject section */
@@ -1265,8 +1293,19 @@
 				97CE0F931597A92D00E2943E /* ShareKit.bundle in Resources */,
 				97226A66159645F10064722E /* fbicon.png in Resources */,
 				97226A67159645F10064722E /* fbicon@2x.png in Resources */,
-				97CD6D16159662B600E676B1 /* Default.png in Resources */,
-				97CD6D17159662B600E676B1 /* Default@2x.png in Resources */,
+				97CE0FB01597C9BF00E2943E /* Default@2x.png in Resources */,
+				97CE0FB21597C9C200E2943E /* Default.png in Resources */,
+				97CE0FB51598094900E2943E /* icon.png in Resources */,
+				97CE0FBB159809A300E2943E /* Icon.png in Resources */,
+				976C60A31599A1B300180096 /* onbutton.png in Resources */,
+				976C60A41599A1B300180096 /* onbutton@2x.png in Resources */,
+				97123295159A3BE20054F9ED /* signin.png in Resources */,
+				97123296159A3BE20054F9ED /* signin@2x.png in Resources */,
+				97123298159A3DC00054F9ED /* signup@2x.png in Resources */,
+				9712329A159A3DF00054F9ED /* signup.png in Resources */,
+				9712329D159A3F7D0054F9ED /* bg.png in Resources */,
+				9712329E159A3F7D0054F9ED /* bg@2x.png in Resources */,
+				971ACF6D159BD5EA004CF8E3 /* icon@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1466,8 +1505,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer: Vu Tran (88KAX9UFFC)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Vu Tran (88KAX9UFFC)";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Vu Tran (V36ZY6STMM)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Vu Tran (V36ZY6STMM)";
 				COPY_PHASE_STRIP = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1476,10 +1515,10 @@
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = Livu_Prefix.pch;
+				GCC_PREFIX_HEADER = TapIn_Prefix.pch;
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				HEADER_SEARCH_PATHS = "";
-				INFOPLIST_FILE = "Livu-Info.plist";
+				INFOPLIST_FILE = "TapIn-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1494,8 +1533,7 @@
 					"-ObjC",
 					"-all_load",
 				);
-				PRODUCT_NAME = Livu;
-				PROVISIONING_PROFILE = "5BBFB0F2-F150-480A-A0BA-714B7315AD4B";
+				PRODUCT_NAME = TapIn;
 				SUPPORTED_PLATFORMS = iphoneos;
 				USER_HEADER_SEARCH_PATHS = "../Submodules/**";
 				VALID_ARCHS = armv7;
@@ -1506,8 +1544,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer: Vu Tran (88KAX9UFFC)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Vu Tran (88KAX9UFFC)";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Vu Tran (V36ZY6STMM)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Vu Tran (V36ZY6STMM)";
 				COPY_PHASE_STRIP = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1515,10 +1553,10 @@
 				);
 				GCC_OPTIMIZATION_LEVEL = 3;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = Livu_Prefix.pch;
+				GCC_PREFIX_HEADER = TapIn_Prefix.pch;
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				HEADER_SEARCH_PATHS = "";
-				INFOPLIST_FILE = "Livu-Info.plist";
+				INFOPLIST_FILE = "TapIn-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1529,8 +1567,7 @@
 					"-ObjC",
 					"-all_load",
 				);
-				PRODUCT_NAME = Livu;
-				PROVISIONING_PROFILE = "5BBFB0F2-F150-480A-A0BA-714B7315AD4B";
+				PRODUCT_NAME = TapIn;
 				SUPPORTED_PLATFORMS = iphoneos;
 				USER_HEADER_SEARCH_PATHS = "../Submodules/**";
 				VALIDATE_PRODUCT = YES;
@@ -1570,9 +1607,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer: Vu Tran (88KAX9UFFC)";
-				"CODE_SIGN_IDENTITY[sdk=*]" = "iPhone Developer: Vu Tran (88KAX9UFFC)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Vu Tran (88KAX9UFFC)";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Vu Tran (V36ZY6STMM)";
+				"CODE_SIGN_IDENTITY[sdk=*]" = "iPhone Developer: Vu Tran (V36ZY6STMM)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Vu Tran (V36ZY6STMM)";
 				COPY_PHASE_STRIP = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1581,10 +1618,10 @@
 				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
 				GCC_OPTIMIZATION_LEVEL = 3;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = Livu_Prefix.pch;
+				GCC_PREFIX_HEADER = TapIn_Prefix.pch;
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				HEADER_SEARCH_PATHS = "";
-				INFOPLIST_FILE = "Livu-Info.plist";
+				INFOPLIST_FILE = "TapIn-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1595,8 +1632,7 @@
 					"-ObjC",
 					"-all_load",
 				);
-				PRODUCT_NAME = Livu;
-				PROVISIONING_PROFILE = "5BBFB0F2-F150-480A-A0BA-714B7315AD4B";
+				PRODUCT_NAME = TapIn;
 				SUPPORTED_PLATFORMS = iphoneos;
 				USER_HEADER_SEARCH_PATHS = "../Submodules/**";
 				VALIDATE_PRODUCT = YES;
@@ -1746,8 +1782,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer: Vu Tran (88KAX9UFFC)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Vu Tran (88KAX9UFFC)";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Vu Tran (V36ZY6STMM)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Vu Tran (V36ZY6STMM)";
 				COPY_PHASE_STRIP = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1756,10 +1792,10 @@
 				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
 				GCC_OPTIMIZATION_LEVEL = 3;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = Livu_Prefix.pch;
+				GCC_PREFIX_HEADER = TapIn_Prefix.pch;
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				HEADER_SEARCH_PATHS = "";
-				INFOPLIST_FILE = "Livu-Info.plist";
+				INFOPLIST_FILE = "TapIn-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1770,8 +1806,7 @@
 					"-ObjC",
 					"-all_load",
 				);
-				PRODUCT_NAME = Livu;
-				PROVISIONING_PROFILE = "5BBFB0F2-F150-480A-A0BA-714B7315AD4B";
+				PRODUCT_NAME = TapIn;
 				SUPPORTED_PLATFORMS = iphoneos;
 				USER_HEADER_SEARCH_PATHS = "../Submodules/**";
 				VALIDATE_PRODUCT = YES;
@@ -1790,15 +1825,15 @@
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = LivuTests_Prefix.pch;
+				GCC_PREFIX_HEADER = TapInTests_Prefix.pch;
 				GCC_PREPROCESSOR_DEFINITIONS = DEBUG;
 				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				HEADER_SEARCH_PATHS = "";
-				INFOPLIST_FILE = "LivuTests-Info.plist";
+				INFOPLIST_FILE = "TapInTests-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 4.2;
 				OTHER_LDFLAGS = "-ObjC";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = TapInTests;
 				PROVISIONING_PROFILE = "B3438F9F-8AEB-4657-A5CD-55F5C42C84E5";
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "B3438F9F-8AEB-4657-A5CD-55F5C42C84E5";
 				VALID_ARCHS = armv7;
@@ -1816,13 +1851,13 @@
 				COPY_PHASE_STRIP = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = LivuTests_Prefix.pch;
+				GCC_PREFIX_HEADER = TapInTests_Prefix.pch;
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				HEADER_SEARCH_PATHS = "";
-				INFOPLIST_FILE = "LivuTests-Info.plist";
+				INFOPLIST_FILE = "TapInTests-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 4.2;
 				OTHER_LDFLAGS = "-ObjC";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = TapInTests;
 				PROVISIONING_PROFILE = "B3438F9F-8AEB-4657-A5CD-55F5C42C84E5";
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "B3438F9F-8AEB-4657-A5CD-55F5C42C84E5";
 				VALIDATE_PRODUCT = YES;
@@ -1841,13 +1876,13 @@
 				COPY_PHASE_STRIP = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = LivuTests_Prefix.pch;
+				GCC_PREFIX_HEADER = TapInTests_Prefix.pch;
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				HEADER_SEARCH_PATHS = "";
-				INFOPLIST_FILE = "LivuTests-Info.plist";
+				INFOPLIST_FILE = "TapInTests-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 4.2;
 				OTHER_LDFLAGS = "-ObjC";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = TapInTests;
 				PROVISIONING_PROFILE = "";
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "FBCB933E-B1A4-4524-B5F8-C97C2DBB8F97";
 				VALIDATE_PRODUCT = YES;
@@ -1867,13 +1902,13 @@
 				COPY_PHASE_STRIP = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = LivuTests_Prefix.pch;
+				GCC_PREFIX_HEADER = TapInTests_Prefix.pch;
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				HEADER_SEARCH_PATHS = "";
-				INFOPLIST_FILE = "LivuTests-Info.plist";
+				INFOPLIST_FILE = "TapInTests-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 4.2;
 				OTHER_LDFLAGS = "-ObjC";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = TapInTests;
 				PROVISIONING_PROFILE = "";
 				"PROVISIONING_PROFILE[sdk=*]" = "FBCB933E-B1A4-4524-B5F8-C97C2DBB8F97";
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "FBCB933E-B1A4-4524-B5F8-C97C2DBB8F97";
@@ -1931,7 +1966,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		1D6058960D05DD3E006BFB54 /* Build configuration list for PBXNativeTarget "Livu" */ = {
+		1D6058960D05DD3E006BFB54 /* Build configuration list for PBXNativeTarget "TapIn" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				1D6058940D05DD3E006BFB54 /* Debug */,
@@ -1953,7 +1988,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		BAB9FDC91336EF0700EFFAED /* Build configuration list for PBXNativeTarget "LivuTests" */ = {
+		BAB9FDC91336EF0700EFFAED /* Build configuration list for PBXNativeTarget "TapInTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				BAB9FDCA1336EF0700EFFAED /* Debug */,
@@ -1964,7 +1999,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		C01FCF4E08A954540054247B /* Build configuration list for PBXProject "Livu" */ = {
+		C01FCF4E08A954540054247B /* Build configuration list for PBXProject "TapIn" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				C01FCF4F08A954540054247B /* Debug */,

@@ -18,7 +18,7 @@
                BlueprintIdentifier = "BA45D5AB13369A5F0084E2EC"
                BuildableName = "LogicTests.octest"
                BlueprintName = "LogicTests"
-               ReferencedContainer = "container:Livu.xcodeproj">
+               ReferencedContainer = "container:TapIn.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
@@ -29,6 +29,7 @@
       launchStyle = "0"
       useCustomWorkingDirectory = "NO"
       buildConfiguration = "Debug"
+      ignoresPersistentStateOnLaunch = "NO"
       debugDocumentVersioning = "YES"
       allowLocationSimulation = "YES">
       <AdditionalOptions>

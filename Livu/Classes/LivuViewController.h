@@ -29,12 +29,16 @@
     IBOutlet UILabel * userTitle;
     IBOutlet UILabel * userPoints;
     IBOutlet UILabel * nextTitle;
+    IBOutlet UIButton * facebookButton;
     IBOutlet UIImageView * progressBar;
     UILabel *streamBitrate, *videoBitrate;
     UILabel *status;
+    IBOutlet UILabel *helperText;
     IBOutlet UIView * loadingContainer;
     IBOutlet UIActivityIndicatorView * activity;
     IBOutlet UIView * progressContainer;
+    IBOutlet UILabel * activityText;
+    IBOutlet UILabel * viewerCount;
     
         
     SUIMaxSlider                *bitrateSlider;
@@ -82,6 +86,7 @@
 - (IBAction) userButtonToucehd:(id)sender;
 - (IBAction)facebookButtonTouched:(id)sender;
 
+-(void) startUserTimer;
 - (void) uiMessage:(NSString*) message;
 
 - (void) willResignActive;

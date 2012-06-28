@@ -15,7 +15,7 @@
 			<key>fps</key>
 			<integer>30</integer>
 			<key>keyFrameInterval</key>
-			<string>30</string>
+			<string>5</string>
 			<key>videoMaxBitrateScalar</key>
 			<integer>1</integer>
 		</dict>

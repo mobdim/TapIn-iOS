@@ -13,10 +13,10 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "BAB9FDAE1336EF0600EFFAED"
-               BuildableName = "LivuTests.app"
-               BlueprintName = "LivuTests"
-               ReferencedContainer = "container:Livu.xcodeproj">
+               BlueprintIdentifier = "1D6058900D05DD3D006BFB54"
+               BuildableName = "TapIn.app"
+               BlueprintName = "TapIn"
+               ReferencedContainer = "container:TapIn.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -31,10 +31,10 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "BAB9FDAE1336EF0600EFFAED"
-            BuildableName = "LivuTests.app"
-            BlueprintName = "LivuTests"
-            ReferencedContainer = "container:Livu.xcodeproj">
+            BlueprintIdentifier = "1D6058900D05DD3D006BFB54"
+            BuildableName = "TapIn.app"
+            BlueprintName = "TapIn"
+            ReferencedContainer = "container:TapIn.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
    </TestAction>
@@ -44,18 +44,25 @@
       launchStyle = "0"
       useCustomWorkingDirectory = "NO"
       buildConfiguration = "Debug"
+      ignoresPersistentStateOnLaunch = "NO"
       debugDocumentVersioning = "YES"
+      enablesOpenGLESFrameCapture = "YES"
       allowLocationSimulation = "YES">
       <BuildableProductRunnable>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "BAB9FDAE1336EF0600EFFAED"
-            BuildableName = "LivuTests.app"
-            BlueprintName = "LivuTests"
-            ReferencedContainer = "container:Livu.xcodeproj">
+            BlueprintIdentifier = "1D6058900D05DD3D006BFB54"
+            BuildableName = "TapIn.app"
+            BlueprintName = "TapIn"
+            ReferencedContainer = "container:TapIn.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
       <AdditionalOptions>
+         <AdditionalOption
+            key = "NSZombieEnabled"
+            value = "YES"
+            isEnabled = "YES">
+         </AdditionalOption>
       </AdditionalOptions>
    </LaunchAction>
    <ProfileAction
@@ -67,10 +74,10 @@
       <BuildableProductRunnable>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "BAB9FDAE1336EF0600EFFAED"
-            BuildableName = "LivuTests.app"
-            BlueprintName = "LivuTests"
-            ReferencedContainer = "container:Livu.xcodeproj">
+            BlueprintIdentifier = "1D6058900D05DD3D006BFB54"
+            BuildableName = "TapIn.app"
+            BlueprintName = "TapIn"
+            ReferencedContainer = "container:TapIn.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>

@@ -10,7 +10,7 @@
 #import <CoreLocation/CoreLocation.h>
 @protocol NetworkUtilitiesDelegate
 @optional
--(void)didCompleteHandeshake:(NSString*)streamID;
+-(void)didCompleteHandeshake:(NSDictionary *)response;
 -(void)handshakeDidFailWithErrors:(NSString*)error;
 -(void) responseDidSucceed:(NSDictionary*)data; 
 @end
@@ -21,7 +21,7 @@
     CLLocation *location;
     NSString * uid;
     NSString * streamID;
-    
+    BOOL streaming;
 }
 -(void)startLocationService;
 -(void)stopLocationService;
@@ -35,5 +35,6 @@
 @property (nonatomic, retain) CLLocation *location;
 @property (nonatomic, retain) NSString *uid;
 @property (nonatomic, retain) NSString *streamID;
+@property (nonatomic) BOOL streaming;
 @property (nonatomic, retain) id <NetworkUtilitiesDelegate> delegate;
 @end

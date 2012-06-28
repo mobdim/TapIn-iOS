@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "Facebook.h"
 
 @class LivuViewController;
 

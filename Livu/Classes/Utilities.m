@@ -30,7 +30,7 @@
 @end
 
 @implementation Utilities
-@synthesize location, uid, streamID, delegate;
+@synthesize location, uid, streamID, delegate, streaming;
 
 - (void)dealloc
 {
@@ -134,7 +134,7 @@
     throttle = NO;
     locationManager = [[CLLocationManager alloc] init];
     locationManager.delegate = self; 
-    locationManager.distanceFilter = 10.0f;
+    locationManager.distanceFilter = 20.0f;
     [locationManager startUpdatingLocation];
 }
 
@@ -149,8 +149,11 @@
 {
     if(!throttle)
     {
-        [self postHandShakeWithCoordinate:newLocation];
-        throttle = YES;
+//            UIAlertView * alert = [[UIAlertView alloc]initWithTitle:@"ok" message:@"ok" delegate:self cancelButtonTitle:@"ok" otherButtonTitles:nil, nil];
+//            [alert show];
+//            [alert release];
+            [self postHandShakeWithCoordinate:newLocation];
+            throttle = YES;
     }
     location = newLocation;
 }
@@ -191,7 +194,7 @@
     
     NSDictionary * bigDict = [[NSDictionary alloc]initWithObjectsAndKeys:dataDict, @"data", nil];
     NSString * jsonData = [bigDict JSONRepresentation];
-    
+//    NSLog(@"%@", jsonData);
     
     ASIFormDataRequest *request = [ASIFormDataRequest requestWithURL:[NSURL URLWithString:@"http://api.tapin.tv/mobile/updatelocation"]];
     [request setRequestMethod:@"POST"];
@@ -216,14 +219,15 @@
 - (void)requestFinished:(ASIHTTPRequest *)request {
     if(request.responseStatusCode == 200)
     {
-        NSLog(@"Response %d ==> %@", request.responseStatusCode, [request responseString]);
+//        NSLog(@"Response %d ==> %@", request.responseStatusCode, [request responseString]);
         NSDictionary * response = (NSDictionary*)[[request responseString] JSONValue];
-        if([response objectForKey:@"streamid"])
+        if([response objectForKey:@"handshake"] && !streaming)
         {
-            streamID = [response objectForKey:@"streamid"];
+            [Utilities setUserDefaultValue:[response objectForKey:@"streamid"] forKey:@"streamid"];
+            streamID = [[NSString stringWithFormat:@"%@",  [response objectForKey:@"streamid"]] retain];
             if ([(NSObject *)delegate respondsToSelector:@selector(didCompleteHandeshake:)])
             {
-                [delegate didCompleteHandeshake:streamID];
+                [delegate didCompleteHandeshake:response];
             }
         }
         else {
@@ -233,10 +237,7 @@
             }
         }
     }
-    else
-    {
-        throttle = NO;
-    }
+    throttle = NO;
 }
 
 - (void) requestFailed:(ASIHTTPRequest *) request {
@@ -276,7 +277,7 @@
 -(void)sendGet:(NSString*)host params:(NSMutableDictionary*)params {
         
         NSString* urlString = [self urlStringForParams:params path:host];
-        NSLog(@"url string: %@", urlString);
+//        NSLog(@"url string: %@", urlString);
         
         //	NSLog(@"%s urlString:%@", __FUNCTION__, urlString);
         NSURL *url = [NSURL URLWithString:urlString];
