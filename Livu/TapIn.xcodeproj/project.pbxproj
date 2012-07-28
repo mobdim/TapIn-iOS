@@ -18,14 +18,13 @@
 		2899E5220DE3E06400AC0155 /* LivuViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2899E5210DE3E06400AC0155 /* LivuViewController.xib */; };
 		28AD733F0D9D9553002E5188 /* MainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 28AD733E0D9D9553002E5188 /* MainWindow.xib */; };
 		28D7ACF80DDB3853001CB0EB /* LivuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 28D7ACF70DDB3853001CB0EB /* LivuViewController.m */; };
-		9701D9CC15979FC900AA9C0A /* Twitter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9701D9CB15979FC900AA9C0A /* Twitter.framework */; };
+		9701D9CC15979FC900AA9C0A /* Twitter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9701D9CB15979FC900AA9C0A /* Twitter.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		97123295159A3BE20054F9ED /* signin.png in Resources */ = {isa = PBXBuildFile; fileRef = 97123293159A3BE20054F9ED /* signin.png */; };
 		97123296159A3BE20054F9ED /* signin@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 97123294159A3BE20054F9ED /* signin@2x.png */; };
 		97123298159A3DC00054F9ED /* signup@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 97123297159A3DC00054F9ED /* signup@2x.png */; };
 		9712329A159A3DF00054F9ED /* signup.png in Resources */ = {isa = PBXBuildFile; fileRef = 97123299159A3DF00054F9ED /* signup.png */; };
 		9712329D159A3F7D0054F9ED /* bg.png in Resources */ = {isa = PBXBuildFile; fileRef = 9712329B159A3F7D0054F9ED /* bg.png */; };
 		9712329E159A3F7D0054F9ED /* bg@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9712329C159A3F7D0054F9ED /* bg@2x.png */; };
-		971ACF6D159BD5EA004CF8E3 /* icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 97CE0FB41598094900E2943E /* icon@2x.png */; };
 		97226A66159645F10064722E /* fbicon.png in Resources */ = {isa = PBXBuildFile; fileRef = 97226A64159645F10064722E /* fbicon.png */; };
 		97226A67159645F10064722E /* fbicon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 97226A65159645F10064722E /* fbicon@2x.png */; };
 		972960361592DB21009587E9 /* user.png in Resources */ = {isa = PBXBuildFile; fileRef = 972960341592DB20009587E9 /* user.png */; };
@@ -52,14 +51,18 @@
 		97885019158FC62100531A1A /* twitterbutton@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 97885017158FC62100531A1A /* twitterbutton@2x.png */; };
 		978DCE12159292AF000CAEDC /* progressbar.png in Resources */ = {isa = PBXBuildFile; fileRef = 978DCE10159292AF000CAEDC /* progressbar.png */; };
 		978DCE13159292AF000CAEDC /* progressbar@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 978DCE11159292AF000CAEDC /* progressbar@2x.png */; };
+		979CF78B15B09E2800B17606 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BA971BDB137B9FFE003AFCCB /* AudioToolbox.framework */; };
+		979CF78D15B0A02900B17606 /* begin_video_record.caf in Resources */ = {isa = PBXBuildFile; fileRef = 979CF78C15B0A02900B17606 /* begin_video_record.caf */; };
 		97CE0F931597A92D00E2943E /* ShareKit.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 97CE0F8C1597A91C00E2943E /* ShareKit.bundle */; };
 		97CE0F941597A93B00E2943E /* libShareKit.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 97CE0F8A1597A91C00E2943E /* libShareKit.a */; };
 		97CE0F9B1597AD6300E2943E /* SMFileUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 97CE0F9A1597AD6300E2943E /* SMFileUtil.m */; };
 		97CE0FAD1597B4F000E2943E /* MySHKConfigurator.m in Sources */ = {isa = PBXBuildFile; fileRef = 97CE0FAC1597B4F000E2943E /* MySHKConfigurator.m */; };
 		97CE0FB01597C9BF00E2943E /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 97CE0FAF1597C9BF00E2943E /* Default@2x.png */; };
 		97CE0FB21597C9C200E2943E /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 97CE0FB11597C9C200E2943E /* Default.png */; };
-		97CE0FB51598094900E2943E /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 97CE0FB31598094900E2943E /* icon.png */; };
-		97CE0FBB159809A300E2943E /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 97CE0FBA159809A300E2943E /* Icon.png */; };
+		97D674AC159D0E19008D0306 /* TwitterVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 97D674AA159D0E17008D0306 /* TwitterVC.m */; };
+		97D674AD159D0E19008D0306 /* TwitterVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 97D674AB159D0E18008D0306 /* TwitterVC.xib */; };
+		97D674BA159D3C59008D0306 /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 97D674B8159D3C59008D0306 /* Icon.png */; };
+		97D674BB159D3C59008D0306 /* Icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 97D674B9159D3C59008D0306 /* Icon@2x.png */; };
 		97DAA88D158C32F900627F39 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 97DAA88C158C32F900627F39 /* MessageUI.framework */; };
 		97DAA88F158C330000627F39 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 97DAA88E158C32FF00627F39 /* Security.framework */; };
 		97E3175515747273003C9126 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 97E3175415747273003C9126 /* MobileCoreServices.framework */; };
@@ -94,7 +97,7 @@
 		BA2FDFC512EE1982006AEF40 /* config_close_button@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = BA2FDFA612EE1982006AEF40 /* config_close_button@2x.png */; };
 		BA2FDFC612EE1982006AEF40 /* config_close_button_down.png in Resources */ = {isa = PBXBuildFile; fileRef = BA2FDFA712EE1982006AEF40 /* config_close_button_down.png */; };
 		BA2FDFC712EE1982006AEF40 /* config_close_button_down@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = BA2FDFA812EE1982006AEF40 /* config_close_button_down@2x.png */; };
-		BA3150F612C86AFC00CF0E5F /* CoreFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BA3150E212C86AFC00CF0E5F /* CoreFoundation.framework */; settings = {ATTRIBUTES = (Required, ); }; };
+		BA3150F612C86AFC00CF0E5F /* CoreFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BA3150E212C86AFC00CF0E5F /* CoreFoundation.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		BA3150F812C86AFC00CF0E5F /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BA3150E412C86AFC00CF0E5F /* CFNetwork.framework */; };
 		BA3150F912C86AFC00CF0E5F /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BA3150E512C86AFC00CF0E5F /* AVFoundation.framework */; };
 		BA3150FA12C86AFC00CF0E5F /* CoreMedia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BA3150E612C86AFC00CF0E5F /* CoreMedia.framework */; };
@@ -341,6 +344,7 @@
 		97885017158FC62100531A1A /* twitterbutton@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "twitterbutton@2x.png"; sourceTree = "<group>"; };
 		978DCE10159292AF000CAEDC /* progressbar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = progressbar.png; sourceTree = "<group>"; };
 		978DCE11159292AF000CAEDC /* progressbar@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "progressbar@2x.png"; sourceTree = "<group>"; };
+		979CF78C15B0A02900B17606 /* begin_video_record.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = begin_video_record.caf; sourceTree = SOURCE_ROOT; };
 		97CE0F7C1597A91B00E2943E /* ShareKit.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = ShareKit.xcodeproj; path = ../Submodules/ShareKit/ShareKit.xcodeproj; sourceTree = "<group>"; };
 		97CE0F991597AD6300E2943E /* SMFileUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SMFileUtil.h; path = Classes/SMFileUtil.h; sourceTree = "<group>"; };
 		97CE0F9A1597AD6300E2943E /* SMFileUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SMFileUtil.m; path = Classes/SMFileUtil.m; sourceTree = "<group>"; };
@@ -348,9 +352,12 @@
 		97CE0FAC1597B4F000E2943E /* MySHKConfigurator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MySHKConfigurator.m; path = Classes/MySHKConfigurator.m; sourceTree = "<group>"; };
 		97CE0FAF1597C9BF00E2943E /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
 		97CE0FB11597C9C200E2943E /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
-		97CE0FB31598094900E2943E /* icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon.png; sourceTree = "<group>"; };
-		97CE0FB41598094900E2943E /* icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon@2x.png"; sourceTree = "<group>"; };
 		97CE0FBA159809A300E2943E /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon.png; sourceTree = "<group>"; };
+		97D674A9159D0E17008D0306 /* TwitterVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TwitterVC.h; sourceTree = "<group>"; };
+		97D674AA159D0E17008D0306 /* TwitterVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TwitterVC.m; sourceTree = "<group>"; };
+		97D674AB159D0E18008D0306 /* TwitterVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TwitterVC.xib; sourceTree = "<group>"; };
+		97D674B8159D3C59008D0306 /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon.png; sourceTree = SOURCE_ROOT; };
+		97D674B9159D3C59008D0306 /* Icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon@2x.png"; sourceTree = SOURCE_ROOT; };
 		97DAA88C158C32F900627F39 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
 		97DAA88E158C32FF00627F39 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		97E3175415747273003C9126 /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
@@ -380,6 +387,7 @@
 		97E3180315747441003C9126 /* Utilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Utilities.h; sourceTree = "<group>"; };
 		97E3180415747441003C9126 /* Utilities.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Utilities.m; sourceTree = "<group>"; };
 		97E3180615747733003C9126 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		97E5BEC815BFB915006616E9 /* TapIn.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = TapIn.entitlements; sourceTree = "<group>"; };
 		BA012A2613A7333F00E81599 /* LivuViewController+Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "LivuViewController+Reachability.h"; sourceTree = "<group>"; };
 		BA012A2713A7334000E81599 /* LivuViewController+Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "LivuViewController+Reachability.m"; sourceTree = "<group>"; };
 		BA14CE9B138C1D790067FBCA /* LivuCaptureManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LivuCaptureManager.h; path = Classes/LivuCaptureManager.h; sourceTree = "<group>"; };
@@ -573,6 +581,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				979CF78B15B09E2800B17606 /* AudioToolbox.framework in Frameworks */,
 				BAB9FE2E1336F68600EFFAED /* MediaPlayer.framework in Frameworks */,
 				BAB9FE2F1336F68600EFFAED /* QuartzCore.framework in Frameworks */,
 				BAB9FE301336F68600EFFAED /* SystemConfiguration.framework in Frameworks */,
@@ -617,6 +626,7 @@
 		29B97314FDCFA39411CA2CEA /* CustomTemplate */ = {
 			isa = PBXGroup;
 			children = (
+				97E5BEC815BFB915006616E9 /* TapIn.entitlements */,
 				97CE0FBA159809A300E2943E /* Icon.png */,
 				97CE0FB11597C9C200E2943E /* Default.png */,
 				97CE0FAF1597C9BF00E2943E /* Default@2x.png */,
@@ -763,21 +773,10 @@
 		BA2FDF9A12EE1982006AEF40 /* images */ = {
 			isa = PBXGroup;
 			children = (
-				BA2FDF9B12EE1982006AEF40 /* icons */,
 				BA2FDF9E12EE1982006AEF40 /* LivuConfigView */,
 				BA2FDFA912EE1982006AEF40 /* LivuView */,
 			);
 			path = images;
-			sourceTree = SOURCE_ROOT;
-		};
-		BA2FDF9B12EE1982006AEF40 /* icons */ = {
-			isa = PBXGroup;
-			children = (
-				97CE0FB31598094900E2943E /* icon.png */,
-				97CE0FB41598094900E2943E /* icon@2x.png */,
-			);
-			name = icons;
-			path = images/icons;
 			sourceTree = SOURCE_ROOT;
 		};
 		BA2FDF9E12EE1982006AEF40 /* LivuConfigView */ = {
@@ -803,6 +802,8 @@
 			children = (
 				BAACD54E131F44EA00F0E5B0 /* broadcastoff.png */,
 				BAACD54F131F44EA00F0E5B0 /* broadcastoff@2x.png */,
+				97D674B8159D3C59008D0306 /* Icon.png */,
+				97D674B9159D3C59008D0306 /* Icon@2x.png */,
 				978DCE10159292AF000CAEDC /* progressbar.png */,
 				978DCE11159292AF000CAEDC /* progressbar@2x.png */,
 				BAACD550131F44EA00F0E5B0 /* broadcaston.png */,
@@ -845,6 +846,7 @@
 				97885017158FC62100531A1A /* twitterbutton@2x.png */,
 				972960341592DB20009587E9 /* user.png */,
 				972960351592DB20009587E9 /* user@2x.png */,
+				979CF78C15B0A02900B17606 /* begin_video_record.caf */,
 				BAACD55E131F44EA00F0E5B0 /* xbutton.png */,
 				BAACD55F131F44EA00F0E5B0 /* xbutton@2x.png */,
 			);
@@ -887,6 +889,9 @@
 				97669FA41592D6BA00BF76E6 /* UserViewController.h */,
 				97669FA51592D6BA00BF76E6 /* UserViewController.m */,
 				97669FA61592D6BA00BF76E6 /* UserViewController.xib */,
+				97D674A9159D0E17008D0306 /* TwitterVC.h */,
+				97D674AA159D0E17008D0306 /* TwitterVC.m */,
+				97D674AB159D0E18008D0306 /* TwitterVC.xib */,
 			);
 			name = "Live Stream";
 			sourceTree = "<group>";
@@ -1295,8 +1300,6 @@
 				97226A67159645F10064722E /* fbicon@2x.png in Resources */,
 				97CE0FB01597C9BF00E2943E /* Default@2x.png in Resources */,
 				97CE0FB21597C9C200E2943E /* Default.png in Resources */,
-				97CE0FB51598094900E2943E /* icon.png in Resources */,
-				97CE0FBB159809A300E2943E /* Icon.png in Resources */,
 				976C60A31599A1B300180096 /* onbutton.png in Resources */,
 				976C60A41599A1B300180096 /* onbutton@2x.png in Resources */,
 				97123295159A3BE20054F9ED /* signin.png in Resources */,
@@ -1305,7 +1308,10 @@
 				9712329A159A3DF00054F9ED /* signup.png in Resources */,
 				9712329D159A3F7D0054F9ED /* bg.png in Resources */,
 				9712329E159A3F7D0054F9ED /* bg@2x.png in Resources */,
-				971ACF6D159BD5EA004CF8E3 /* icon@2x.png in Resources */,
+				97D674AD159D0E19008D0306 /* TwitterVC.xib in Resources */,
+				97D674BA159D3C59008D0306 /* Icon.png in Resources */,
+				97D674BB159D3C59008D0306 /* Icon@2x.png in Resources */,
+				979CF78D15B0A02900B17606 /* begin_video_record.caf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1435,6 +1441,7 @@
 				97336F2D159119DF00653EE3 /* SignupViewController.m in Sources */,
 				97669FA71592D6BA00BF76E6 /* UserViewController.m in Sources */,
 				97CE0FAD1597B4F000E2943E /* MySHKConfigurator.m in Sources */,
+				97D674AC159D0E19008D0306 /* TwitterVC.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1534,6 +1541,8 @@
 					"-all_load",
 				);
 				PRODUCT_NAME = TapIn;
+				PROVISIONING_PROFILE = "5C74B423-F397-443E-9B42-B3CFD0BD3F5B";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "5C74B423-F397-443E-9B42-B3CFD0BD3F5B";
 				SUPPORTED_PLATFORMS = iphoneos;
 				USER_HEADER_SEARCH_PATHS = "../Submodules/**";
 				VALID_ARCHS = armv7;
@@ -1568,6 +1577,8 @@
 					"-all_load",
 				);
 				PRODUCT_NAME = TapIn;
+				PROVISIONING_PROFILE = "5C74B423-F397-443E-9B42-B3CFD0BD3F5B";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "5C74B423-F397-443E-9B42-B3CFD0BD3F5B";
 				SUPPORTED_PLATFORMS = iphoneos;
 				USER_HEADER_SEARCH_PATHS = "../Submodules/**";
 				VALIDATE_PRODUCT = YES;
@@ -1579,8 +1590,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ARCHS = "$(ARCHS_UNIVERSAL_IPHONE_OS)";
-				CODE_SIGN_IDENTITY = "iPhone Distribution: Stephen McFarlin";
-				"CODE_SIGN_IDENTITY[sdk=*]" = "iPhone Distribution: Stephen McFarlin";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: FS Stack, Inc";
+				"CODE_SIGN_IDENTITY[sdk=*]" = "iPhone Distribution: FS Stack, Inc";
 				CURRENT_PROJECT_VERSION = 1.0.0;
 				GCC_C_LANGUAGE_STANDARD = c99;
 				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
@@ -1594,8 +1605,8 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 4.2;
 				LLVM_LTO = NO;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
-				PROVISIONING_PROFILE = "A882D66C-52E7-4818-8341-1F8D5806822D";
-				"PROVISIONING_PROFILE[sdk=*]" = "A882D66C-52E7-4818-8341-1F8D5806822D";
+				PROVISIONING_PROFILE = "8005AD3E-072A-4C67-8045-64ECD9F14E73";
+				"PROVISIONING_PROFILE[sdk=*]" = "8005AD3E-072A-4C67-8045-64ECD9F14E73";
 				RUN_CLANG_STATIC_ANALYZER = NO;
 				SDKROOT = iphoneos;
 				VALID_ARCHS = "armv7, i386";
@@ -1633,6 +1644,9 @@
 					"-all_load",
 				);
 				PRODUCT_NAME = TapIn;
+				PROVISIONING_PROFILE = "5C74B423-F397-443E-9B42-B3CFD0BD3F5B";
+				"PROVISIONING_PROFILE[sdk=*]" = "5C74B423-F397-443E-9B42-B3CFD0BD3F5B";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "5C74B423-F397-443E-9B42-B3CFD0BD3F5B";
 				SUPPORTED_PLATFORMS = iphoneos;
 				USER_HEADER_SEARCH_PATHS = "../Submodules/**";
 				VALIDATE_PRODUCT = YES;
@@ -1754,8 +1768,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ARCHS = "$(ARCHS_UNIVERSAL_IPHONE_OS)";
-				CODE_SIGN_IDENTITY = "iPhone Distribution: Stephen McFarlin";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Stephen McFarlin";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: FS Stack, Inc";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: FS Stack, Inc";
 				CURRENT_PROJECT_VERSION = 1.0.0;
 				GCC_C_LANGUAGE_STANDARD = c99;
 				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
@@ -1769,8 +1783,8 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 4.2;
 				LLVM_LTO = NO;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
-				PROVISIONING_PROFILE = "A882D66C-52E7-4818-8341-1F8D5806822D";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "A882D66C-52E7-4818-8341-1F8D5806822D";
+				PROVISIONING_PROFILE = "8005AD3E-072A-4C67-8045-64ECD9F14E73";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "8005AD3E-072A-4C67-8045-64ECD9F14E73";
 				RUN_CLANG_STATIC_ANALYZER = NO;
 				SDKROOT = iphoneos;
 				VALID_ARCHS = "armv7, i386";
@@ -1807,6 +1821,8 @@
 					"-all_load",
 				);
 				PRODUCT_NAME = TapIn;
+				PROVISIONING_PROFILE = "5C74B423-F397-443E-9B42-B3CFD0BD3F5B";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "5C74B423-F397-443E-9B42-B3CFD0BD3F5B";
 				SUPPORTED_PLATFORMS = iphoneos;
 				USER_HEADER_SEARCH_PATHS = "../Submodules/**";
 				VALIDATE_PRODUCT = YES;
@@ -1922,8 +1938,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ARCHS = "$(ARCHS_UNIVERSAL_IPHONE_OS)";
-				CODE_SIGN_IDENTITY = "iPhone Developer: Stephen McFarlin (Z79C29578A)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Stephen McFarlin (Z79C29578A)";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: FS Stack, Inc";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: FS Stack, Inc";
 				GCC_C_LANGUAGE_STANDARD = c99;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
@@ -1935,6 +1951,8 @@
 				);
 				IPHONEOS_DEPLOYMENT_TARGET = 4.2;
 				OTHER_CFLAGS = "-DLV_DEBUG";
+				PROVISIONING_PROFILE = "8005AD3E-072A-4C67-8045-64ECD9F14E73";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "8005AD3E-072A-4C67-8045-64ECD9F14E73";
 				RUN_CLANG_STATIC_ANALYZER = YES;
 				SDKROOT = iphoneos;
 				VALID_ARCHS = "armv7, i386";
@@ -1945,8 +1963,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ARCHS = "$(ARCHS_UNIVERSAL_IPHONE_OS)";
-				CODE_SIGN_IDENTITY = "iPhone Developer: Stephen McFarlin (Z79C29578A)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Stephen McFarlin (Z79C29578A)";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: FS Stack, Inc";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: FS Stack, Inc";
 				GCC_C_LANGUAGE_STANDARD = c99;
 				GCC_OPTIMIZATION_LEVEL = 3;
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
@@ -1958,6 +1976,8 @@
 				);
 				IPHONEOS_DEPLOYMENT_TARGET = 4.2;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				PROVISIONING_PROFILE = "8005AD3E-072A-4C67-8045-64ECD9F14E73";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "8005AD3E-072A-4C67-8045-64ECD9F14E73";
 				SDKROOT = iphoneos;
 				VALID_ARCHS = "armv7, i386";
 			};

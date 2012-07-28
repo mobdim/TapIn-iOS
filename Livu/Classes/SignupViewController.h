@@ -16,6 +16,12 @@
     IBOutlet UITextField * password;
     IBOutlet UIView * container;
     IBOutlet UIScrollView * scrollview;
+    IBOutlet UILabel * topCopy;
+    IBOutlet UITextField * email;
+    IBOutlet UIButton * loginButton;
+    IBOutlet UINavigationItem * upperRight;
+    IBOutlet UIBarButtonItem * upperRightButton;
+    IBOutlet UIButton * dontHaveAccount;
 }
 -(void)sendPost:(NSString*)host params:(NSMutableDictionary*)params;
 -(IBAction)doneButtonTouched:(id)sender;

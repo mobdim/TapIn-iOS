@@ -534,7 +534,8 @@ void rtcp_session_callback(struct rtp *session, uint32_t rtp_ts, int max_size) {
 		dispatch_semaphore_signal(queue_rw_sema);
 		dispatch_release(queue_rw_sema);
 	}
-	
+	@try {
+   
 	dispatch_sync(sender_queue, ^{		
 		broadcasting = NO;
 		
@@ -557,6 +558,13 @@ void rtcp_session_callback(struct rtp *session, uint32_t rtp_ts, int max_size) {
 		[avQueue removeAllObjects];
 		[videoQueue removeAllObjects];
 	});
+    }
+    @catch (NSException *exception) {
+        
+    }
+    @finally {
+        
+    }
 	dispatch_release(sender_queue);
 	
 	dispatch_async(caller_queue, ^{

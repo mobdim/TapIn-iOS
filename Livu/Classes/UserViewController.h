@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "Utilities.h"
 
-@interface UserViewController : UIViewController <UITextFieldDelegate, NetworkUtilitiesDelegate>
+@interface UserViewController : UIViewController <UITextFieldDelegate, NetworkUtilitiesDelegate, UIWebViewDelegate>
 {
     IBOutlet UIWebView * webview;
     IBOutlet UIView * signupView;

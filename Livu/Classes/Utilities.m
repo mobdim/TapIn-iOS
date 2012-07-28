@@ -130,7 +130,6 @@
 
 -(void)startLocationService
 {
-    streamID = @"";
     throttle = NO;
     locationManager = [[CLLocationManager alloc] init];
     locationManager.delegate = self; 
@@ -152,10 +151,19 @@
 //            UIAlertView * alert = [[UIAlertView alloc]initWithTitle:@"ok" message:@"ok" delegate:self cancelButtonTitle:@"ok" otherButtonTitles:nil, nil];
 //            [alert show];
 //            [alert release];
-            [self postHandShakeWithCoordinate:newLocation];
             throttle = YES;
     }
-    location = newLocation;
+    if(streaming)
+    {
+        [self postHandShakeWithCoordinate:newLocation];
+    }
+    location = [newLocation retain];
+}
+
+-(void)startStream
+{
+    streamID = @"";
+    [self postHandShakeWithCoordinate:location];   
 }
 
 -(void)postHandShakeWithCoordinate:(CLLocation *)_location
@@ -163,6 +171,7 @@
     NSDictionary * streamDict = [[NSDictionary alloc]initWithObjectsAndKeys:
                                  @"1.strm.tapin.tv", @"host",
                                  streamID, @"id", nil];
+    
     
     NSString * _uid = ([Utilities userDefaultValueforKey:@"uid"]) ? [Utilities userDefaultValueforKey:@"uid"] : [self generateUuidString];
     [Utilities setUserDefaultValue:_uid forKey:@"uid"];
@@ -194,9 +203,10 @@
     
     NSDictionary * bigDict = [[NSDictionary alloc]initWithObjectsAndKeys:dataDict, @"data", nil];
     NSString * jsonData = [bigDict JSONRepresentation];
+    NSLog(@"%@", jsonData);
 //    NSLog(@"%@", jsonData);
     
-    ASIFormDataRequest *request = [ASIFormDataRequest requestWithURL:[NSURL URLWithString:@"http://api.tapin.tv/mobile/updatelocation"]];
+    ASIFormDataRequest *request = [ASIFormDataRequest requestWithURL:[NSURL URLWithString:@"http://stage.api.tapin.tv/mobile/updatelocation"]];
     [request setRequestMethod:@"POST"];
     [request setData:[jsonData dataUsingEncoding:NSUTF8StringEncoding] forKey:@"data"];
     [request setDelegate:self];
@@ -219,7 +229,7 @@
 - (void)requestFinished:(ASIHTTPRequest *)request {
     if(request.responseStatusCode == 200)
     {
-//        NSLog(@"Response %d ==> %@", request.responseStatusCode, [request responseString]);
+        NSLog(@"Response %d ==> %@", request.responseStatusCode, [request responseString]);
         NSDictionary * response = (NSDictionary*)[[request responseString] JSONValue];
         if([response objectForKey:@"handshake"] && !streaming)
         {
@@ -321,7 +331,7 @@
 
 #pragma mark - private
 -(NSString*)urlStringForParams:(NSDictionary*)params path:(NSString*)path {
-	NSString* fullPath = [NSString stringWithFormat:@"%@/%@/", @"http://api.tapin.tv", path];
+	NSString* fullPath = [NSString stringWithFormat:@"%@/%@/", @"http://stage.api.tapin.tv", path];
 	NSMutableString* queryPath = [NSMutableString stringWithCapacity:100];
 	NSString* separator = @"?";
 	for (NSString* key in [params allKeys]) {

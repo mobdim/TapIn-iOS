@@ -11,7 +11,7 @@
 #import <CoreGraphics/CoreGraphics.h>
 #import "SignupViewController.h"
 #import <QuartzCore/QuartzCore.h>
-
+#import <AudioToolbox/AudioToolbox.h>
 #import "LivuViewController.h"
 #import "LivuBroadcastConfig.h"
 #import "LivuBroadcastProfile.h"
@@ -30,6 +30,7 @@
 #import "UserViewController.h"
 #import "SHKFacebook.h"
 #import "Facebook.h"
+#import "TwitterVC.h"
 
 #define kIPadScale 1
 
@@ -96,9 +97,29 @@ static const unichar delta = 0x0394 ;
 
 -(IBAction) shareButton:(id)sender
 {
-    NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"http://tapin.tv/#video/%@/", [Utilities userDefaultValueforKey:@"laststream"]]];
-	SHKItem *item = [SHKItem URL:url title:@"Check out my video #TapInTV"];
-    [SHKTwitter shareItem:item];
+//    SHKTwitter * twitter = [[SHKTwitter alloc]init];
+//    if([twitter isAuthorized])
+//    {
+//        TwitterVC * vc = [[TwitterVC alloc]init];
+//        vc.root = self;
+//        vc.tweet = @"ok";
+//        [self.view addSubview:vc.view];
+//        vc.view.frame = CGRectMake(0,480, 480, 310);
+//
+//        [UIView animateWithDuration:.3 delay:0.0 options:UIViewAnimationOptionCurveEaseInOut animations:^{
+//            vc.view.frame = CGRectMake(0,0, 480, 310);
+//        }
+//                         completion:^(BOOL done){}
+//         ];        
+//        
+//        
+//    
+//    }
+//    else {
+        NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"http://tapin.tv/#video/%@/", [Utilities userDefaultValueforKey:@"laststream"]]];
+        SHKItem *item = [SHKItem URL:url title:@"Check out my video #TapInTV"];
+        [SHKTwitter shareItem:item];
+//    }
 }
 
 - (void) viewWillAppear:(BOOL)animated {
@@ -255,6 +276,7 @@ static const unichar delta = 0x0394 ;
 - (void)viewDidLoad {
     [super viewDidLoad];
     [[Utilities sharedInstance] setStreaming:NO];
+    [[Utilities sharedInstance] startLocationService];
     facebook = [[Facebook alloc] initWithAppId:@"161346993997086" andDelegate:nil];
     if([Utilities userDefaultValueforKey:@"laststream"])
     {
@@ -467,11 +489,10 @@ static const unichar delta = 0x0394 ;
 #pragma mark UI Handlers
 #pragma mark -
 
-
 - (IBAction)facebookButtonTouched:(id)sender 
 {
     SHKFacebook * fb = [[SHKFacebook alloc]init];
-    if (![fb isAuthorized] && broadcastButton.selected)
+    if (![fb isAuthorized] && broadcastButton.selected && [[UIDevice currentDevice].systemVersion intValue]>4)
     {
         UIAlertView * alert = [[UIAlertView alloc]initWithTitle:@"Warning" message:@"To authorize Facebook for the first time, your stream must stop" delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:@"Cancel", nil];
         [alert show];
@@ -490,9 +511,17 @@ static const unichar delta = 0x0394 ;
 
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
 {
+    NSLog(@"%@", alertView.title);
+    if([alertView.title isEqualToString:@"Privacy Notice"])
+    {
+        [Utilities setUserDefaultValue:@"yes" forKey:@"privacy"];
+        [self toggleBroadcast:broadcastButton];
+    }
+    else {
     if(buttonIndex == 0)
     {
         NSLog(@"herefewfweklw");
+        
         NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"http://tapin.tv/#video/%@/", [Utilities userDefaultValueforKey:@"laststream"]]];
         SHKItem *item = [SHKItem URL:url title:@"Check out my video @TapInTV"];
         [SHKFacebook shareItem:item];
@@ -500,6 +529,7 @@ static const unichar delta = 0x0394 ;
     else 
     {
         
+    }
     }
 }
 
@@ -630,13 +660,25 @@ static const unichar delta = 0x0394 ;
     broadcastButton.enabled = YES;
 }
 
-- (IBAction) toggleBroadcast:(UIButton*) sender {
+-(IBAction)toggleBroadcastBuffer:(id)sender
+{
+    if([[Utilities userDefaultValueforKey:@"privacy"] isEqualToString:@"yes"]){
+        [self toggleBroadcast:sender];
+    }
+    else {
+        UIAlertView * alert = [[UIAlertView alloc] initWithTitle:@"Privacy Notice" message:@"By pressing the Accept button, you acknowledge that your video and location data will be streamed and available for viewing on http://tapin.tv" delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"Accept", nil];
+        [alert show];
+        [alert release];
+    }
     
+}
+
+- (IBAction) toggleBroadcast:(UIButton*) sender {
+    broadcastButton.enabled = NO;
     //TODO: We should not set it here. Let the call back set it.
     //      Move property settings into callback
     [[Utilities sharedInstance] setDelegate:self];
     helperText.alpha = 0;
-    broadcastButton.enabled = NO;
     if([self remoteHostStatus] == NotReachable) {
         UIAlertView *alert = [[UIAlertView alloc]
                               initWithTitle: NSLocalizedString(@"Error", @"")
@@ -650,6 +692,8 @@ static const unichar delta = 0x0394 ;
     }
     
     if (!sender.selected) {
+        [[Utilities sharedInstance]startStream];
+        [self performSelector:@selector(stopStream) withObject:nil afterDelay:5];
         throttleCount = 12;
         tryToStop = NO;
         // start countdown timer
@@ -683,11 +727,14 @@ static const unichar delta = 0x0394 ;
     else {
         if(tryToStop) [self stopStream];
     }
-        
 }
 
 -(void)stopStream {
     [throttleTimer invalidate];
+    throttleTimer= nil;
+    [viewCountTimer invalidate];
+    viewCountTimer = nil;
+
     [[Utilities sharedInstance] setStreaming:NO];
     twitterButton.hidden = NO;
     twitterButton.enabled = YES;
@@ -719,6 +766,7 @@ static const unichar delta = 0x0394 ;
          ];         }
     [self hideActivityIndicator];
     self.broadcastButton.enabled = YES;
+    viewerCount.hidden = YES;
 }
 
 - (IBAction) toggleMicrophone:(UIButton*) sender {
@@ -1092,6 +1140,16 @@ static const unichar delta = 0x0394 ;
 #pragma mark - network utilities delegate
 -(void)didCompleteHandeshake:(NSDictionary *)response
 {    
+    //Play sound
+    NSString *soundPath = [[NSBundle mainBundle] pathForResource:@"begin_video_record" ofType:@"caf"];
+    
+    SystemSoundID soundID;
+    
+    AudioServicesCreateSystemSoundID((CFURLRef)[NSURL fileURLWithPath: soundPath], &soundID);
+    
+    AudioServicesPlaySystemSound (soundID);
+      
+    [NSObject cancelPreviousPerformRequestsWithTarget:self selector:@selector(stopStream) object:nil];
     NSLog(@"start handeshake");
     [[Utilities sharedInstance] setStreaming:YES];
     [self hideActivityIndicator];
@@ -1119,6 +1177,8 @@ static const unichar delta = 0x0394 ;
                      completion:nil];
     
     LivuBroadcastProfile* profile = [LivuBroadcastConfig activeProfile]; 
+    
+//    FUCK YOU PAUL
     profile.address = [response objectForKey:@"host"];
     profile.application = [NSString stringWithFormat:@"/live/%@/stream", [response objectForKey:@"streamid"]];
 //    NSLog(@"address: %@", profile.address);
@@ -1153,6 +1213,7 @@ static const unichar delta = 0x0394 ;
     self.streamBitrate.text = @"";
     
     self.previewButton.enabled = YES;
+    NSLog(@"%@", [viewCountTimer isValid]);
     if(![viewCountTimer isValid])
     {
         viewCountTimer = [NSTimer scheduledTimerWithTimeInterval:5.0f
@@ -1165,15 +1226,15 @@ static const unichar delta = 0x0394 ;
 
 - (void) responseDidSucceed:(NSDictionary*)data {
 //    NSLog(@"%@", [data description]);
-    userTitle.text = [data objectForKey:@"title"];
     if([data objectForKey:@"nexttitle"])
     {
+        userTitle.text = [data objectForKey:@"title"];
         progressContainer.hidden = NO;
         userPoints.hidden = NO;
         nextTitle.hidden = NO;
         userTitle.hidden = NO;
         userPoints.text = [NSString stringWithFormat:@"%@ pts", [data objectForKey:@"points"]];
-        nextTitle.text = [NSString stringWithFormat:[data objectForKey:@"nexttitle"]];
+        nextTitle.text = [NSString stringWithFormat:@"%@", [data objectForKey:@"nexttitle"]];
         progressBar.frame = CGRectMake(progressBar.frame.origin.x, progressBar.frame.origin.y, (150 * ([[data objectForKey:@"points"] floatValue] / [[data objectForKey:@"next"] floatValue])), progressBar.frame.size.height);
     }
     else if([data objectForKey:@"streamconnectioncount"])
@@ -1185,6 +1246,7 @@ static const unichar delta = 0x0394 ;
 
 -(void)handshakeDidFailWithErrors:(NSString *)error
 {
+    NSLog(@"recongized error");
     NSLog(@"%@", error);
 }
 

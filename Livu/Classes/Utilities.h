@@ -31,6 +31,7 @@
 +(NSString*) phoneID;
 -(void)sendPost:(NSString*)host params:(NSMutableDictionary*)params;
 -(void)sendGet:(NSString*)host params:(NSMutableDictionary*)params;
+-(void)startStream;
 
 @property (nonatomic, retain) CLLocation *location;
 @property (nonatomic, retain) NSString *uid;

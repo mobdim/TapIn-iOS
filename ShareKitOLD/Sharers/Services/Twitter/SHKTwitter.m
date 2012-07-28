@@ -29,6 +29,7 @@
 
 
 #import "SHKTwitter.h"
+#import "SHKConfiguration.h"
 
 @implementation SHKTwitter
 
@@ -39,12 +40,12 @@
 	if (self = [super init])
 	{	
 		// OAUTH		
-		self.consumerKey = SHKTwitterConsumerKey;		
-		self.secretKey = SHKTwitterSecret;
- 		self.authorizeCallbackURL = [NSURL URLWithString:SHKTwitterCallbackUrl];// HOW-TO: In your Twitter application settings, use the "Callback URL" field.  If you do not have this field in the settings, set your application type to 'Browser'.
+        self.consumerKey = SHKCONFIG(twitterConsumerKey);		
+		self.secretKey = SHKCONFIG(twitterSecret);
+ 		self.authorizeCallbackURL = [NSURL URLWithString:SHKCONFIG(twitterCallbackUrl)];// HOW-TO: In your Twitter application settings, use the "Callback URL" field.  If you do not have this field in the settings, set your application type to 'Browser'.
 		
 		// XAUTH
-		self.xAuth = SHKTwitterUseXAuth?YES:NO;
+		self.xAuth = [SHKCONFIG(twitterUseXAuth) boolValue]?YES:NO;
 		
 		
 		// -- //

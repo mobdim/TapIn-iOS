@@ -29,7 +29,7 @@
                      } 
                      completion:^(BOOL finished){
                          [self.view removeFromSuperview];
-                         [self release];
+//                         [self release];
                      }];}
 
 - (void)didReceiveMemoryWarning
@@ -42,15 +42,26 @@
 
 #pragma mark - View lifecycle
 
+- (void)webViewDidFinishLoad:(UIWebView *)webView {
+//    [webView stringByEvaluatingJavaScriptFromString:@"window.location.href = '#profile/vu0tran';"];
+    NSString *myUrl = webView.request.URL.absoluteString ;
+    [webView stringByEvaluatingJavaScriptFromString:[NSString stringWithFormat:@"window.location.href = '#profile/%@'", [Utilities userDefaultValueforKey:@"user"]]];
+    NSLog(@"%@", myUrl);
+
+}
+
 -(void)viewWillAppear:(BOOL)animated
 {
 
-    [webview loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"http://tapin.tv/mobile.html#profile/%@", [Utilities userDefaultValueforKey:@"user"]]]]];
+
+//    [webview loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"http://tapin.tv/mobile.html#profile/%@", [Utilities userDefaultValueforKey:@"user"]]]]];
 }
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+        [webview loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"http://tapin.tv/mobile.html#profile/%@", [Utilities userDefaultValueforKey:@"user"]]]]];
+    NSLog(@"%@", [NSString stringWithFormat:@"http://tapin.tv/mobile.html#profile/%@", [Utilities userDefaultValueforKey:@"user"]]);
     if([Utilities userDefaultValueforKey:@"user"]){
         navbar.topItem.title = [Utilities userDefaultValueforKey:@"user"];;
     }
