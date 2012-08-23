@@ -38,7 +38,7 @@
 			<key>user</key>
 			<string>tapintv</string>
 			<key>useTCP</key>
-			<true/>
+			<false/>
 		</dict>
 		<key>pid</key>
 		<string>default</string>

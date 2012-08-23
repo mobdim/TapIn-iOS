@@ -57,17 +57,24 @@
 //    [webview loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"http://tapin.tv/mobile.html#profile/%@", [Utilities userDefaultValueforKey:@"user"]]]]];
 }
 
+-(void)viewDidAppear:(BOOL)animated
+{
+    [[Utilities sharedInstance]setDelegate:self];
+}
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-        [webview loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"http://tapin.tv/mobile.html#profile/%@", [Utilities userDefaultValueforKey:@"user"]]]]];
-    NSLog(@"%@", [NSString stringWithFormat:@"http://tapin.tv/mobile.html#profile/%@", [Utilities userDefaultValueforKey:@"user"]]);
+    
     if([Utilities userDefaultValueforKey:@"user"]){
         navbar.topItem.title = [Utilities userDefaultValueforKey:@"user"];;
     }
     else {
         navbar.topItem.title = @"User";
     }
+    [webview loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"http://tapin.tv/mobile.html#profile/%@", [Utilities userDefaultValueforKey:@"user"]]]]];
+    NSLog(@"%@", [NSString stringWithFormat:@"http://tapin.tv/mobile.html#profile/%@", [Utilities userDefaultValueforKey:@"user"]]);
+
     // Do any additional setup after loading the view from its nib.
 }
 

@@ -39,7 +39,7 @@
     IBOutlet UIView * progressContainer;
     IBOutlet UILabel * activityText;
     IBOutlet UILabel * viewerCount;
-    
+    IBOutlet UIButton * userButton;
         
     SUIMaxSlider                *bitrateSlider;
     LivuConfigViewController    *configViewController;
@@ -72,7 +72,7 @@
 @property (nonatomic, retain) AACEncoder *aacEncoder;
 @property (nonatomic, retain) AVCEncoder *avcEncoder;
 @property (nonatomic, retain) IBOutlet UIButton * twitterButton;
-
+@property (nonatomic, retain) IBOutlet UIButton * userButton;
 - (IBAction) openConfig:(id) sender;
 - (IBAction) toggleBroadcast:(UIButton*) sender;
 - (IBAction) toggleTorch:(UIButton*) sender;

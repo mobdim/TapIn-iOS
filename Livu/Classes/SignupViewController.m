@@ -11,20 +11,43 @@
 #import "SBJson.h"
 #import "Utilities.h"
 #import "LivuViewController.h"
+#import "UserProfileViewController.h"
+#import "MixpanelAPI.h"
+
 @interface SignupViewController()
 {
     BOOL editing;
 }
 -(void)registerInfo;
+-(void)shouldDismiss;
+-(void)actualDoneButtonTouched;
 @end
 
 @implementation SignupViewController
-@synthesize root;
+@synthesize root, fromBar;
 - (BOOL) shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation {
-    if (toInterfaceOrientation == UIInterfaceOrientationLandscapeRight) {
-        return YES ; 
-    }
-    return NO ;
+////    if (toInterfaceOrientation == UIInterfaceOrientationLandscapeRight) {
+////    }
+//    if(toInterfaceOrientation == UIInterfaceOrientationPortrait)
+//    {
+//        NSLog(@"herpaderpderp");
+//        scrollview.scrollEnabled = NO;
+//        topCopy.hidden = YES;
+//        email.frame = CGRectMake(email.frame.origin.x-25, email.frame.origin.y+8, email.frame.size.width+40, email.frame.size.height);
+//        username.frame = CGRectMake(username.frame.origin.x-25, username.frame.origin.y+8, username.frame.size.width+40, username.frame.size.height);
+//        password.frame = CGRectMake(password.frame.origin.x-25, password.frame.origin.y+8, password.frame.size.width+40, password.frame.size.height);
+//        loginButton.frame = CGRectMake(loginButton.frame.origin.x-25, loginButton.frame.origin.y+8, loginButton.frame.size.width+40, loginButton.frame.size.height);
+//        dontHaveAccount.frame = CGRectMake(loginButton.frame.origin.x-25, dontHaveAccount.frame.origin.y+8, loginButton.frame.size.width+40, loginButton.frame.size.height);
+//        self.view.frame = CGRectMake(0, 0, 320, 400);
+//        scrollview.frame = CGRectMake(0, 0, 320, 400);
+//        scrollview.contentSize = CGSizeMake(320, 400);
+//        bg.frame = CGRectMake(0, 0, 320, 440);
+//    }
+//    else{
+//            }
+//    
+//    
+    return NO ; 
 }
 
 -(IBAction)signButtonTouched:(id)sender
@@ -68,6 +91,9 @@
     
 }
 
+-(void)actualDoneButtonTouched {
+    NSLog(@"FWKFLWM");
+}
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -86,16 +112,39 @@
     // Release any cached data, images, etc that aren't in use.
 }
 
+-(void)shouldDismiss
+{
+    if(!fromBar) 
+    {
+        NSLog(@"WILD THROW MONEY");
+        [self dismissModalViewControllerAnimated:YES];
+    }
+    else {
+        [self.view removeFromSuperview];
+        [(UserProfileViewController*)self.root loadPage];
+    }
+}
+
 -(IBAction)cancelButton:(id)sender
 {
-    [UIView animateWithDuration:.4
-                     animations:^{
-                         self.view.frame = CGRectMake(self.view.frame.origin.x, self.view.frame.origin.y+480, self.view.frame.size.width, self.view.frame.size.height);
-                     } 
-                     completion:^(BOOL finished){
-                         [self.view removeFromSuperview];
-                         [self release];
-                     }];
+    if(!fromBar)
+    {
+        [self shouldDismiss];
+
+    }    
+    else 
+    {
+        NSLog(@"here");
+        [(UIViewController*)[self.view.superview nextResponder] dismissModalViewControllerAnimated:YES];
+    }
+//    [UIView animateWithDuration:.4
+//                     animations:^{
+//                         self.view.frame = CGRectMake(self.view.frame.origin.x, self.view.frame.origin.y+480, self.view.frame.size.width, self.view.frame.size.height);
+//                     } 
+//                     completion:^(BOOL finished){
+//                         [self.view removeFromSuperview];
+//                         [self release];
+//                     }];
 }
 
 
@@ -116,7 +165,7 @@
                          upperRightButton.title = @"Register";
                          dontHaveAccount.titleLabel.adjustsFontSizeToFitWidth = TRUE;
 
-                         dontHaveAccount.titleLabel.text = @"Back to login";
+                         [dontHaveAccount setTitle:@"Back to login." forState:UIControlStateNormal];
                          loginButton.titleLabel.adjustsFontSizeToFitWidth = TRUE;
 
                      } 
@@ -135,7 +184,7 @@
                              upperRight.title = @"Login";
                              upperRightButton.title = @"Login";
                              dontHaveAccount.titleLabel.adjustsFontSizeToFitWidth = TRUE;
-
+                             [dontHaveAccount setTitle:@"Create an account." forState:UIControlStateNormal];
                              dontHaveAccount.titleLabel.text = @"Don't have an account? Sign up now!";
                              dontHaveAccount.titleLabel.adjustsFontSizeToFitWidth = TRUE;
 
@@ -151,17 +200,30 @@
 
 -(void) responseDidSucceed:(NSDictionary*)data {
     NSLog(@"%@", [data description]);
+    if([data isKindOfClass:[NSDictionary class]])
+    {
     if([data objectForKey:@"token"]) {
+        NSLog(@"THEY TOOK ER JOBS!");
         [Utilities setUserDefaultValue:[data objectForKey:@"token"] forKey:@"token"];
         [Utilities setUserDefaultValue:[data objectForKey:@"user"] forKey:@"user"];
+        MixpanelAPI * mixpanel = [MixpanelAPI sharedAPI];
+        [mixpanel identifyUser:[Utilities userDefaultValueforKey:@"user"]];
+
+        if(fromBar){
+            [(UserProfileViewController*)self.root setUser:[data objectForKey:@"user"]];
+            [(UserProfileViewController*)self.root setDidShowLogin:NO];
+        }
+
         [UIView animateWithDuration:.4
                          animations:^{
                              container.frame = CGRectMake(container.frame.origin.x, container.frame.origin.y+92, container.frame.size.width, container.frame.size.height);
                          } 
                          completion:^(BOOL finished){
                          }];
-        [self cancelButton:nil];
-        [root startUserTimer];
+            [self shouldDismiss];
+//        [self cancelButton:nil];
+//        [root startUserTimer];
+//        self.view = root.view;
         [[Utilities sharedInstance] setDelegate:root];
     }
     else if([data objectForKey:@"error"])
@@ -170,7 +232,7 @@
         [alert show];
         NSLog(@"%@", [data objectForKey:@"error"]);
     }
-    
+    }
     
 }
 
@@ -191,72 +253,88 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    [username setDelegate:self];
+    [username setReturnKeyType:UIReturnKeyDone];
+    [username addTarget:self
+                 action:@selector(actualDoneButtonTouched)
+       forControlEvents:UIControlEventEditingDidEndOnExit];
+    
+    [password setDelegate:self];
+    [password setReturnKeyType:UIReturnKeyDone];
+    [password addTarget:self
+                 action:@selector(actualDoneButtonTouched)
+       forControlEvents:UIControlEventEditingDidEndOnExit];
+
+    NSLog(@"YOU GOUGHTA KNOW");
     [[Utilities sharedInstance] setDelegate:self];
+    if(fromBar)
+    {
+        NSLog(@"here");
+        cancelButton.customView.hidden = YES;
+    }
+    
     scrollview.contentSize = container.frame.size;
 //    UIGestureRecognizer * gesture = [[UIGestureRecognizer alloc]initWithTarget:self action:@selector(textFieldShouldReturn:)];
 //    [self.view setUserInteractionEnabled:YES];
 //    [self.view addGestureRecognizer:gesture];
 //    [gesture release];
 
-    editing = NO;
-    [username setDelegate:self];
-    [username setReturnKeyType:UIReturnKeyDone];
-    [username addTarget:self
-                       action:@selector(doneButtonTouched:)
-             forControlEvents:UIControlEventEditingDidEndOnExit];
-    
-    [password setDelegate:self];
-    [password setReturnKeyType:UIReturnKeyDone];
-    [password addTarget:self
-                 action:@selector(doneButtonTouched:)
-       forControlEvents:UIControlEventEditingDidEndOnExit];
-    
-    [super viewDidLoad];
+       
     // Do any additional setup after loading the view from its nib.
 }
 
 - (BOOL)textFieldShouldBeginEditing:(UITextField *)textField {
     if(editing == NO)
     {
-        if(0)
-        {
-        [UIView animateWithDuration:.5
-                         animations:^{
-                             scrollview.frame = CGRectMake(scrollview.frame.origin.x, scrollview.frame.origin.y-70, scrollview.frame.size.width, scrollview.frame.size.height-70);
-                         } 
-                         completion:^(BOOL finished){
-                         }];
-
-        editing = YES;
-        }
-        else
-        {
-            [UIView animateWithDuration:.5
-                             animations:^{
-                                 scrollview.frame = CGRectMake(scrollview.frame.origin.x, scrollview.frame.origin.y-30, scrollview.frame.size.width, scrollview.frame.size.height-110);
-                             } 
-                             completion:^(BOOL finished){
-                             }];
-            
-            editing = YES;
-        }
+//        if(0)
+//        {
+//        [UIView animateWithDuration:.5
+//                         animations:^{
+//                             scrollview.frame = CGRectMake(scrollview.frame.origin.x, scrollview.frame.origin.y+60, scrollview.frame.size.width, scrollview.frame.size.height+100);
+//                         } 
+//                         completion:^(BOOL finished){
+//                         }];
+//
+//        editing = YES;
+//        }
+//        else
+//        {
+//            [UIView animateWithDuration:.5
+//                             animations:^{
+//                                 scrollview.frame = CGRectMake(scrollview.frame.origin.x, scrollview.frame.origin.y-20, scrollview.frame.size.width, scrollview.frame.size.height-110);
+//                             } 
+//                             completion:^(BOOL finished){
+//                             }];
+//            
+//            editing = YES;
+//        }
     }
     return YES;
 }
 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField {
+    [self signButtonTouched:nil];
+    
 //    NSLog(@"here");
 //    [self doneButtonTouched:self];
-    [textField resignFirstResponder];
-    [UIView animateWithDuration:.5
-                     animations:^{
-                         scrollview.frame = CGRectMake(scrollview.frame.origin.x, scrollview.frame.origin.y+70, scrollview.frame.size.width, scrollview.frame.size.height+70);
-                     } 
-                     completion:^(BOOL finished){
-                     }];
-    editing = NO;
+//    [textField resignFirstResponder];
+//    [UIView animateWithDuration:.5
+//                     animations:^{
+//                         scrollview.frame = CGRectMake(scrollview.frame.origin.x, scrollview.frame.origin.y+70, scrollview.frame.size.width, scrollview.frame.size.height+70);
+//                     } 
+//                     completion:^(BOOL finished){
+//                     }];
+//    editing = NO;
     
 }
+
+-(void)viewDidAppear:(BOOL)animated
+{
+    editing = NO;
+
+
+}
+
 
 - (void)viewDidUnload
 {

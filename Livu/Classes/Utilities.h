@@ -32,7 +32,10 @@
 -(void)sendPost:(NSString*)host params:(NSMutableDictionary*)params;
 -(void)sendGet:(NSString*)host params:(NSMutableDictionary*)params;
 -(void)startStream;
-
+-(void)signout;
++(NSDictionary*)livuSettings;
+-(NSString*)generateUuidString;
+@property (nonatomic, retain) NSString * user;
 @property (nonatomic, retain) CLLocation *location;
 @property (nonatomic, retain) NSString *uid;
 @property (nonatomic, retain) NSString *streamID;

@@ -40,6 +40,8 @@
 #import "MySHKConfigurator.h"
 #import "SHKConfiguration.h"
 #import "SHKFacebook.h"
+#import "VideosViewController.h"
+#import "MixpanelAPI.h"
 
 @implementation LivuAppDelegate
 
@@ -53,9 +55,10 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {    
     
     // Override point for customization after application launch
-
     DefaultSHKConfigurator *configurator = [[MySHKConfigurator alloc] init];
     [SHKConfiguration sharedInstanceWithConfigurator:configurator];
+    
+    VideosViewController * vc = [[VideosViewController alloc]init];
     
     [UIApplication sharedApplication].idleTimerDisabled = YES; 
     [UIApplication sharedApplication].statusBarStyle = UIStatusBarStyleBlackOpaque;
@@ -70,7 +73,8 @@
 	[[UIApplication sharedApplication] registerForRemoteNotificationTypes:
      (UIRemoteNotificationTypeBadge | UIRemoteNotificationTypeSound | UIRemoteNotificationTypeAlert)];
     application.applicationIconBadgeNumber = 0;
-
+    [MixpanelAPI sharedAPIWithToken:@"c3281254b585a4bc4465064d04628f69"];
+    [[MixpanelAPI sharedAPI] track:@"App Open"];
     return YES;
 }
 
@@ -83,6 +87,7 @@
 
     NSLog(@"My token is: %@", dt);
     [Utilities setUserDefaultValue:dt forKey:@"pushtoken"];
+    
     
 }
 
@@ -103,6 +108,8 @@
 
 
 - (void)applicationDidEnterBackground:(UIApplication *)application {
+    [[MixpanelAPI sharedAPI] track:@"App Close"];
+
     /*
      Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later. 
      If your application supports background execution, called instead of applicationWillTerminate: when the user quits.
@@ -114,7 +121,7 @@
 
 - (BOOL)handleOpenURL:(NSURL*)url
 {
-    NSLog(@"FLKWEWFWFWE");
+
     NSString* scheme = [url scheme];
     NSString* prefix = [NSString stringWithFormat:@"fb%@", SHKCONFIG(facebookAppId)];
     if ([scheme hasPrefix:prefix])

@@ -16,6 +16,7 @@
 #include <net/if.h>
 #include <net/if_dl.h>
 #import "ASIHTTPRequest.h"
+#import "LivuBroadcastProfile.h"
 
 @interface Utilities()
 {
@@ -25,12 +26,11 @@
 -(NSString*)getPrivateKey;
 +(NSString*)sha1:(NSString*)input;
 -(void)postHandShakeWithCoordinate:(CLLocation *)location;
--(NSString*)generateUuidString;
 -(NSString*)urlStringForParams:(NSDictionary*)params path:(NSString*)path;
 @end
 
 @implementation Utilities
-@synthesize location, uid, streamID, delegate, streaming;
+@synthesize location, uid, streamID, delegate, streaming, user;
 
 - (void)dealloc
 {
@@ -166,6 +166,18 @@
     [self postHandShakeWithCoordinate:location];   
 }
 
+-(void)signout {
+    NSLog(@"sign out");
+    [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"user"];
+    [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"token"];
+}
+
+-(NSString*)user {
+    NSLog(@"did get here?");
+    NSString * _user = ([Utilities userDefaultValueforKey:@"user"]) ? [Utilities userDefaultValueforKey:@"user"] : NULL;
+    return _user;
+}
+
 -(void)postHandShakeWithCoordinate:(CLLocation *)_location
 {
     NSDictionary * streamDict = [[NSDictionary alloc]initWithObjectsAndKeys:
@@ -177,7 +189,6 @@
     [Utilities setUserDefaultValue:_uid forKey:@"uid"];
     
     NSString * user = ([Utilities userDefaultValueforKey:@"user"]) ? [Utilities userDefaultValueforKey:@"user"] : NULL;
-
     
     
     NSLog(@"lat: %f, lon: %f", _location.coordinate.latitude, _location.coordinate.longitude);
@@ -206,7 +217,7 @@
     NSLog(@"%@", jsonData);
 //    NSLog(@"%@", jsonData);
     
-    ASIFormDataRequest *request = [ASIFormDataRequest requestWithURL:[NSURL URLWithString:@"http://stage.api.tapin.tv/mobile/updatelocation"]];
+    ASIFormDataRequest *request = [ASIFormDataRequest requestWithURL:[NSURL URLWithString:@"http://debug.api.tapin.tv/mobile/updatelocation"]];
     [request setRequestMethod:@"POST"];
     [request setData:[jsonData dataUsingEncoding:NSUTF8StringEncoding] forKey:@"data"];
     [request setDelegate:self];
@@ -227,6 +238,7 @@
 }
 
 - (void)requestFinished:(ASIHTTPRequest *)request {
+    NSLog(@"at least got here...");
     if(request.responseStatusCode == 200)
     {
         NSLog(@"Response %d ==> %@", request.responseStatusCode, [request responseString]);
@@ -255,7 +267,7 @@
     {
         [self.delegate handshakeDidFailWithErrors:request.error ];
     }
-//    NSLog(@"failed: %@", request.error);
+    NSLog(@"failed: %@", request.error);
     throttle = NO;
 }
 -(NSString*)getPrivateKey
@@ -287,7 +299,7 @@
 -(void)sendGet:(NSString*)host params:(NSMutableDictionary*)params {
         
         NSString* urlString = [self urlStringForParams:params path:host];
-//        NSLog(@"url string: %@", urlString);
+        NSLog(@"url string: %@", urlString);
         
         //	NSLog(@"%s urlString:%@", __FUNCTION__, urlString);
         NSURL *url = [NSURL URLWithString:urlString];
@@ -310,6 +322,21 @@
     return [defaults valueForKey:key];
 }   
 
++(NSDictionary*)livuSettings
+{
+    LivuBroadcastProfile* profile = [LivuBroadcastConfig activeProfile];
+    NSDictionary * dict = [[[NSDictionary alloc]initWithObjectsAndKeys:
+                           profile.address, @"host",
+                           profile.application, @"app",
+                           [NSNumber numberWithInt:profile.port], @"port",
+                           [NSNumber numberWithInt:profile.frameRate], @"framerate",
+                           [NSNumber numberWithInt:profile.keyFrameInterval], @"keyframe",
+                           [NSNumber numberWithBool:profile.useTCP], @"tcp",
+                           [NSNumber numberWithBool:profile.autoRestart], @"auto restart",
+                           [NSNumber numberWithInt:profile.broadcastOption], @"video option", nil] autorelease];
+    return dict;
+}
+
 - (NSString *)generateUuidString
 {
     // create a new UUID which you own
@@ -331,7 +358,8 @@
 
 #pragma mark - private
 -(NSString*)urlStringForParams:(NSDictionary*)params path:(NSString*)path {
-	NSString* fullPath = [NSString stringWithFormat:@"%@/%@/", @"http://stage.api.tapin.tv", path];
+	NSString* fullPath = [NSString stringWithFormat:@"%@/%@", @"http://debug.api.tapin.tv", path];
+    NSLog(@"%@", fullPath);
 	NSMutableString* queryPath = [NSMutableString stringWithCapacity:100];
 	NSString* separator = @"?";
 	for (NSString* key in [params allKeys]) {

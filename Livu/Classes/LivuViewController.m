@@ -31,6 +31,11 @@
 #import "SHKFacebook.h"
 #import "Facebook.h"
 #import "TwitterVC.h"
+#import "VideosViewController.h"
+#import "UserProfileViewController.h"
+#import "VideoListViewController.h"
+#import "SignUpPortraitViewController.h"
+#import "MixpanelAPI.h"
 
 #define kIPadScale 1
 
@@ -64,6 +69,7 @@ static const unichar delta = 0x0394 ;
     Facebook * facebook;
     NSTimer * viewCountTimer;
     NSTimer * userUpdateTimer;
+    MixpanelAPI *mixpanel;
 }
 @property (nonatomic, retain) LivuConfigViewController *configViewController;
 - (void) setupVideoPreviewLayer;
@@ -90,6 +96,7 @@ static const unichar delta = 0x0394 ;
 @synthesize aacEncoder;
 @synthesize bitrateSlider;
 @synthesize bitrateSliderView;
+@synthesize userButton;
 
 #pragma mark -
 #pragma mark UIView methods
@@ -116,11 +123,14 @@ static const unichar delta = 0x0394 ;
 //    
 //    }
 //    else {
-        NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"http://tapin.tv/#video/%@/", [Utilities userDefaultValueforKey:@"laststream"]]];
+        NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"http://s.tapin.tv/t/%@/", [Utilities userDefaultValueforKey:@"laststream"]]];
         SHKItem *item = [SHKItem URL:url title:@"Check out my video #TapInTV"];
         [SHKTwitter shareItem:item];
-//    }
+        [mixpanel track:@"Twitter share" properties:[NSDictionary dictionaryWithObjectsAndKeys:@"streaming", @"previous view", nil]];
+    //    }
 }
+
+
 
 - (void) viewWillAppear:(BOOL)animated {
     if([Utilities userDefaultValueforKey:@"user"] && !userUpdateTimer.isValid)
@@ -130,6 +140,12 @@ static const unichar delta = 0x0394 ;
                                                            selector:@selector(updateUserData)
                                                            userInfo:nil
                                                             repeats:YES];
+    }
+    else {
+        progressContainer.hidden = YES;
+        userPoints.hidden = YES;
+        nextTitle.hidden = YES;
+        userTitle.hidden = YES;
     }
     
 	LivuBroadcastProfile *profile = [LivuBroadcastConfig activeProfile];
@@ -152,6 +168,7 @@ static const unichar delta = 0x0394 ;
 }
 
 - (void) viewDidAppear:(BOOL)animated {
+    
     [[Utilities sharedInstance] setDelegate:self];
     LivuBroadcastProfile *profile = [LivuBroadcastConfig activeProfile];
     
@@ -199,6 +216,10 @@ static const unichar delta = 0x0394 ;
 }
 
 - (void) viewDidDisappear:(BOOL)animated {
+    if(userUpdateTimer){
+        [userUpdateTimer invalidate];
+        userUpdateTimer = nil;
+    }
     [self.previewLayer removeFromSuperlayer];
     [captureManager stopCapture];
     self.captureManager = nil;
@@ -245,6 +266,7 @@ static const unichar delta = 0x0394 ;
     [[Utilities sharedInstance] sendGet:[NSString stringWithFormat:@"web/get/user/%@", [Utilities userDefaultValueforKey:@"user"]] params:NULL];
 }
 
+
 -(void)updateStreamData {
     NSString * streamID = [[Utilities sharedInstance] streamID];
     [[Utilities sharedInstance] sendGet:[NSString stringWithFormat:@"web/get/stream/%@", streamID] params:NULL];
@@ -275,6 +297,13 @@ static const unichar delta = 0x0394 ;
 // Implement viewDidLoad to do additional setup after loading the view, typically from a nib.
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    LivuBroadcastProfile* profile = [LivuBroadcastConfig activeProfile]; 
+    mixpanel = [MixpanelAPI sharedAPI];
+    if([Utilities userDefaultValueforKey:@"user"]) [mixpanel identifyUser:[Utilities userDefaultValueforKey:@"user"]];
+
+    [mixpanel registerSuperProperties:[NSDictionary dictionaryWithObjectsAndKeys:profile.address, @"address", nil]];
+
     [[Utilities sharedInstance] setStreaming:NO];
     [[Utilities sharedInstance] startLocationService];
     facebook = [[Facebook alloc] initWithAppId:@"161346993997086" andDelegate:nil];
@@ -381,36 +410,75 @@ static const unichar delta = 0x0394 ;
 
 - (IBAction) userButtonToucehd:(id)sender
 {
-    if(throttleSignup) return;
-    throttleSignup = YES;
-    if(![Utilities userDefaultValueforKey:@"token"])
-    {
-        SignupViewController * vc = [[SignupViewController alloc]init];
-        vc.root = self;
-        [self.view addSubview:vc.view];
-        vc.view.frame = CGRectMake(0,480, 480, 310);;
-        [self.view addSubview:vc.view];
+//    VideoListViewController *vc1 = [[VideoListViewController alloc]init];
+    VideosViewController * vc2 = [[VideosViewController alloc]init];
+    UserProfileViewController *vc3 = [[UserProfileViewController alloc]init];
+    if([Utilities userDefaultValueforKey:@"user"]) vc3.user = [Utilities userDefaultValueforKey:@"user"];
+    NSLog(@"ok here %@", [Utilities userDefaultValueforKey:@"user"]);
+    vc2.tabBarItem.image = [UIImage imageNamed:@"hot.png"];
+    vc3.tabBarItem.image = [UIImage imageNamed:@"me.png"];
+    vc2.tabBarItem.title = @"Hot";
 
-        [UIView animateWithDuration:.3 delay:0.0 options:UIViewAnimationOptionCurveEaseInOut animations:^{
-            vc.view.frame = CGRectMake(0,0, 480, 310);;
-        }
-                         completion:^(BOOL done){throttleSignup = NO;}
-         ];        
+    
+    vc3.tabBarItem.title = @"Profile";
 
-        
-    }
-    else {
-        UserViewController * vc = [[UserViewController alloc]init];
-        [self.view addSubview:vc.view];
-        vc.view.frame = CGRectMake(0,480, 480, 310);;
-        [self.view addSubview:vc.view];
-        
-        [UIView animateWithDuration:.3 delay:0.0 options:UIViewAnimationOptionCurveEaseInOut animations:^{
-            vc.view.frame = CGRectMake(0,0, 480, 310);;
-        }
-                         completion:^(BOOL done){throttleSignup = NO;}
-         ];   
-    }
+    UITabBarController *tab = [[UITabBarController alloc] init];
+    
+    [[self.tabBarController.viewControllers objectAtIndex:0] setTitle:@"Featured"];
+    [[self.tabBarController.viewControllers objectAtIndex:1] setTitle:@"Squares"];
+    [[self.tabBarController.viewControllers objectAtIndex:2] setTitle:@"Profile"];
+
+    [tab setViewControllers:[NSArray arrayWithObjects: vc2, vc3, nil] animated:NO];
+    [tab setSelectedIndex:0 ];
+
+    
+    vc2.root = self;
+    [self presentModalViewController:tab animated:YES];
+//    [self.view addSubview:vc.view];
+//    vc.view.frame = CGRectMake(310,0, 480, 300);;
+//    [self.view addSubview:vc.view];
+//    
+//    vc.view.transform = CGAffineTransformMakeRotation(-M_PI_2); // 90 degress
+//
+//    
+//    [UIView animateWithDuration:.3 delay:0.0 options:UIViewAnimationOptionCurveEaseInOut animations:^{
+//        vc.view.frame = CGRectMake(0,0, 480, 300);;
+//    }
+//    completion:^(BOOL done){throttleSignup = NO;}
+//    ];        
+
+    
+    
+//    if(throttleSignup) return;
+//    throttleSignup = YES;
+//    if(![Utilities userDefaultValueforKey:@"token"])
+//    {
+//        SignupViewController * vc = [[SignupViewController alloc]init];
+//        vc.root = self;
+//        [self.view addSubview:vc.view];
+//        vc.view.frame = CGRectMake(0,480, 480, 310);;
+//        [self.view addSubview:vc.view];
+//
+//        [UIView animateWithDuration:.3 delay:0.0 options:UIViewAnimationOptionCurveEaseInOut animations:^{
+//            vc.view.frame = CGRectMake(0,0, 480, 310);;
+//        }
+//                         completion:^(BOOL done){throttleSignup = NO;}
+//         ];        
+//
+//        
+//    }
+//    else {
+//        UserViewController * vc = [[UserViewController alloc]init];
+//        [self.view addSubview:vc.view];
+//        vc.view.frame = CGRectMake(0,480, 480, 310);;
+//        [self.view addSubview:vc.view];
+//        
+//        [UIView animateWithDuration:.3 delay:0.0 options:UIViewAnimationOptionCurveEaseInOut animations:^{
+//            vc.view.frame = CGRectMake(0,0, 480, 310);;
+//        }
+//                         completion:^(BOOL done){throttleSignup = NO;}
+//         ];   
+//    }
 }
 
 -(void)startUserTimer
@@ -501,7 +569,10 @@ static const unichar delta = 0x0394 ;
     else
     {
         NSLog(@"Here?");
-    NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"http://tapin.tv/#video/%@/", [Utilities userDefaultValueforKey:@"laststream"]]];
+    NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"http://s.tapin.tv/fb/%@/", [Utilities userDefaultValueforKey:@"laststream"]
+                                       ]];
+        
+        [mixpanel track:@"Facebook share" properties:[NSDictionary dictionaryWithObjectsAndKeys:@"streaming", @"previous view", nil]];
     
         SHKItem *item = [SHKItem URL:url title:@"Check out my video @TapInTV"];
         [SHKFacebook shareItem:item];
@@ -512,23 +583,24 @@ static const unichar delta = 0x0394 ;
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
 {
     NSLog(@"%@", alertView.title);
-    if([alertView.title isEqualToString:@"Privacy Notice"])
+    if([alertView.title isEqualToString:@"Privacy Notice"] && buttonIndex==1)
     {
+        [mixpanel track:@"Accept Privacy Notice"];
         [Utilities setUserDefaultValue:@"yes" forKey:@"privacy"];
         [self toggleBroadcast:broadcastButton];
     }
     else {
-    if(buttonIndex == 0)
+    if(buttonIndex == 0 && ![alertView.title isEqualToString:@"Privacy Notice"])
     {
         NSLog(@"herefewfweklw");
         
-        NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"http://tapin.tv/#video/%@/", [Utilities userDefaultValueforKey:@"laststream"]]];
+        NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"http://s.tapin.tv/fb/%@/", [Utilities userDefaultValueforKey:@"laststream"]]];
         SHKItem *item = [SHKItem URL:url title:@"Check out my video @TapInTV"];
         [SHKFacebook shareItem:item];
     }
     else 
     {
-        
+        [mixpanel track:@"Reject Privacy Notice"];  
     }
     }
 }
@@ -609,7 +681,8 @@ static const unichar delta = 0x0394 ;
 }
 
 - (IBAction) toggleTorch:(UIButton*) sender {
-    
+    [mixpanel track:@"Flip light"];
+
 //    if ( ! broadcaster.isRecording) { return ; }
     
     sender.selected = !sender.selected;
@@ -674,12 +747,20 @@ static const unichar delta = 0x0394 ;
 }
 
 - (IBAction) toggleBroadcast:(UIButton*) sender {
+    
+    
     broadcastButton.enabled = NO;
+    userButton.hidden = YES;
     //TODO: We should not set it here. Let the call back set it.
     //      Move property settings into callback
     [[Utilities sharedInstance] setDelegate:self];
-    helperText.alpha = 0;
+    helperText.text = @"REC";
+    helperText.textColor = [UIColor redColor];
+
+//    helperText.alpha = 0;
     if([self remoteHostStatus] == NotReachable) {
+        [mixpanel track:@"Error: no network" properties:[Utilities livuSettings]];
+
         UIAlertView *alert = [[UIAlertView alloc]
                               initWithTitle: NSLocalizedString(@"Error", @"")
                               message: NSLocalizedString(@"A network connection is required", @"")
@@ -689,15 +770,17 @@ static const unichar delta = 0x0394 ;
         [alert show];
         [alert release];
         return ;
+        
     }
     
     if (!sender.selected) {
+        [mixpanel track:@"Record start press" properties:[Utilities livuSettings]];
         [[Utilities sharedInstance]startStream];
         [self performSelector:@selector(stopStream) withObject:nil afterDelay:5];
-        throttleCount = 12;
+        throttleCount = 1;
         tryToStop = NO;
         // start countdown timer
-        throttleTimer = [NSTimer scheduledTimerWithTimeInterval:1.0
+        throttleTimer = [NSTimer scheduledTimerWithTimeInterval:5.0
                                          target:self
                                        selector:@selector(throttleCountDown)
                                        userInfo:nil
@@ -720,6 +803,8 @@ static const unichar delta = 0x0394 ;
             [self showActivityIndicator:@"Saving Stream"];
         }
     }
+    
+
 }
 
 -(void)throttleCountDown {
@@ -730,6 +815,10 @@ static const unichar delta = 0x0394 ;
 }
 
 -(void)stopStream {
+    [mixpanel track:@"Record stop press" properties:[Utilities livuSettings]];
+
+    userButton.hidden = NO;
+    helperText.alpha = 0;
     [throttleTimer invalidate];
     throttleTimer= nil;
     [viewCountTimer invalidate];
@@ -755,15 +844,19 @@ static const unichar delta = 0x0394 ;
     if(![Utilities userDefaultValueforKey:@"user"]){
         SignupViewController * vc = [[SignupViewController alloc]init];
         vc.root = self;
-        [self.view addSubview:vc.view];
-        vc.view.frame = CGRectMake(0,480, 480, 310);;
-        [self.view addSubview:vc.view];
-        
-        [UIView animateWithDuration:.3 delay:0.0 options:UIViewAnimationOptionCurveEaseInOut animations:^{
-            vc.view.frame = CGRectMake(0,0, 480, 310);;
-        }
-                         completion:^(BOOL done){throttleSignup = NO;}
-         ];         }
+//        vc.fromBar = YES;
+        [self presentModalViewController:vc animated:YES];
+        [vc release];
+//        [self.view addSubview:vc.view];
+//        vc.view.frame = CGRectMake(0,480, 480, 310);
+//        [self.view addSubview:vc.view];
+//        
+//        [UIView animateWithDuration:.3 delay:0.0 options:UIViewAnimationOptionCurveEaseInOut animations:^{
+//            vc.view.frame = CGRectMake(0,0, 480, 310);
+//        }
+//                         completion:^(BOOL done){throttleSignup = NO;}
+//         ];         
+    }
     [self hideActivityIndicator];
     self.broadcastButton.enabled = YES;
     viewerCount.hidden = YES;
@@ -775,7 +868,8 @@ static const unichar delta = 0x0394 ;
 }
 
 - (IBAction) toggleCamera:(UIButton*) sender {
-    
+    [mixpanel track:@"Flip camera"];
+
     sender.selected = !sender.selected;
     
     [captureManager cameraToggle];
@@ -783,6 +877,7 @@ static const unichar delta = 0x0394 ;
         [captureManager setTorchMode:AVCaptureTorchModeOff];
         self.torchButton.selected = NO;
         self.torchButton.enabled = NO;
+        self.captureManager.rotationAngle = 90; 
     }                                                     
     else {
         self.torchButton.enabled = YES;
@@ -1179,8 +1274,10 @@ static const unichar delta = 0x0394 ;
     LivuBroadcastProfile* profile = [LivuBroadcastConfig activeProfile]; 
     
 //    FUCK YOU PAUL
-    profile.address = [response objectForKey:@"host"];
-    profile.application = [NSString stringWithFormat:@"/live/%@/stream", [response objectForKey:@"streamid"]];
+       profile.address = [response 	objectForKey:@"host"];
+    NSLog(@"moment of truth %@", [response objectForKey:@"host"]);
+       profile.application = [NSString stringWithFormat:@"/live/%@/stream", [response objectForKey:@"streamid"]];
+//      profile.keyFrameInterval = [[response objectForKey:@"keyframeinterval"] intValue];
 //    NSLog(@"address: %@", profile.address);
 //    NSLog(@"application: %@", profile.application);
 //    NSLog(@"profile: %@", [profile description]);

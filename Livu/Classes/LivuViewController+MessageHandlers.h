@@ -8,6 +8,8 @@
 
 #import <Foundation/Foundation.h>
 #import "LivuBroadcastManager.h"
+#import "MixpanelAPI.h"
+#import "Utilities.h"
 //#import "TCPBufferMonitor.h"
 //#import "ffstream.h"
 
@@ -30,11 +32,16 @@
 
 - (LivuBroadcastCallback) broadcastCallback {
     LivuBroadcastCallback callback = ^(int message, NSString *str) {
+        MixpanelAPI * mixpanel = [MixpanelAPI sharedAPI];;
+
         NSLog(@"Broadcast Message: %@", str);
 		LivuBroadcastProfile* profile = [LivuBroadcastConfig activeProfile]; 
         switch (message) {
             case kStreamStopped:
                 [self uiMessage:@"Stream Ended"];
+                mixpanel = [MixpanelAPI sharedAPI];;
+                [mixpanel track:@"End Record" properties:[Utilities livuSettings]];
+
                 self.broadcastButton.selected = NO;
                 self.broadcastButton.enabled = YES;
 //                self.cameraButton.hidden = YES;
@@ -66,6 +73,9 @@
 				}
 				
                 [self uiMessage:@"Connection Error"];
+                self.userButton.hidden = NO;
+                [mixpanel track:@"Error: Connection Error" properties:[Utilities livuSettings]];
+
                 self.broadcastButton.enabled = YES;
                 self.broadcastButton.selected = NO;
                 self.microphoneButton.selected = NO;
@@ -77,7 +87,8 @@
 				if(profile.autoRestart) {
 					
 					[self uiMessage:@"Restarting Stream"];
-					
+                    [mixpanel track:@"Stream restarted" properties:[Utilities livuSettings]];
+
 					UIAlertView *alert = [[UIAlertView alloc]
 										  initWithTitle: NSLocalizedString(@"Stream Error", @"")
 										  message: NSLocalizedString(@"The connecton was lost. Restarting in 5 seconds", @"")
@@ -124,7 +135,9 @@
 				break;
 				
             case kStreamStarted:
-                [self uiMessage:@"Stream Started"];
+                [self uiMessage:@"Stream Started" ];
+                [mixpanel track:@"Start Record" properties:[Utilities livuSettings]];
+
                 self.broadcastButton.enabled = YES;
                 self.broadcastButton.selected = YES;
                 self.microphoneButton.selected = NO;

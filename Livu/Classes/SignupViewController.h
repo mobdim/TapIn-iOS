@@ -22,11 +22,14 @@
     IBOutlet UINavigationItem * upperRight;
     IBOutlet UIBarButtonItem * upperRightButton;
     IBOutlet UIButton * dontHaveAccount;
+    IBOutlet UIImageView * bg;
+    IBOutlet UIBarButtonItem * cancelButton;
 }
 -(void)sendPost:(NSString*)host params:(NSMutableDictionary*)params;
 -(IBAction)doneButtonTouched:(id)sender;
 -(IBAction)signButtonTouched:(id)sender;
 -(IBAction)cancelButton:(id)sender;
 
-@property(nonatomic, retain) LivuViewController * root;
+@property(nonatomic, retain) UIViewController * root;
+@property(nonatomic) BOOL fromBar;
 @end
