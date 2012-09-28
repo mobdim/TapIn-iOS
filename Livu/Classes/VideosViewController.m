@@ -84,7 +84,6 @@
 }
 
 -(void)viewDidAppear:(BOOL)animated {
-    [[Utilities sharedInstance] setDelegate:self];
 //    MUST CHANGE THIS
 }
 
@@ -94,7 +93,7 @@
     if([query isEqualToString:@"Popular"])
     {
         NSMutableDictionary * params = [[NSMutableDictionary alloc] initWithObjectsAndKeys:@"Viewcount", @"sortby", @"500", @"count", @"videos", @"wrapper", nil];
-        [[Utilities sharedInstance] sendGet:@"web/get/streambyviewcount" params:params];
+        [[Utilities sharedInstance] sendGet:@"web/get/streambyviewcount" params:params delegate:self];
         [params release];
     }
 //    else if([query isEqualToString:@"New"])
@@ -122,7 +121,7 @@
         
         [upperLeft release];
         [bottomRight release];
-        [[Utilities sharedInstance]  sendGet:queryString params:NULL];
+        [[Utilities sharedInstance]  sendGet:queryString params:NULL delegate:self];
         NSLog(@"%@", [[[Utilities sharedInstance] location] description]);
     }
     
@@ -161,7 +160,6 @@
     
     UInt32 audioRouteOverride = kAudioSessionOverrideAudioRoute_Speaker;
     AudioSessionSetProperty (kAudioSessionProperty_OverrideAudioRoute,sizeof (audioRouteOverride),&audioRouteOverride);
-    [[Utilities sharedInstance] setDelegate:self];
     _query = @"Popular";
 
     UIImage *img = [UIImage imageNamed:@"scrollbg.png"];

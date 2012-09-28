@@ -10,7 +10,7 @@
 #import "LivuBroadcastManager.h"
 #import "MixpanelAPI.h"
 #import "Utilities.h"
-//#import "TCPBufferMonitor.h"
+#import "TCPBufferMonitor.h"
 //#import "ffstream.h"
 
 @class LivuViewController;
@@ -52,7 +52,7 @@
                 
                 //                [self resetUI];
 				if(profile.useTCP) {
-					//tcp_monitor_stop();
+					tcp_monitor_stop();
 					self.streamBitrate.hidden = YES;
 				}
 				
@@ -68,7 +68,7 @@
                 [aacEncoder stop];
                 
 				if(profile.useTCP) {
-					//tcp_monitor_stop();
+                    tcp_monitor_stop();
 					self.streamBitrate.hidden = YES;
 				}
 				
@@ -119,7 +119,7 @@
                 [aacEncoder stop];
                 
 				if(profile.useTCP) {
-					//tcp_monitor_stop();
+					tcp_monitor_stop();
 					self.streamBitrate.hidden = YES;
 				}
 				
@@ -161,7 +161,8 @@
 					}
 					
 					if(profile.useTCP) {
-						//tcp_monitor_start(self.avcEncoder, broadcaster.rtsp_fd, [profile.address cStringUsingEncoding:NSASCIIStringEncoding], profile.autoBitrateAdjust, broadcastBitrates[profile.broadcastType]);
+                        NSLog(@"make sure this gets here");
+						tcp_monitor_start(self.avcEncoder, broadcaster.rtsp_fd, [profile.address cStringUsingEncoding:NSASCIIStringEncoding], profile.autoBitrateAdjust, broadcastBitrates[profile.broadcastType]);
 						self.streamBitrate.hidden = NO;
 					}
 					

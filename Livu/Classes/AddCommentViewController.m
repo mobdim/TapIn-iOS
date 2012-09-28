@@ -41,7 +41,7 @@
     {
     NSMutableDictionary * params = [[NSMutableDictionary alloc] initWithObjectsAndKeys:streamID, @"streamid", [Utilities userDefaultValueforKey:@"token"], @"token", @"comment", @"wrapper", commentField.text, @"text", nil];
         NSLog(@"got here?");
-    [[Utilities sharedInstance] sendPost:[NSString stringWithFormat:@"http://api.tapin.tv/web/update/comment/%@", [[Utilities sharedInstance] generateUuidString]] params:params]; 
+    [[Utilities sharedInstance] sendPost:[NSString stringWithFormat:@"http://debug.api.tapin.tv/web/update/comment/%@", [[Utilities sharedInstance] generateUuidString]] params:params]; 
     [params release];
     }
 }

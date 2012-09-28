@@ -77,13 +77,15 @@ dispatch_source_t timer = NULL;
 dispatch_queue_t timer_queue = NULL;
 static uint64_t maximum_bitrate;
 
-
+//Stops TCP monitor
 void tcp_monitor_stop() {
 	if(timer != NULL) {
+        //Stops timer on "dispatch queue", a special kernel thread that manages small tasks which traditionally run on seperate threads
         dispatch_suspend(timer);
         dispatch_source_cancel(timer);
 		//dispatch_release(timer);
-		timer = NULL;
+		//No more timer, we'll miss you
+        timer = NULL;
     }
 }
 
@@ -207,18 +209,27 @@ void tcp_monitor_start(AVCEncoder *encoder, int tcp_fd, const char *host, BOOL a
                         }
                         
                         if(snd_next_curr > snd_next_prev)
+                        {
+                            NSLog(@"Send delta: %llu", snd_next_curr - snd_next_prev);
+                            NSLog(@"Time delta: %llu", timestamp_curr - timestamp_prev);
                             bw = (snd_next_curr - snd_next_prev) / (timestamp_curr - timestamp_prev);
-                        else 
+                        }
+                        else
+                        {
+                            NSLog(@"Send delta: %llu", snd_next_curr - snd_next_prev);
+                            NSLog(@"Time delta: %llu", timestamp_curr - timestamp_prev);
                             bw = (snd_next_prev - snd_next_curr) / (timestamp_curr - timestamp_prev);
-                        
+                        }
                         bw *= 8;
-                        
                         bandwidth = bw * kBWLowPasFilterScalar + bandwidth * (1.0 - kBWLowPasFilterScalar);
+                        
                         
                         int32_t tmp = tcpcb->snd_una + tcpcb->snd_wnd - tcpcb->snd_nxt;
                         
                         //Note filtering could be bad. We may need to 
                         usable_win = tmp * kWINLowPasFilterScalar + usable_win * (1.0 - kWINLowPasFilterScalar);
+                        
+                        //This is the part you want paul
                         uint32_t usable_wnd_min = tcpcb->snd_wnd * kSendWindowMinimumScalar + usable_win_floor;
                         
                         bitrate_drop_delay--;
@@ -279,6 +290,8 @@ void tcp_monitor_start(AVCEncoder *encoder, int tcp_fd, const char *host, BOOL a
                 
             }
         });
-        dispatch_resume(timer);    
+        dispatch_resume(timer);
+        
+        
     }
 }

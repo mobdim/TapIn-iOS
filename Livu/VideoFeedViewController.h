@@ -7,7 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "Utilities.h"
 
-@interface VideoListViewController : UIViewController
-
+@interface VideoFeedViewController : UIViewController <NetworkUtilitiesDelegate>
+{
+    IBOutlet UIScrollView * scrollView;
+}
 @end

@@ -76,6 +76,8 @@
 		97A9FC8615D4858200E52C5C /* VideosViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 97A9FC8415D4858200E52C5C /* VideosViewController.m */; };
 		97A9FC8715D4858200E52C5C /* VideosViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 97A9FC8515D4858200E52C5C /* VideosViewController.xib */; };
 		97A9FC8A15D4CFC500E52C5C /* UIHTTPImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 97A9FC8915D4CFC500E52C5C /* UIHTTPImageView.m */; };
+		97B8FDC115E81BC7009D4790 /* FriendFeedView.m in Sources */ = {isa = PBXBuildFile; fileRef = 97B8FDC015E81BC7009D4790 /* FriendFeedView.m */; };
+		97B8FDC315E81C60009D4790 /* FriendFeedView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 97B8FDC215E81C5F009D4790 /* FriendFeedView.xib */; };
 		97CC795115D6FCB50097887C /* VideoMetaViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 97CC794F15D6FCB50097887C /* VideoMetaViewController.m */; };
 		97CC795215D6FCB50097887C /* VideoMetaViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 97CC795015D6FCB50097887C /* VideoMetaViewController.xib */; };
 		97CC795815D829D90097887C /* scrollbg.png in Resources */ = {isa = PBXBuildFile; fileRef = 97CC795715D829D90097887C /* scrollbg.png */; };
@@ -92,8 +94,8 @@
 		97D119F115D9AD1D002891D7 /* UserProfileViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 97D119EF15D9AD1D002891D7 /* UserProfileViewController.xib */; };
 		97D119F515D9C506002891D7 /* TabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 97D119F315D9C504002891D7 /* TabBarController.m */; };
 		97D119F615D9C506002891D7 /* TabBarController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 97D119F415D9C505002891D7 /* TabBarController.xib */; };
-		97D119FD15D9C76A002891D7 /* VideoListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 97D119FB15D9C76A002891D7 /* VideoListViewController.m */; };
-		97D119FE15D9C76A002891D7 /* VideoListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 97D119FC15D9C76A002891D7 /* VideoListViewController.xib */; };
+		97D119FD15D9C76A002891D7 /* VideoFeedViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 97D119FB15D9C76A002891D7 /* VideoFeedViewController.m */; };
+		97D119FE15D9C76A002891D7 /* VideoFeedViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 97D119FC15D9C76A002891D7 /* VideoFeedViewController.xib */; };
 		97D674AC159D0E19008D0306 /* TwitterVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 97D674AA159D0E17008D0306 /* TwitterVC.m */; };
 		97D674AD159D0E19008D0306 /* TwitterVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 97D674AB159D0E18008D0306 /* TwitterVC.xib */; };
 		97D674BA159D3C59008D0306 /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 97D674B8159D3C59008D0306 /* Icon.png */; };
@@ -113,6 +115,7 @@
 		97E31802157473EA003C9126 /* libxml2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 97E31801157473EA003C9126 /* libxml2.dylib */; };
 		97E3180515747441003C9126 /* Utilities.m in Sources */ = {isa = PBXBuildFile; fileRef = 97E3180415747441003C9126 /* Utilities.m */; };
 		97E3180715747733003C9126 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 97E3180615747733003C9126 /* CoreLocation.framework */; };
+		97E732D5160903C200FE8F53 /* TCPBufferMonitor.m in Sources */ = {isa = PBXBuildFile; fileRef = 97E732D4160903C200FE8F53 /* TCPBufferMonitor.m */; };
 		BA012A2813A7334000E81599 /* LivuViewController+Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = BA012A2713A7334000E81599 /* LivuViewController+Reachability.m */; };
 		BA14CE9D138C1D790067FBCA /* LivuCaptureManager.m in Sources */ = {isa = PBXBuildFile; fileRef = BA14CE9C138C1D790067FBCA /* LivuCaptureManager.m */; };
 		BA14CEA0138C1D8A0067FBCA /* AACEncoder.m in Sources */ = {isa = PBXBuildFile; fileRef = BA14CE9F138C1D8A0067FBCA /* AACEncoder.m */; };
@@ -277,6 +280,7 @@
 		BACA026E12C95FC40058A595 /* TableCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BACA026D12C95FC40058A595 /* TableCell.xib */; };
 		BADCA528130EE58D0017812A /* ExpandyButton.m in Sources */ = {isa = PBXBuildFile; fileRef = BADCA527130EE58D0017812A /* ExpandyButton.m */; };
 		BAE48A14130258AA0069BDBC /* SUIMaxSlider.m in Sources */ = {isa = PBXBuildFile; fileRef = BAE48A13130258AA0069BDBC /* SUIMaxSlider.m */; };
+		DA2ADDDF161358BF008D8BA8 /* PID.m in Sources */ = {isa = PBXBuildFile; fileRef = DA2ADDDE161358BF008D8BA8 /* PID.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -413,6 +417,9 @@
 		97A9FC8515D4858200E52C5C /* VideosViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = VideosViewController.xib; sourceTree = "<group>"; };
 		97A9FC8815D4CFC500E52C5C /* UIHTTPImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UIHTTPImageView.h; path = ../UIHTTPImageView.h; sourceTree = "<group>"; };
 		97A9FC8915D4CFC500E52C5C /* UIHTTPImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UIHTTPImageView.m; path = ../UIHTTPImageView.m; sourceTree = "<group>"; };
+		97B8FDBF15E81BC7009D4790 /* FriendFeedView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FriendFeedView.h; sourceTree = "<group>"; };
+		97B8FDC015E81BC7009D4790 /* FriendFeedView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FriendFeedView.m; sourceTree = "<group>"; };
+		97B8FDC215E81C5F009D4790 /* FriendFeedView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FriendFeedView.xib; sourceTree = "<group>"; };
 		97CC794E15D6FCB50097887C /* VideoMetaViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VideoMetaViewController.h; sourceTree = "<group>"; };
 		97CC794F15D6FCB50097887C /* VideoMetaViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VideoMetaViewController.m; sourceTree = "<group>"; };
 		97CC795015D6FCB50097887C /* VideoMetaViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = VideoMetaViewController.xib; sourceTree = "<group>"; };
@@ -438,9 +445,9 @@
 		97D119F215D9C503002891D7 /* TabBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TabBarController.h; sourceTree = "<group>"; };
 		97D119F315D9C504002891D7 /* TabBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TabBarController.m; sourceTree = "<group>"; };
 		97D119F415D9C505002891D7 /* TabBarController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TabBarController.xib; sourceTree = "<group>"; };
-		97D119FA15D9C76A002891D7 /* VideoListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = VideoListViewController.h; path = ../VideoListViewController.h; sourceTree = "<group>"; };
-		97D119FB15D9C76A002891D7 /* VideoListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = VideoListViewController.m; path = ../VideoListViewController.m; sourceTree = "<group>"; };
-		97D119FC15D9C76A002891D7 /* VideoListViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = VideoListViewController.xib; path = ../VideoListViewController.xib; sourceTree = "<group>"; };
+		97D119FA15D9C76A002891D7 /* VideoFeedViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = VideoFeedViewController.h; path = ../VideoFeedViewController.h; sourceTree = "<group>"; };
+		97D119FB15D9C76A002891D7 /* VideoFeedViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = VideoFeedViewController.m; path = ../VideoFeedViewController.m; sourceTree = "<group>"; };
+		97D119FC15D9C76A002891D7 /* VideoFeedViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = VideoFeedViewController.xib; path = ../VideoFeedViewController.xib; sourceTree = "<group>"; };
 		97D674A9159D0E17008D0306 /* TwitterVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TwitterVC.h; sourceTree = "<group>"; };
 		97D674AA159D0E17008D0306 /* TwitterVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TwitterVC.m; sourceTree = "<group>"; };
 		97D674AB159D0E18008D0306 /* TwitterVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TwitterVC.xib; sourceTree = "<group>"; };
@@ -475,6 +482,8 @@
 		97E3180315747441003C9126 /* Utilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Utilities.h; sourceTree = "<group>"; };
 		97E3180415747441003C9126 /* Utilities.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Utilities.m; sourceTree = "<group>"; };
 		97E3180615747733003C9126 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		97E732D3160903C200FE8F53 /* TCPBufferMonitor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TCPBufferMonitor.h; sourceTree = "<group>"; };
+		97E732D4160903C200FE8F53 /* TCPBufferMonitor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TCPBufferMonitor.m; sourceTree = "<group>"; };
 		BA012A2613A7333F00E81599 /* LivuViewController+Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "LivuViewController+Reachability.h"; sourceTree = "<group>"; };
 		BA012A2713A7334000E81599 /* LivuViewController+Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "LivuViewController+Reachability.m"; sourceTree = "<group>"; };
 		BA14CE9B138C1D790067FBCA /* LivuCaptureManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LivuCaptureManager.h; path = Classes/LivuCaptureManager.h; sourceTree = "<group>"; };
@@ -612,6 +621,8 @@
 		BADCA527130EE58D0017812A /* ExpandyButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ExpandyButton.m; sourceTree = "<group>"; };
 		BAE48A12130258AA0069BDBC /* SUIMaxSlider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SUIMaxSlider.h; sourceTree = "<group>"; };
 		BAE48A13130258AA0069BDBC /* SUIMaxSlider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SUIMaxSlider.m; sourceTree = "<group>"; };
+		DA2ADDDD16133D6F008D8BA8 /* PID.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PID.h; sourceTree = "<group>"; };
+		DA2ADDDE161358BF008D8BA8 /* PID.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PID.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -1017,9 +1028,12 @@
 				BA3D4B4012CFA29600ADEF11 /* LivuView.m */,
 				97E3180315747441003C9126 /* Utilities.h */,
 				97E3180415747441003C9126 /* Utilities.m */,
-				97D119FA15D9C76A002891D7 /* VideoListViewController.h */,
-				97D119FB15D9C76A002891D7 /* VideoListViewController.m */,
-				97D119FC15D9C76A002891D7 /* VideoListViewController.xib */,
+				97D119FA15D9C76A002891D7 /* VideoFeedViewController.h */,
+				97D119FB15D9C76A002891D7 /* VideoFeedViewController.m */,
+				97D119FC15D9C76A002891D7 /* VideoFeedViewController.xib */,
+				97B8FDBF15E81BC7009D4790 /* FriendFeedView.h */,
+				97B8FDC015E81BC7009D4790 /* FriendFeedView.m */,
+				97B8FDC215E81C5F009D4790 /* FriendFeedView.xib */,
 				97A9FC8815D4CFC500E52C5C /* UIHTTPImageView.h */,
 				97A9FC8915D4CFC500E52C5C /* UIHTTPImageView.m */,
 				97CC794E15D6FCB50097887C /* VideoMetaViewController.h */,
@@ -1045,6 +1059,8 @@
 				BA971BD5137B99E8003AFCCB /* LivuViewController+MessageHandlers.m */,
 				BA012A2613A7333F00E81599 /* LivuViewController+Reachability.h */,
 				BA012A2713A7334000E81599 /* LivuViewController+Reachability.m */,
+				97E732D3160903C200FE8F53 /* TCPBufferMonitor.h */,
+				97E732D4160903C200FE8F53 /* TCPBufferMonitor.m */,
 				97336F2A159119DF00653EE3 /* SignupViewController.h */,
 				97336F2B159119DF00653EE3 /* SignupViewController.m */,
 				97336F2C159119DF00653EE3 /* SignupViewController.xib */,
@@ -1065,6 +1081,8 @@
 				970EAF7615DBCEFC00219240 /* MPContainerViewController.h */,
 				970EAF7715DBCEFC00219240 /* MPContainerViewController.m */,
 				970EAF7815DBCEFD00219240 /* MPContainerViewController.xib */,
+				DA2ADDDD16133D6F008D8BA8 /* PID.h */,
+				DA2ADDDE161358BF008D8BA8 /* PID.m */,
 			);
 			name = "Live Stream";
 			sourceTree = "<group>";
@@ -1493,7 +1511,7 @@
 				979C5AC215D886FF006ADB39 /* followbutton.png in Resources */,
 				97D119F115D9AD1D002891D7 /* UserProfileViewController.xib in Resources */,
 				97D119F615D9C506002891D7 /* TabBarController.xib in Resources */,
-				97D119FE15D9C76A002891D7 /* VideoListViewController.xib in Resources */,
+				97D119FE15D9C76A002891D7 /* VideoFeedViewController.xib in Resources */,
 				9723D2C415DA2B2000B6CBB8 /* SignUpPortraitViewController.xib in Resources */,
 				9747FE1115DAEF3B002D25DF /* triangle.png in Resources */,
 				977652D415DB1590003C12C1 /* hot.png in Resources */,
@@ -1502,6 +1520,7 @@
 				977652D715DB1590003C12C1 /* me@2x.png in Resources */,
 				975B2B1A15DB839A007F04BB /* MySHKSharers.plist in Resources */,
 				970EAF7A15DBCEFD00219240 /* MPContainerViewController.xib in Resources */,
+				97B8FDC315E81C60009D4790 /* FriendFeedView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1640,7 +1659,7 @@
 				97CC796515D86B0C0097887C /* IPInsetLabel.m in Sources */,
 				97D119F015D9AD1D002891D7 /* UserProfileViewController.m in Sources */,
 				97D119F515D9C506002891D7 /* TabBarController.m in Sources */,
-				97D119FD15D9C76A002891D7 /* VideoListViewController.m in Sources */,
+				97D119FD15D9C76A002891D7 /* VideoFeedViewController.m in Sources */,
 				9723D2C315DA2B2000B6CBB8 /* SignUpPortraitViewController.m in Sources */,
 				97478A2F15DBAE9100D4C9C1 /* MPCJSONDataSerializer.m in Sources */,
 				97478A3015DBAE9100D4C9C1 /* MPCJSONSerializer.m in Sources */,
@@ -1649,6 +1668,9 @@
 				97478A3315DBAE9100D4C9C1 /* MixpanelAPI.m in Sources */,
 				97478A3415DBAE9100D4C9C1 /* MixpanelEvent.m in Sources */,
 				970EAF7915DBCEFD00219240 /* MPContainerViewController.m in Sources */,
+				97B8FDC115E81BC7009D4790 /* FriendFeedView.m in Sources */,
+				97E732D5160903C200FE8F53 /* TCPBufferMonitor.m in Sources */,
+				DA2ADDDF161358BF008D8BA8 /* PID.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1718,9 +1740,10 @@
 		1D6058940D05DD3E006BFB54 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ADDITIONAL_SDKS = "";
 				ALWAYS_SEARCH_USER_PATHS = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer: Vu Tran (V36ZY6STMM)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Vu Tran (V36ZY6STMM)";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Paul Cretu (NAB482WB5L)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Paul Cretu (NAB482WB5L)";
 				COPY_PHASE_STRIP = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1731,9 +1754,9 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = TapIn_Prefix.pch;
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
-				HEADER_SEARCH_PATHS = "";
+				HEADER_SEARCH_PATHS = /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator6.0.sdk/usr/include;
 				INFOPLIST_FILE = "TapIn-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/../AVCEncoder/DerivedData/AVCEncoder/Build/Products/Release-iphoneos\"",
@@ -1750,6 +1773,7 @@
 				PRODUCT_NAME = TapIn;
 				PROVISIONING_PROFILE = "6C935D87-964B-4C14-AC79-4C30ACA2777C";
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "6C935D87-964B-4C14-AC79-4C30ACA2777C";
+				RUN_CLANG_STATIC_ANALYZER = NO;
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				USER_HEADER_SEARCH_PATHS = "../Submodules/**";
 				VALID_ARCHS = "armv7 i386";
@@ -1759,9 +1783,10 @@
 		1D6058950D05DD3E006BFB54 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ADDITIONAL_SDKS = "";
 				ALWAYS_SEARCH_USER_PATHS = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer: Vu Tran (V36ZY6STMM)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Vu Tran (V36ZY6STMM)";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Paul Cretu (NAB482WB5L)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Paul Cretu (NAB482WB5L)";
 				COPY_PHASE_STRIP = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1771,9 +1796,9 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = TapIn_Prefix.pch;
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
-				HEADER_SEARCH_PATHS = "";
+				HEADER_SEARCH_PATHS = /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator6.0.sdk/usr/include;
 				INFOPLIST_FILE = "TapIn-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/../AVCEncoder/DerivedData/AVCEncoder/Build/Products/Release-iphoneos\"",
@@ -1825,10 +1850,11 @@
 		BA0960511321BE0200EA0899 /* App Store */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ADDITIONAL_SDKS = "";
 				ALWAYS_SEARCH_USER_PATHS = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer: Vu Tran (V36ZY6STMM)";
-				"CODE_SIGN_IDENTITY[sdk=*]" = "iPhone Developer: Vu Tran (V36ZY6STMM)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Vu Tran (V36ZY6STMM)";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Paul Cretu (NAB482WB5L)";
+				"CODE_SIGN_IDENTITY[sdk=*]" = "iPhone Developer: Paul Cretu (NAB482WB5L)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Paul Cretu (NAB482WB5L)";
 				COPY_PHASE_STRIP = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1839,9 +1865,9 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = TapIn_Prefix.pch;
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
-				HEADER_SEARCH_PATHS = "";
+				HEADER_SEARCH_PATHS = /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator6.0.sdk/usr/include;
 				INFOPLIST_FILE = "TapIn-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/../AVCEncoder/DerivedData/AVCEncoder/Build/Products/Release-iphoneos\"",
@@ -2004,9 +2030,10 @@
 		BA51C1B312F0C13400859852 /* Ad Hoc */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ADDITIONAL_SDKS = "";
 				ALWAYS_SEARCH_USER_PATHS = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer: Vu Tran (V36ZY6STMM)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Vu Tran (V36ZY6STMM)";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Paul Cretu (NAB482WB5L)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Paul Cretu (NAB482WB5L)";
 				COPY_PHASE_STRIP = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -2017,9 +2044,9 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = TapIn_Prefix.pch;
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
-				HEADER_SEARCH_PATHS = "";
+				HEADER_SEARCH_PATHS = /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator6.0.sdk/usr/include;
 				INFOPLIST_FILE = "TapIn-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/../AVCEncoder/DerivedData/AVCEncoder/Build/Products/Release-iphoneos\"",

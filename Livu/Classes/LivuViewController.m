@@ -33,7 +33,7 @@
 #import "TwitterVC.h"
 #import "VideosViewController.h"
 #import "UserProfileViewController.h"
-#import "VideoListViewController.h"
+#import "VideoFeedViewController.h"
 #import "SignUpPortraitViewController.h"
 #import "MixpanelAPI.h"
 
@@ -70,6 +70,9 @@ static const unichar delta = 0x0394 ;
     NSTimer * viewCountTimer;
     NSTimer * userUpdateTimer;
     MixpanelAPI *mixpanel;
+    BOOL fuckYouPaul;
+    
+    int ticker;
 }
 @property (nonatomic, retain) LivuConfigViewController *configViewController;
 - (void) setupVideoPreviewLayer;
@@ -133,6 +136,7 @@ static const unichar delta = 0x0394 ;
 
 
 - (void) viewWillAppear:(BOOL)animated {
+    [[Utilities sharedInstance] setDelegate:self];
     if([Utilities userDefaultValueforKey:@"user"] && !userUpdateTimer.isValid)
     {
         userUpdateTimer = [NSTimer scheduledTimerWithTimeInterval:10.0f
@@ -152,7 +156,7 @@ static const unichar delta = 0x0394 ;
 	loadingContainer.layer.cornerRadius = 15;
    
     self.broadcastButton.enabled = NO;
-    self.configButton.enabled = NO;
+//    self.configButton.enabled = NO;
     self.torchButton.hidden = NO;
     self.torchButton.selected = NO;
     self.torchButton.enabled = YES;
@@ -210,7 +214,7 @@ static const unichar delta = 0x0394 ;
 }
 
 - (void) viewWillDisappear:(BOOL)animated {
-    [[Utilities sharedInstance] setDelegate:self];
+//    [[Utilities sharedInstance] setDelegate:self];
     //Save bitrate adjustement.
     [LivuBroadcastConfig save];
 }
@@ -263,13 +267,13 @@ static const unichar delta = 0x0394 ;
 }
 
 -(void)updateUserData {
-    [[Utilities sharedInstance] sendGet:[NSString stringWithFormat:@"web/get/user/%@", [Utilities userDefaultValueforKey:@"user"]] params:NULL];
+    [[Utilities sharedInstance] sendGet:[NSString stringWithFormat:@"web/get/user/%@", [Utilities userDefaultValueforKey:@"user"]] params:NULL delegate:self];
 }
 
 
 -(void)updateStreamData {
     NSString * streamID = [[Utilities sharedInstance] streamID];
-    [[Utilities sharedInstance] sendGet:[NSString stringWithFormat:@"web/get/stream/%@", streamID] params:NULL];
+    [[Utilities sharedInstance] sendGet:[NSString stringWithFormat:@"web/get/stream/%@", streamID] params:NULL delegate:self];
 }
 
 //- (void) willResignActive {
@@ -297,6 +301,9 @@ static const unichar delta = 0x0394 ;
 // Implement viewDidLoad to do additional setup after loading the view, typically from a nib.
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    fuckYouPaul = YES;
+    ticker = 0;
     
     LivuBroadcastProfile* profile = [LivuBroadcastConfig activeProfile]; 
     mixpanel = [MixpanelAPI sharedAPI];
@@ -410,7 +417,7 @@ static const unichar delta = 0x0394 ;
 
 - (IBAction) userButtonToucehd:(id)sender
 {
-//    VideoListViewController *vc1 = [[VideoListViewController alloc]init];
+    VideoFeedViewController *vc1 = [[VideoFeedViewController alloc]init];
     VideosViewController * vc2 = [[VideosViewController alloc]init];
     UserProfileViewController *vc3 = [[UserProfileViewController alloc]init];
     if([Utilities userDefaultValueforKey:@"user"]) vc3.user = [Utilities userDefaultValueforKey:@"user"];
@@ -428,7 +435,7 @@ static const unichar delta = 0x0394 ;
     [[self.tabBarController.viewControllers objectAtIndex:1] setTitle:@"Squares"];
     [[self.tabBarController.viewControllers objectAtIndex:2] setTitle:@"Profile"];
 
-    [tab setViewControllers:[NSArray arrayWithObjects: vc2, vc3, nil] animated:NO];
+    [tab setViewControllers:[NSArray arrayWithObjects: vc1, vc2, vc3, nil] animated:NO];
     [tab setSelectedIndex:0 ];
 
     
@@ -753,7 +760,7 @@ static const unichar delta = 0x0394 ;
     userButton.hidden = YES;
     //TODO: We should not set it here. Let the call back set it.
     //      Move property settings into callback
-    [[Utilities sharedInstance] setDelegate:self];
+//    [[Utilities sharedInstance] setDelegate:self];
     helperText.text = @"REC";
     helperText.textColor = [UIColor redColor];
 
@@ -775,12 +782,13 @@ static const unichar delta = 0x0394 ;
     
     if (!sender.selected) {
         [mixpanel track:@"Record start press" properties:[Utilities livuSettings]];
-        [[Utilities sharedInstance]startStream];
+        [[Utilities sharedInstance]startStream:self];
+        [[Utilities sharedInstance] setDelegate:self];
         [self performSelector:@selector(stopStream) withObject:nil afterDelay:5];
-        throttleCount = 1;
+        throttleCount = 5;
         tryToStop = NO;
         // start countdown timer
-        throttleTimer = [NSTimer scheduledTimerWithTimeInterval:5.0
+        throttleTimer = [NSTimer scheduledTimerWithTimeInterval:1.0
                                          target:self
                                        selector:@selector(throttleCountDown)
                                        userInfo:nil
@@ -791,7 +799,8 @@ static const unichar delta = 0x0394 ;
         [self showActivityIndicator:@"Starting Stream"];
         [[Utilities sharedInstance] setStreamID:@""]; //reset the streamID 
         [[Utilities sharedInstance] startLocationService];
-        
+        NSDictionary * dict = [[NSDictionary alloc]initWithObjectsAndKeys: nil];
+        if(fuckYouPaul) [self didCompleteHandshake:dict];
     }
     else {
         if(throttleCount ==0)
@@ -808,9 +817,18 @@ static const unichar delta = 0x0394 ;
 }
 
 -(void)throttleCountDown {
+    int bps = self.avcEncoder.averagebps;
+    
+    ticker++;
+    
+    self.videoBitrate.text = [NSString stringWithFormat:@"%i Video %dkbps", ticker, bps / 1000]; 
+    
     if(!throttleCount==0) throttleCount--;
     else {
-        if(tryToStop) [self stopStream];
+        if(tryToStop){
+            ticker =0;
+            [self stopStream];
+        }
     }
 }
 
@@ -1233,7 +1251,7 @@ static const unichar delta = 0x0394 ;
 }
 
 #pragma mark - network utilities delegate
--(void)didCompleteHandeshake:(NSDictionary *)response
+-(void)didCompleteHandshake:(NSDictionary *)response
 {    
     //Play sound
     NSString *soundPath = [[NSBundle mainBundle] pathForResource:@"begin_video_record" ofType:@"caf"];
@@ -1245,14 +1263,12 @@ static const unichar delta = 0x0394 ;
     AudioServicesPlaySystemSound (soundID);
       
     [NSObject cancelPreviousPerformRequestsWithTarget:self selector:@selector(stopStream) object:nil];
-    NSLog(@"start handeshake");
+    NSLog(@"start handshake");
     [[Utilities sharedInstance] setStreaming:YES];
     [self hideActivityIndicator];
     self.broadcastButton.selected = YES;
-    [Utilities setUserDefaultValue:[response objectForKey:@"streamid"] forKey:@"laststream"];
-    [[Utilities sharedInstance] setStreamID:[response objectForKey:@"streamid"]];
     [self.broadcastButton.imageView setImage:[UIImage imageNamed:@"recordstart"]];
-    self.configButton.enabled = NO;
+//    self.configButton.enabled = NO;
     twitterButton.enabled = YES;
     twitterButton.hidden = NO;
     facebookButton.hidden = NO;
@@ -1274,10 +1290,16 @@ static const unichar delta = 0x0394 ;
     LivuBroadcastProfile* profile = [LivuBroadcastConfig activeProfile]; 
     
 //    FUCK YOU PAUL
-       profile.address = [response 	objectForKey:@"host"];
-    NSLog(@"moment of truth %@", [response objectForKey:@"host"]);
-       profile.application = [NSString stringWithFormat:@"/live/%@/stream", [response objectForKey:@"streamid"]];
-//      profile.keyFrameInterval = [[response objectForKey:@"keyframeinterval"] intValue];
+//       profile.address = [response 	objectForKey:@"host"];
+    if(!fuckYouPaul) {
+        NSLog(@"moment of truth %@", [response objectForKey:@"host"]);
+        profile.application = [NSString stringWithFormat:@"/live/%@/stream", [response objectForKey:@"streamid"]];
+        NSLog(@"%@", profile.application);
+        profile.keyFrameInterval = [[response objectForKey:@"keyframeinterval"] intValue];
+        [Utilities setUserDefaultValue:[response objectForKey:@"streamid"] forKey:@"laststream"];
+        [[Utilities sharedInstance] setStreamID:[response objectForKey:@"streamid"]];
+
+    }
 //    NSLog(@"address: %@", profile.address);
 //    NSLog(@"application: %@", profile.application);
 //    NSLog(@"profile: %@", [profile description]);

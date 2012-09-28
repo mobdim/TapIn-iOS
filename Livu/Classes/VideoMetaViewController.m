@@ -128,8 +128,8 @@
 
 -(void)queryForComments {
     NSMutableDictionary * params = [[NSMutableDictionary alloc] initWithObjectsAndKeys:@"comments", @"wrapper", @"timestamp", @"sortby", nil];
-    [[Utilities sharedInstance] sendGet:[NSString stringWithFormat: @"web/get/commentbystreamid/%@", streamID] params:params];
-    [[Utilities sharedInstance] sendGet:[NSString stringWithFormat: @"web/get/Timestreambystreamid/%@", streamID] params:[[NSMutableDictionary alloc] initWithObjectsAndKeys:@"timestream", @"wrapper", nil]];
+    [[Utilities sharedInstance] sendGet:[NSString stringWithFormat: @"web/get/commentbystreamid/%@", streamID] params:params delegate:self];
+    [[Utilities sharedInstance] sendGet:[NSString stringWithFormat: @"web/get/Timestreambystreamid/%@", streamID] params:[[NSMutableDictionary alloc] initWithObjectsAndKeys:@"timestream", @"wrapper", nil] delegate:self];
     
     [params release];
 }
@@ -315,7 +315,7 @@
             [[MixpanelAPI sharedAPI] track:@"upvote"];
             NSMutableDictionary * params = [[NSMutableDictionary alloc] initWithObjectsAndKeys:@"upvote", @"wrapper", [Utilities userDefaultValueforKey:@"token"], @"token", nil];
         
-            [[Utilities sharedInstance] sendGet:[NSString stringWithFormat:@"web/upvote/stream/%@", self.streamID] params:params]; 
+            [[Utilities sharedInstance] sendGet:[NSString stringWithFormat:@"web/upvote/stream/%@", self.streamID] params:params delegate:self]; 
             [params release];
 
         }
@@ -324,7 +324,7 @@
             [[MixpanelAPI sharedAPI] track:@"downvote"];
             NSMutableDictionary * params = [[NSMutableDictionary alloc] initWithObjectsAndKeys:@"downvote", @"wrapper", [Utilities userDefaultValueforKey:@"token"], @"token", nil];
         
-            [[Utilities sharedInstance] sendGet:[NSString stringWithFormat:@"web/downvote/stream/%@", self.streamID] params:params]; 
+            [[Utilities sharedInstance] sendGet:[NSString stringWithFormat:@"web/downvote/stream/%@", self.streamID] params:params delegate:self]; 
             [params release];
 
         }
@@ -361,14 +361,14 @@
     beforeVote = 0;
     NSMutableDictionary * params = [[NSMutableDictionary alloc] initWithObjectsAndKeys:@"stream", @"wrapper", nil];
 
-    [[Utilities sharedInstance] sendGet:[NSString stringWithFormat:@"web/get/stream/%@", self.streamID] params:params]; 
+    [[Utilities sharedInstance] sendGet:[NSString stringWithFormat:@"web/get/stream/%@", self.streamID] params:params delegate:self]; 
     [params release];
     
     
     if([Utilities userDefaultValueforKey:@"user"]){
         NSMutableDictionary * params2 = [[NSMutableDictionary alloc] initWithObjectsAndKeys:@"vote", @"wrapper", nil];
         
-        [[Utilities sharedInstance] sendGet:[NSString stringWithFormat:@"web/get/vote/%@:%@", self.streamID, [Utilities userDefaultValueforKey:@"user"]] params:params2]; 
+        [[Utilities sharedInstance] sendGet:[NSString stringWithFormat:@"web/get/vote/%@:%@", self.streamID, [Utilities userDefaultValueforKey:@"user"]] params:params2 delegate:self]; 
         [params2 release];
     }
 
@@ -395,10 +395,7 @@
     UITapGestureRecognizer * tap = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(showMovie)];
     tap.numberOfTapsRequired = 1;
     img.userInteractionEnabled = YES;
-    [img addGestureRecognizer:tap];
-    [[Utilities sharedInstance] setDelegate:self];
-  
-
+    [img addGestureRecognizer:tap];  
     // Do any additional setup after loading the view from its nib.
 }
 
@@ -411,7 +408,6 @@
         }
     }
     
-    [[Utilities sharedInstance] setDelegate:self];
     [self queryForComments];
 }
 

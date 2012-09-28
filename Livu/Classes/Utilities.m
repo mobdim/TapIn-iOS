@@ -160,8 +160,9 @@
     location = [newLocation retain];
 }
 
--(void)startStream
+-(void)startStream:(NSObject*)_delegate
 {
+    _delegate = self.delegate;
     streamID = @"";
     [self postHandShakeWithCoordinate:location];   
 }
@@ -238,7 +239,6 @@
 }
 
 - (void)requestFinished:(ASIHTTPRequest *)request {
-    NSLog(@"at least got here...");
     if(request.responseStatusCode == 200)
     {
         NSLog(@"Response %d ==> %@", request.responseStatusCode, [request responseString]);
@@ -247,9 +247,9 @@
         {
             [Utilities setUserDefaultValue:[response objectForKey:@"streamid"] forKey:@"streamid"];
             streamID = [[NSString stringWithFormat:@"%@",  [response objectForKey:@"streamid"]] retain];
-            if ([(NSObject *)delegate respondsToSelector:@selector(didCompleteHandeshake:)])
+            if ([(NSObject *)delegate respondsToSelector:@selector(didCompleteHandshake:)])
             {
-                [delegate didCompleteHandeshake:response];
+                [delegate didCompleteHandshake:response];
             }
         }
         else {
@@ -296,8 +296,9 @@
     [request startAsynchronous];   
 }
 
--(void)sendGet:(NSString*)host params:(NSMutableDictionary*)params {
+-(void)sendGet:(NSString*)host params:(NSMutableDictionary*)params delegate:(NSObject*)_delegate {
         
+        self.delegate = _delegate;
         NSString* urlString = [self urlStringForParams:params path:host];
         NSLog(@"url string: %@", urlString);
         

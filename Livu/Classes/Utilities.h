@@ -10,7 +10,7 @@
 #import <CoreLocation/CoreLocation.h>
 @protocol NetworkUtilitiesDelegate
 @optional
--(void)didCompleteHandeshake:(NSDictionary *)response;
+-(void)didCompleteHandshake:(NSDictionary *)response;
 -(void)handshakeDidFailWithErrors:(NSString*)error;
 -(void) responseDidSucceed:(NSDictionary*)data; 
 @end
@@ -30,8 +30,8 @@
 +(id) userDefaultValueforKey:(NSString *)key;
 +(NSString*) phoneID;
 -(void)sendPost:(NSString*)host params:(NSMutableDictionary*)params;
--(void)sendGet:(NSString*)host params:(NSMutableDictionary*)params;
--(void)startStream;
+-(void)sendGet:(NSString*)host params:(NSMutableDictionary*)params delegate:(NSObject*)_delegate;
+-(void)startStream:(NSObject*)_delegate;
 -(void)signout;
 +(NSDictionary*)livuSettings;
 -(NSString*)generateUuidString;

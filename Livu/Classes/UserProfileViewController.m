@@ -122,13 +122,13 @@
 
 -(void)queryForUserData {
     NSMutableDictionary * params = [[NSMutableDictionary alloc] initWithObjectsAndKeys:@"user", @"wrapper", nil];
-    [[Utilities sharedInstance] sendGet:[NSString stringWithFormat: @"web/get/user/%@", user] params:params];
+    [[Utilities sharedInstance] sendGet:[NSString stringWithFormat: @"web/get/user/%@", user] params:params delegate:self];
     [params release];
 }
 
 -(void)queryForVideo {
     NSMutableDictionary * params = [[NSMutableDictionary alloc] initWithObjectsAndKeys:@"video", @"wrapper", @"streamend", @"sortby", nil];
-    [[Utilities sharedInstance] sendGet:[NSString stringWithFormat: @"web/get/streambyuser/%@", user] params:params];
+    [[Utilities sharedInstance] sendGet:[NSString stringWithFormat: @"web/get/streambyuser/%@", user] params:params delegate:self];
     [params release];
 }
 
@@ -246,14 +246,14 @@
     {
         [[MixpanelAPI sharedAPI] track:@"Unfollow"];
         NSMutableDictionary * params = [[NSMutableDictionary alloc] initWithObjectsAndKeys:@"unfollow", @"wrapper", user, @"username", [Utilities userDefaultValueforKey:@"token"], @"token", nil];
-        [[Utilities sharedInstance] sendGet:[NSString stringWithFormat: @"web/unfollow", user] params:params];
+        [[Utilities sharedInstance] sendGet:[NSString stringWithFormat: @"web/unfollow", user] params:params delegate:self];
         [params release];
     }
 
     else {
         [[MixpanelAPI sharedAPI] track:@"Follow"];
         NSMutableDictionary * params = [[NSMutableDictionary alloc] initWithObjectsAndKeys:@"follow", @"wrapper", user, @"username", [Utilities userDefaultValueforKey:@"token"], @"token", nil];
-        [[Utilities sharedInstance] sendGet:[NSString stringWithFormat: @"web/follow", user] params:params];
+        [[Utilities sharedInstance] sendGet:[NSString stringWithFormat: @"web/follow", user] params:params delegate:self];
         [params release];
     }
 }
