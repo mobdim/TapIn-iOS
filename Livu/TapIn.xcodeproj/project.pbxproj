@@ -36,12 +36,6 @@
 		97336F2D159119DF00653EE3 /* SignupViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 97336F2B159119DF00653EE3 /* SignupViewController.m */; };
 		97336F2E159119DF00653EE3 /* SignupViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 97336F2C159119DF00653EE3 /* SignupViewController.xib */; };
 		974789C915DBA89B00D4C9C1 /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 974789C815DBA89B00D4C9C1 /* CoreTelephony.framework */; };
-		97478A2F15DBAE9100D4C9C1 /* MPCJSONDataSerializer.m in Sources */ = {isa = PBXBuildFile; fileRef = 97478A2215DBAE9100D4C9C1 /* MPCJSONDataSerializer.m */; };
-		97478A3015DBAE9100D4C9C1 /* MPCJSONSerializer.m in Sources */ = {isa = PBXBuildFile; fileRef = 97478A2415DBAE9100D4C9C1 /* MPCJSONSerializer.m */; };
-		97478A3115DBAE9100D4C9C1 /* MPCSerializedJSONData.m in Sources */ = {isa = PBXBuildFile; fileRef = 97478A2615DBAE9100D4C9C1 /* MPCSerializedJSONData.m */; };
-		97478A3215DBAE9100D4C9C1 /* NSData+MPBase64.m in Sources */ = {isa = PBXBuildFile; fileRef = 97478A2915DBAE9100D4C9C1 /* NSData+MPBase64.m */; };
-		97478A3315DBAE9100D4C9C1 /* MixpanelAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = 97478A2B15DBAE9100D4C9C1 /* MixpanelAPI.m */; };
-		97478A3415DBAE9100D4C9C1 /* MixpanelEvent.m in Sources */ = {isa = PBXBuildFile; fileRef = 97478A2E15DBAE9100D4C9C1 /* MixpanelEvent.m */; };
 		9747FE1115DAEF3B002D25DF /* triangle.png in Resources */ = {isa = PBXBuildFile; fileRef = 9747FE1015DAEF3B002D25DF /* triangle.png */; };
 		975B2B1A15DB839A007F04BB /* MySHKSharers.plist in Resources */ = {isa = PBXBuildFile; fileRef = 975B2B1915DB839A007F04BB /* MySHKSharers.plist */; };
 		97669FA71592D6BA00BF76E6 /* UserViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 97669FA51592D6BA00BF76E6 /* UserViewController.m */; };
@@ -58,8 +52,6 @@
 		9779815B161666E8003C8845 /* AVCamViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 97798157161666E8003C8845 /* AVCamViewController.m */; };
 		9779815D16166929003C8845 /* AssetsLibrary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9779815C16166929003C8845 /* AssetsLibrary.framework */; };
 		9779815F1616753B003C8845 /* AVCamViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9779815E1616753B003C8845 /* AVCamViewController.xib */; };
-		977E3C8D15DB8C9F00F3FD26 /* libShareKit.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 977E3C7F15DB8C2000F3FD26 /* libShareKit.a */; };
-		977E3C8E15DB8CBF00F3FD26 /* ShareKit.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 977E3C8115DB8C2000F3FD26 /* ShareKit.bundle */; };
 		97885005158FC1E200531A1A /* offbutton.png in Resources */ = {isa = PBXBuildFile; fileRef = 97884FFD158FC1E200531A1A /* offbutton.png */; };
 		97885006158FC1E200531A1A /* offbutton@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 97884FFE158FC1E200531A1A /* offbutton@2x.png */; };
 		97885007158FC1E200531A1A /* recordbutton.png in Resources */ = {isa = PBXBuildFile; fileRef = 97884FFF158FC1E200531A1A /* recordbutton.png */; };
@@ -286,51 +278,261 @@
 		BACA026E12C95FC40058A595 /* TableCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BACA026D12C95FC40058A595 /* TableCell.xib */; };
 		BADCA528130EE58D0017812A /* ExpandyButton.m in Sources */ = {isa = PBXBuildFile; fileRef = BADCA527130EE58D0017812A /* ExpandyButton.m */; };
 		BAE48A14130258AA0069BDBC /* SUIMaxSlider.m in Sources */ = {isa = PBXBuildFile; fileRef = BAE48A13130258AA0069BDBC /* SUIMaxSlider.m */; };
+		DA206AD6161B040F00CDC9E4 /* MPCJSONDataSerializer.m in Sources */ = {isa = PBXBuildFile; fileRef = DA206AC9161B040F00CDC9E4 /* MPCJSONDataSerializer.m */; };
+		DA206AD7161B040F00CDC9E4 /* MPCJSONSerializer.m in Sources */ = {isa = PBXBuildFile; fileRef = DA206ACB161B040F00CDC9E4 /* MPCJSONSerializer.m */; };
+		DA206AD8161B040F00CDC9E4 /* MPCSerializedJSONData.m in Sources */ = {isa = PBXBuildFile; fileRef = DA206ACD161B040F00CDC9E4 /* MPCSerializedJSONData.m */; };
+		DA206AD9161B040F00CDC9E4 /* NSData+MPBase64.m in Sources */ = {isa = PBXBuildFile; fileRef = DA206AD0161B040F00CDC9E4 /* NSData+MPBase64.m */; };
+		DA206ADA161B040F00CDC9E4 /* MixpanelAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = DA206AD2161B040F00CDC9E4 /* MixpanelAPI.m */; };
+		DA206ADB161B040F00CDC9E4 /* MixpanelEvent.m in Sources */ = {isa = PBXBuildFile; fileRef = DA206AD5161B040F00CDC9E4 /* MixpanelEvent.m */; };
+		DA206BDF161B082100CDC9E4 /* libShareKit.a in Frameworks */ = {isa = PBXBuildFile; fileRef = DA206B09161B04E200CDC9E4 /* libShareKit.a */; };
 		DA2ADDDF161358BF008D8BA8 /* PID.m in Sources */ = {isa = PBXBuildFile; fileRef = DA2ADDDE161358BF008D8BA8 /* PID.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		977E3C7C15DB8C2000F3FD26 /* PBXContainerItemProxy */ = {
+		DA206B06161B04E200CDC9E4 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = 977E3C7115DB8C2000F3FD26 /* ShareKit.xcodeproj */;
+			containerPortal = DA206ADC161B04E200CDC9E4 /* ShareKit.xcodeproj */;
 			proxyType = 2;
 			remoteGlobalIDString = 1D6058910D05DD3D006BFB54;
 			remoteInfo = "Demo App";
 		};
-		977E3C7E15DB8C2000F3FD26 /* PBXContainerItemProxy */ = {
+		DA206B08161B04E200CDC9E4 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = 977E3C7115DB8C2000F3FD26 /* ShareKit.xcodeproj */;
+			containerPortal = DA206ADC161B04E200CDC9E4 /* ShareKit.xcodeproj */;
 			proxyType = 2;
 			remoteGlobalIDString = 7AB5342E1552AADD00171BCE;
 			remoteInfo = "Static Library";
 		};
-		977E3C8015DB8C2000F3FD26 /* PBXContainerItemProxy */ = {
+		DA206B0A161B04E200CDC9E4 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = 977E3C7115DB8C2000F3FD26 /* ShareKit.xcodeproj */;
+			containerPortal = DA206ADC161B04E200CDC9E4 /* ShareKit.xcodeproj */;
 			proxyType = 2;
 			remoteGlobalIDString = 7AB5360F1552E26800171BCE;
 			remoteInfo = "Resource Bundle";
 		};
-		977E3C8215DB8C2000F3FD26 /* PBXContainerItemProxy */ = {
+		DA206B0C161B04E200CDC9E4 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = 977E3C7115DB8C2000F3FD26 /* ShareKit.xcodeproj */;
+			containerPortal = DA206ADC161B04E200CDC9E4 /* ShareKit.xcodeproj */;
 			proxyType = 2;
 			remoteGlobalIDString = 7A0F9246156BA2A0009CB40A;
-			remoteInfo = "Static Library No Submodules";
+			remoteInfo = "Static Library Core";
 		};
-		977E3C8915DB8C7600F3FD26 /* PBXContainerItemProxy */ = {
+		DA206B0E161B04E200CDC9E4 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = 977E3C7115DB8C2000F3FD26 /* ShareKit.xcodeproj */;
-			proxyType = 1;
-			remoteGlobalIDString = 7AB5342D1552AADD00171BCE;
-			remoteInfo = "Static Library";
+			containerPortal = DA206ADC161B04E200CDC9E4 /* ShareKit.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 7A1AFCAE160E11810086B98A;
+			remoteInfo = JSONKit;
 		};
-		977E3C8B15DB8C7B00F3FD26 /* PBXContainerItemProxy */ = {
+		DA206B10161B04E200CDC9E4 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = 977E3C7115DB8C2000F3FD26 /* ShareKit.xcodeproj */;
-			proxyType = 1;
-			remoteGlobalIDString = 7AB5360E1552E26800171BCE;
-			remoteInfo = "Resource Bundle";
+			containerPortal = DA206ADC161B04E200CDC9E4 /* ShareKit.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 7A1AFCC0160E11F90086B98A;
+			remoteInfo = SSKeyChain;
+		};
+		DA206B12161B04E200CDC9E4 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = DA206ADC161B04E200CDC9E4 /* ShareKit.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 7A16F37E161340DD0019645D;
+			remoteInfo = OAuth;
+		};
+		DA206B14161B04E200CDC9E4 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = DA206ADC161B04E200CDC9E4 /* ShareKit.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 7A1AFCD1160E123C0086B98A;
+			remoteInfo = Reachability;
+		};
+		DA206B16161B04E200CDC9E4 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = DA206ADC161B04E200CDC9E4 /* ShareKit.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 7AEE0307160E1A3F00FEC06E;
+			remoteInfo = Print;
+		};
+		DA206B18161B04E200CDC9E4 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = DA206ADC161B04E200CDC9E4 /* ShareKit.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 7AEE0318160E1A6300FEC06E;
+			remoteInfo = Logout;
+		};
+		DA206B1A161B04E200CDC9E4 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = DA206ADC161B04E200CDC9E4 /* ShareKit.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 7AEE0329160E1A8A00FEC06E;
+			remoteInfo = Copy;
+		};
+		DA206B1C161B04E200CDC9E4 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = DA206ADC161B04E200CDC9E4 /* ShareKit.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 7AEE02D9160E188400FEC06E;
+			remoteInfo = Email;
+		};
+		DA206B1E161B04E200CDC9E4 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = DA206ADC161B04E200CDC9E4 /* ShareKit.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 7AEE033A160E1ABC00FEC06E;
+			remoteInfo = "Open in Safari";
+		};
+		DA206B20161B04E200CDC9E4 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = DA206ADC161B04E200CDC9E4 /* ShareKit.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 7AEE034B160E1AF400FEC06E;
+			remoteInfo = "Save to Album";
+		};
+		DA206B22161B04E200CDC9E4 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = DA206ADC161B04E200CDC9E4 /* ShareKit.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 7AEE02EA160E18A700FEC06E;
+			remoteInfo = "Text Message";
+		};
+		DA206B24161B04E200CDC9E4 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = DA206ADC161B04E200CDC9E4 /* ShareKit.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 7AEE035C160E1B3A00FEC06E;
+			remoteInfo = Kippt;
+		};
+		DA206B26161B04E200CDC9E4 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = DA206ADC161B04E200CDC9E4 /* ShareKit.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 7AEE036C160E1B3D00FEC06E;
+			remoteInfo = Delicious;
+		};
+		DA206B28161B04E200CDC9E4 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = DA206ADC161B04E200CDC9E4 /* ShareKit.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 7AEE038C160E1B4000FEC06E;
+			remoteInfo = Readability;
+		};
+		DA206B2A161B04E200CDC9E4 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = DA206ADC161B04E200CDC9E4 /* ShareKit.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 7AEE037C160E1B3E00FEC06E;
+			remoteInfo = Diigo;
+		};
+		DA206B2C161B04E200CDC9E4 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = DA206ADC161B04E200CDC9E4 /* ShareKit.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 7AEE039C160E1B4200FEC06E;
+			remoteInfo = VKontakte;
+		};
+		DA206B2E161B04E200CDC9E4 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = DA206ADC161B04E200CDC9E4 /* ShareKit.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 7AEE03B2160E1C0600FEC06E;
+			remoteInfo = Evernote;
+		};
+		DA206B30161B04E200CDC9E4 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = DA206ADC161B04E200CDC9E4 /* ShareKit.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 7A1AFCE2160E127B0086B98A;
+			remoteInfo = "Evernote SDK";
+		};
+		DA206B32161B04E200CDC9E4 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = DA206ADC161B04E200CDC9E4 /* ShareKit.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 7A1AFD4D160E14590086B98A;
+			remoteInfo = Facebook;
+		};
+		DA206B34161B04E200CDC9E4 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = DA206ADC161B04E200CDC9E4 /* ShareKit.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 7A1AFD09160E131B0086B98A;
+			remoteInfo = "Facebook SDK";
+		};
+		DA206B36161B04E200CDC9E4 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = DA206ADC161B04E200CDC9E4 /* ShareKit.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 7AEE03C2160E1C0800FEC06E;
+			remoteInfo = FoursquareV2;
+		};
+		DA206B38161B04E200CDC9E4 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = DA206ADC161B04E200CDC9E4 /* ShareKit.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 7AEE03D2160E1C0C00FEC06E;
+			remoteInfo = Flickr;
+		};
+		DA206B3A161B04E200CDC9E4 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = DA206ADC161B04E200CDC9E4 /* ShareKit.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 7A1AFD24160E13740086B98A;
+			remoteInfo = "Flickr SDK";
+		};
+		DA206B3C161B04E200CDC9E4 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = DA206ADC161B04E200CDC9E4 /* ShareKit.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 7AEE03E2160E1C0D00FEC06E;
+			remoteInfo = "Google Reader";
+		};
+		DA206B3E161B04E200CDC9E4 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = DA206ADC161B04E200CDC9E4 /* ShareKit.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 7A16F3C216134A890019645D;
+			remoteInfo = Instagram;
+		};
+		DA206B40161B04E200CDC9E4 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = DA206ADC161B04E200CDC9E4 /* ShareKit.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 7AEE03F2160E1C0E00FEC06E;
+			remoteInfo = Instapaper;
+		};
+		DA206B42161B04E200CDC9E4 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = DA206ADC161B04E200CDC9E4 /* ShareKit.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 7AEE040D160E1D5400FEC06E;
+			remoteInfo = LinkedIn;
+		};
+		DA206B44161B04E200CDC9E4 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = DA206ADC161B04E200CDC9E4 /* ShareKit.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 7AEE041D160E1D5800FEC06E;
+			remoteInfo = Pinboard;
+		};
+		DA206B46161B04E200CDC9E4 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = DA206ADC161B04E200CDC9E4 /* ShareKit.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 7AEE042D160E1D5A00FEC06E;
+			remoteInfo = "Read It Later";
+		};
+		DA206B48161B04E200CDC9E4 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = DA206ADC161B04E200CDC9E4 /* ShareKit.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 7AEE043D160E1D5B00FEC06E;
+			remoteInfo = Tumblr;
+		};
+		DA206B4A161B04E200CDC9E4 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = DA206ADC161B04E200CDC9E4 /* ShareKit.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 7A1AFD3A160E14340086B98A;
+			remoteInfo = Twitter;
 		};
 /* End PBXContainerItemProxy section */
 
@@ -375,19 +577,6 @@
 		97336F2B159119DF00653EE3 /* SignupViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SignupViewController.m; sourceTree = "<group>"; };
 		97336F2C159119DF00653EE3 /* SignupViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SignupViewController.xib; sourceTree = "<group>"; };
 		974789C815DBA89B00D4C9C1 /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
-		97478A2115DBAE9100D4C9C1 /* MPCJSONDataSerializer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MPCJSONDataSerializer.h; sourceTree = "<group>"; };
-		97478A2215DBAE9100D4C9C1 /* MPCJSONDataSerializer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MPCJSONDataSerializer.m; sourceTree = "<group>"; };
-		97478A2315DBAE9100D4C9C1 /* MPCJSONSerializer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MPCJSONSerializer.h; sourceTree = "<group>"; };
-		97478A2415DBAE9100D4C9C1 /* MPCJSONSerializer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MPCJSONSerializer.m; sourceTree = "<group>"; };
-		97478A2515DBAE9100D4C9C1 /* MPCSerializedJSONData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MPCSerializedJSONData.h; sourceTree = "<group>"; };
-		97478A2615DBAE9100D4C9C1 /* MPCSerializedJSONData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MPCSerializedJSONData.m; sourceTree = "<group>"; };
-		97478A2815DBAE9100D4C9C1 /* NSData+MPBase64.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSData+MPBase64.h"; sourceTree = "<group>"; };
-		97478A2915DBAE9100D4C9C1 /* NSData+MPBase64.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSData+MPBase64.m"; sourceTree = "<group>"; };
-		97478A2A15DBAE9100D4C9C1 /* MixpanelAPI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MixpanelAPI.h; sourceTree = "<group>"; };
-		97478A2B15DBAE9100D4C9C1 /* MixpanelAPI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MixpanelAPI.m; sourceTree = "<group>"; };
-		97478A2C15DBAE9100D4C9C1 /* MixpanelAPI_Private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MixpanelAPI_Private.h; sourceTree = "<group>"; };
-		97478A2D15DBAE9100D4C9C1 /* MixpanelEvent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MixpanelEvent.h; sourceTree = "<group>"; };
-		97478A2E15DBAE9100D4C9C1 /* MixpanelEvent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MixpanelEvent.m; sourceTree = "<group>"; };
 		9747FE1015DAEF3B002D25DF /* triangle.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = triangle.png; sourceTree = "<group>"; };
 		975B2B1915DB839A007F04BB /* MySHKSharers.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = MySHKSharers.plist; sourceTree = SOURCE_ROOT; };
 		97669FA41592D6BA00BF76E6 /* UserViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserViewController.h; sourceTree = "<group>"; };
@@ -409,7 +598,6 @@
 		97798157161666E8003C8845 /* AVCamViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AVCamViewController.m; sourceTree = "<group>"; };
 		9779815C16166929003C8845 /* AssetsLibrary.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AssetsLibrary.framework; path = System/Library/Frameworks/AssetsLibrary.framework; sourceTree = SDKROOT; };
 		9779815E1616753B003C8845 /* AVCamViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AVCamViewController.xib; sourceTree = "<group>"; };
-		977E3C7115DB8C2000F3FD26 /* ShareKit.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = ShareKit.xcodeproj; path = ../Submodules/ShareKit/ShareKit.xcodeproj; sourceTree = "<group>"; };
 		97884FFD158FC1E200531A1A /* offbutton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = offbutton.png; sourceTree = "<group>"; };
 		97884FFE158FC1E200531A1A /* offbutton@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "offbutton@2x.png"; sourceTree = "<group>"; };
 		97884FFF158FC1E200531A1A /* recordbutton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = recordbutton.png; sourceTree = "<group>"; };
@@ -637,6 +825,20 @@
 		BADCA527130EE58D0017812A /* ExpandyButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ExpandyButton.m; sourceTree = "<group>"; };
 		BAE48A12130258AA0069BDBC /* SUIMaxSlider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SUIMaxSlider.h; sourceTree = "<group>"; };
 		BAE48A13130258AA0069BDBC /* SUIMaxSlider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SUIMaxSlider.m; sourceTree = "<group>"; };
+		DA206AC8161B040F00CDC9E4 /* MPCJSONDataSerializer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MPCJSONDataSerializer.h; sourceTree = "<group>"; };
+		DA206AC9161B040F00CDC9E4 /* MPCJSONDataSerializer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MPCJSONDataSerializer.m; sourceTree = "<group>"; };
+		DA206ACA161B040F00CDC9E4 /* MPCJSONSerializer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MPCJSONSerializer.h; sourceTree = "<group>"; };
+		DA206ACB161B040F00CDC9E4 /* MPCJSONSerializer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MPCJSONSerializer.m; sourceTree = "<group>"; };
+		DA206ACC161B040F00CDC9E4 /* MPCSerializedJSONData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MPCSerializedJSONData.h; sourceTree = "<group>"; };
+		DA206ACD161B040F00CDC9E4 /* MPCSerializedJSONData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MPCSerializedJSONData.m; sourceTree = "<group>"; };
+		DA206ACF161B040F00CDC9E4 /* NSData+MPBase64.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSData+MPBase64.h"; sourceTree = "<group>"; };
+		DA206AD0161B040F00CDC9E4 /* NSData+MPBase64.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSData+MPBase64.m"; sourceTree = "<group>"; };
+		DA206AD1161B040F00CDC9E4 /* MixpanelAPI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MixpanelAPI.h; sourceTree = "<group>"; };
+		DA206AD2161B040F00CDC9E4 /* MixpanelAPI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MixpanelAPI.m; sourceTree = "<group>"; };
+		DA206AD3161B040F00CDC9E4 /* MixpanelAPI_Private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MixpanelAPI_Private.h; sourceTree = "<group>"; };
+		DA206AD4161B040F00CDC9E4 /* MixpanelEvent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MixpanelEvent.h; sourceTree = "<group>"; };
+		DA206AD5161B040F00CDC9E4 /* MixpanelEvent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MixpanelEvent.m; sourceTree = "<group>"; };
+		DA206ADC161B04E200CDC9E4 /* ShareKit.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = ShareKit.xcodeproj; path = ../Submodules/ShareKit/ShareKit.xcodeproj; sourceTree = "<group>"; };
 		DA2ADDDD16133D6F008D8BA8 /* PID.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PID.h; sourceTree = "<group>"; };
 		DA2ADDDE161358BF008D8BA8 /* PID.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PID.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -646,10 +848,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DA206BDF161B082100CDC9E4 /* libShareKit.a in Frameworks */,
 				9779815D16166929003C8845 /* AssetsLibrary.framework in Frameworks */,
 				97E3175515747273003C9126 /* MobileCoreServices.framework in Frameworks */,
 				974789C915DBA89B00D4C9C1 /* CoreTelephony.framework in Frameworks */,
-				977E3C8D15DB8C9F00F3FD26 /* libShareKit.a in Frameworks */,
 				9701D9CC15979FC900AA9C0A /* Twitter.framework in Frameworks */,
 				97DAA88F158C330000627F39 /* Security.framework in Frameworks */,
 				BA31531412C9145300CF0E5F /* SystemConfiguration.framework in Frameworks */,
@@ -742,12 +944,12 @@
 		29B97314FDCFA39411CA2CEA /* CustomTemplate */ = {
 			isa = PBXGroup;
 			children = (
+				DA206ADC161B04E200CDC9E4 /* ShareKit.xcodeproj */,
+				DA206AC5161B040F00CDC9E4 /* MPLib */,
 				9779815C16166929003C8845 /* AssetsLibrary.framework */,
 				974789C815DBA89B00D4C9C1 /* CoreTelephony.framework */,
 				97CE0FBA159809A300E2943E /* Icon.png */,
-				97478A1E15DBAE9100D4C9C1 /* MPLib */,
 				97CE0FB11597C9C200E2943E /* Default.png */,
-				977E3C7115DB8C2000F3FD26 /* ShareKit.xcodeproj */,
 				97CE0FAF1597C9BF00E2943E /* Default@2x.png */,
 				9701D9CB15979FC900AA9C0A /* Twitter.framework */,
 				97DAA88E158C32FF00627F39 /* Security.framework */,
@@ -818,51 +1020,6 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		97478A1E15DBAE9100D4C9C1 /* MPLib */ = {
-			isa = PBXGroup;
-			children = (
-				97478A1F15DBAE9100D4C9C1 /* lib */,
-				97478A2A15DBAE9100D4C9C1 /* MixpanelAPI.h */,
-				97478A2B15DBAE9100D4C9C1 /* MixpanelAPI.m */,
-				97478A2C15DBAE9100D4C9C1 /* MixpanelAPI_Private.h */,
-				97478A2D15DBAE9100D4C9C1 /* MixpanelEvent.h */,
-				97478A2E15DBAE9100D4C9C1 /* MixpanelEvent.m */,
-			);
-			name = MPLib;
-			path = "../mixpanel-iphone/MPLib";
-			sourceTree = "<group>";
-		};
-		97478A1F15DBAE9100D4C9C1 /* lib */ = {
-			isa = PBXGroup;
-			children = (
-				97478A2015DBAE9100D4C9C1 /* JSON */,
-				97478A2715DBAE9100D4C9C1 /* NSData_Base64 */,
-			);
-			path = lib;
-			sourceTree = "<group>";
-		};
-		97478A2015DBAE9100D4C9C1 /* JSON */ = {
-			isa = PBXGroup;
-			children = (
-				97478A2115DBAE9100D4C9C1 /* MPCJSONDataSerializer.h */,
-				97478A2215DBAE9100D4C9C1 /* MPCJSONDataSerializer.m */,
-				97478A2315DBAE9100D4C9C1 /* MPCJSONSerializer.h */,
-				97478A2415DBAE9100D4C9C1 /* MPCJSONSerializer.m */,
-				97478A2515DBAE9100D4C9C1 /* MPCSerializedJSONData.h */,
-				97478A2615DBAE9100D4C9C1 /* MPCSerializedJSONData.m */,
-			);
-			path = JSON;
-			sourceTree = "<group>";
-		};
-		97478A2715DBAE9100D4C9C1 /* NSData_Base64 */ = {
-			isa = PBXGroup;
-			children = (
-				97478A2815DBAE9100D4C9C1 /* NSData+MPBase64.h */,
-				97478A2915DBAE9100D4C9C1 /* NSData+MPBase64.m */,
-			);
-			path = NSData_Base64;
-			sourceTree = "<group>";
-		};
 		9779814F161666E8003C8845 /* AVCapture */ = {
 			isa = PBXGroup;
 			children = (
@@ -877,17 +1034,6 @@
 				97798157161666E8003C8845 /* AVCamViewController.m */,
 			);
 			path = AVCapture;
-			sourceTree = "<group>";
-		};
-		977E3C7215DB8C2000F3FD26 /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				977E3C7D15DB8C2000F3FD26 /* ShareKitDemo.app */,
-				977E3C7F15DB8C2000F3FD26 /* libShareKit.a */,
-				977E3C8115DB8C2000F3FD26 /* ShareKit.bundle */,
-				977E3C8315DB8C2000F3FD26 /* libShareKitNoSubmodules.a */,
-			);
-			name = Products;
 			sourceTree = "<group>";
 		};
 		97E317811574739A003C9126 /* ASIHTTP */ = {
@@ -1332,6 +1478,93 @@
 			path = Classes;
 			sourceTree = "<group>";
 		};
+		DA206AC5161B040F00CDC9E4 /* MPLib */ = {
+			isa = PBXGroup;
+			children = (
+				DA206AC6161B040F00CDC9E4 /* lib */,
+				DA206AD1161B040F00CDC9E4 /* MixpanelAPI.h */,
+				DA206AD2161B040F00CDC9E4 /* MixpanelAPI.m */,
+				DA206AD3161B040F00CDC9E4 /* MixpanelAPI_Private.h */,
+				DA206AD4161B040F00CDC9E4 /* MixpanelEvent.h */,
+				DA206AD5161B040F00CDC9E4 /* MixpanelEvent.m */,
+			);
+			name = MPLib;
+			path = ../Submodules/Mixpanel/MPLib;
+			sourceTree = "<group>";
+		};
+		DA206AC6161B040F00CDC9E4 /* lib */ = {
+			isa = PBXGroup;
+			children = (
+				DA206AC7161B040F00CDC9E4 /* JSON */,
+				DA206ACE161B040F00CDC9E4 /* NSData_Base64 */,
+			);
+			path = lib;
+			sourceTree = "<group>";
+		};
+		DA206AC7161B040F00CDC9E4 /* JSON */ = {
+			isa = PBXGroup;
+			children = (
+				DA206AC8161B040F00CDC9E4 /* MPCJSONDataSerializer.h */,
+				DA206AC9161B040F00CDC9E4 /* MPCJSONDataSerializer.m */,
+				DA206ACA161B040F00CDC9E4 /* MPCJSONSerializer.h */,
+				DA206ACB161B040F00CDC9E4 /* MPCJSONSerializer.m */,
+				DA206ACC161B040F00CDC9E4 /* MPCSerializedJSONData.h */,
+				DA206ACD161B040F00CDC9E4 /* MPCSerializedJSONData.m */,
+			);
+			path = JSON;
+			sourceTree = "<group>";
+		};
+		DA206ACE161B040F00CDC9E4 /* NSData_Base64 */ = {
+			isa = PBXGroup;
+			children = (
+				DA206ACF161B040F00CDC9E4 /* NSData+MPBase64.h */,
+				DA206AD0161B040F00CDC9E4 /* NSData+MPBase64.m */,
+			);
+			path = NSData_Base64;
+			sourceTree = "<group>";
+		};
+		DA206ADD161B04E200CDC9E4 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				DA206B07161B04E200CDC9E4 /* ShareKitDemo.app */,
+				DA206B09161B04E200CDC9E4 /* libShareKit.a */,
+				DA206B0B161B04E200CDC9E4 /* ShareKit.bundle */,
+				DA206B0D161B04E200CDC9E4 /* libShareKitCore.a */,
+				DA206B0F161B04E200CDC9E4 /* libJSONKit.a */,
+				DA206B11161B04E200CDC9E4 /* libSSKeyChain.a */,
+				DA206B13161B04E200CDC9E4 /* libOAuth.a */,
+				DA206B15161B04E200CDC9E4 /* libReachability.a */,
+				DA206B17161B04E200CDC9E4 /* libPrint.a */,
+				DA206B19161B04E200CDC9E4 /* libLogout.a */,
+				DA206B1B161B04E200CDC9E4 /* libCopy.a */,
+				DA206B1D161B04E200CDC9E4 /* libEmail.a */,
+				DA206B1F161B04E200CDC9E4 /* libOpen in Safari.a */,
+				DA206B21161B04E200CDC9E4 /* libSave to Album.a */,
+				DA206B23161B04E200CDC9E4 /* libText Message.a */,
+				DA206B25161B04E200CDC9E4 /* libKippt.a */,
+				DA206B27161B04E200CDC9E4 /* libDelicious.a */,
+				DA206B29161B04E200CDC9E4 /* libReadability.a */,
+				DA206B2B161B04E200CDC9E4 /* libDiigo.a */,
+				DA206B2D161B04E200CDC9E4 /* libVKontakte.a */,
+				DA206B2F161B04E200CDC9E4 /* libEvernote.a */,
+				DA206B31161B04E200CDC9E4 /* libEvernote SDK.a */,
+				DA206B33161B04E200CDC9E4 /* libFacebook.a */,
+				DA206B35161B04E200CDC9E4 /* libFacebook SDK.a */,
+				DA206B37161B04E200CDC9E4 /* libFoursquareV2.a */,
+				DA206B39161B04E200CDC9E4 /* libFlickr.a */,
+				DA206B3B161B04E200CDC9E4 /* libFlickr SDK.a */,
+				DA206B3D161B04E200CDC9E4 /* libGoogle Reader.a */,
+				DA206B3F161B04E200CDC9E4 /* libInstagram.a */,
+				DA206B41161B04E200CDC9E4 /* libInstapaper.a */,
+				DA206B43161B04E200CDC9E4 /* libLinked In.a */,
+				DA206B45161B04E200CDC9E4 /* libPinboard.a */,
+				DA206B47161B04E200CDC9E4 /* libRead It Later.a */,
+				DA206B49161B04E200CDC9E4 /* libTumblr.a */,
+				DA206B4B161B04E200CDC9E4 /* libTwitter.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -1346,8 +1579,6 @@
 			buildRules = (
 			);
 			dependencies = (
-				977E3C8C15DB8C7B00F3FD26 /* PBXTargetDependency */,
-				977E3C8A15DB8C7600F3FD26 /* PBXTargetDependency */,
 			);
 			name = TapIn;
 			productName = Livu;
@@ -1414,8 +1645,8 @@
 			projectDirPath = "";
 			projectReferences = (
 				{
-					ProductGroup = 977E3C7215DB8C2000F3FD26 /* Products */;
-					ProjectRef = 977E3C7115DB8C2000F3FD26 /* ShareKit.xcodeproj */;
+					ProductGroup = DA206ADD161B04E200CDC9E4 /* Products */;
+					ProjectRef = DA206ADC161B04E200CDC9E4 /* ShareKit.xcodeproj */;
 				},
 			);
 			projectRoot = "";
@@ -1428,32 +1659,249 @@
 /* End PBXProject section */
 
 /* Begin PBXReferenceProxy section */
-		977E3C7D15DB8C2000F3FD26 /* ShareKitDemo.app */ = {
+		DA206B07161B04E200CDC9E4 /* ShareKitDemo.app */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.application;
 			path = ShareKitDemo.app;
-			remoteRef = 977E3C7C15DB8C2000F3FD26 /* PBXContainerItemProxy */;
+			remoteRef = DA206B06161B04E200CDC9E4 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		977E3C7F15DB8C2000F3FD26 /* libShareKit.a */ = {
+		DA206B09161B04E200CDC9E4 /* libShareKit.a */ = {
 			isa = PBXReferenceProxy;
 			fileType = archive.ar;
 			path = libShareKit.a;
-			remoteRef = 977E3C7E15DB8C2000F3FD26 /* PBXContainerItemProxy */;
+			remoteRef = DA206B08161B04E200CDC9E4 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		977E3C8115DB8C2000F3FD26 /* ShareKit.bundle */ = {
+		DA206B0B161B04E200CDC9E4 /* ShareKit.bundle */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.cfbundle;
 			path = ShareKit.bundle;
-			remoteRef = 977E3C8015DB8C2000F3FD26 /* PBXContainerItemProxy */;
+			remoteRef = DA206B0A161B04E200CDC9E4 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		977E3C8315DB8C2000F3FD26 /* libShareKitNoSubmodules.a */ = {
+		DA206B0D161B04E200CDC9E4 /* libShareKitCore.a */ = {
 			isa = PBXReferenceProxy;
 			fileType = archive.ar;
-			path = libShareKitNoSubmodules.a;
-			remoteRef = 977E3C8215DB8C2000F3FD26 /* PBXContainerItemProxy */;
+			path = libShareKitCore.a;
+			remoteRef = DA206B0C161B04E200CDC9E4 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		DA206B0F161B04E200CDC9E4 /* libJSONKit.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libJSONKit.a;
+			remoteRef = DA206B0E161B04E200CDC9E4 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		DA206B11161B04E200CDC9E4 /* libSSKeyChain.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libSSKeyChain.a;
+			remoteRef = DA206B10161B04E200CDC9E4 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		DA206B13161B04E200CDC9E4 /* libOAuth.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libOAuth.a;
+			remoteRef = DA206B12161B04E200CDC9E4 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		DA206B15161B04E200CDC9E4 /* libReachability.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libReachability.a;
+			remoteRef = DA206B14161B04E200CDC9E4 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		DA206B17161B04E200CDC9E4 /* libPrint.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libPrint.a;
+			remoteRef = DA206B16161B04E200CDC9E4 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		DA206B19161B04E200CDC9E4 /* libLogout.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libLogout.a;
+			remoteRef = DA206B18161B04E200CDC9E4 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		DA206B1B161B04E200CDC9E4 /* libCopy.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libCopy.a;
+			remoteRef = DA206B1A161B04E200CDC9E4 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		DA206B1D161B04E200CDC9E4 /* libEmail.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libEmail.a;
+			remoteRef = DA206B1C161B04E200CDC9E4 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		DA206B1F161B04E200CDC9E4 /* libOpen in Safari.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = "libOpen in Safari.a";
+			remoteRef = DA206B1E161B04E200CDC9E4 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		DA206B21161B04E200CDC9E4 /* libSave to Album.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = "libSave to Album.a";
+			remoteRef = DA206B20161B04E200CDC9E4 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		DA206B23161B04E200CDC9E4 /* libText Message.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = "libText Message.a";
+			remoteRef = DA206B22161B04E200CDC9E4 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		DA206B25161B04E200CDC9E4 /* libKippt.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libKippt.a;
+			remoteRef = DA206B24161B04E200CDC9E4 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		DA206B27161B04E200CDC9E4 /* libDelicious.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libDelicious.a;
+			remoteRef = DA206B26161B04E200CDC9E4 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		DA206B29161B04E200CDC9E4 /* libReadability.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libReadability.a;
+			remoteRef = DA206B28161B04E200CDC9E4 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		DA206B2B161B04E200CDC9E4 /* libDiigo.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libDiigo.a;
+			remoteRef = DA206B2A161B04E200CDC9E4 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		DA206B2D161B04E200CDC9E4 /* libVKontakte.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libVKontakte.a;
+			remoteRef = DA206B2C161B04E200CDC9E4 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		DA206B2F161B04E200CDC9E4 /* libEvernote.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libEvernote.a;
+			remoteRef = DA206B2E161B04E200CDC9E4 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		DA206B31161B04E200CDC9E4 /* libEvernote SDK.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = "libEvernote SDK.a";
+			remoteRef = DA206B30161B04E200CDC9E4 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		DA206B33161B04E200CDC9E4 /* libFacebook.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libFacebook.a;
+			remoteRef = DA206B32161B04E200CDC9E4 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		DA206B35161B04E200CDC9E4 /* libFacebook SDK.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = "libFacebook SDK.a";
+			remoteRef = DA206B34161B04E200CDC9E4 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		DA206B37161B04E200CDC9E4 /* libFoursquareV2.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libFoursquareV2.a;
+			remoteRef = DA206B36161B04E200CDC9E4 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		DA206B39161B04E200CDC9E4 /* libFlickr.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libFlickr.a;
+			remoteRef = DA206B38161B04E200CDC9E4 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		DA206B3B161B04E200CDC9E4 /* libFlickr SDK.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = "libFlickr SDK.a";
+			remoteRef = DA206B3A161B04E200CDC9E4 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		DA206B3D161B04E200CDC9E4 /* libGoogle Reader.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = "libGoogle Reader.a";
+			remoteRef = DA206B3C161B04E200CDC9E4 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		DA206B3F161B04E200CDC9E4 /* libInstagram.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libInstagram.a;
+			remoteRef = DA206B3E161B04E200CDC9E4 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		DA206B41161B04E200CDC9E4 /* libInstapaper.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libInstapaper.a;
+			remoteRef = DA206B40161B04E200CDC9E4 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		DA206B43161B04E200CDC9E4 /* libLinked In.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = "libLinked In.a";
+			remoteRef = DA206B42161B04E200CDC9E4 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		DA206B45161B04E200CDC9E4 /* libPinboard.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libPinboard.a;
+			remoteRef = DA206B44161B04E200CDC9E4 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		DA206B47161B04E200CDC9E4 /* libRead It Later.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = "libRead It Later.a";
+			remoteRef = DA206B46161B04E200CDC9E4 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		DA206B49161B04E200CDC9E4 /* libTumblr.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libTumblr.a;
+			remoteRef = DA206B48161B04E200CDC9E4 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		DA206B4B161B04E200CDC9E4 /* libTwitter.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libTwitter.a;
+			remoteRef = DA206B4A161B04E200CDC9E4 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 /* End PBXReferenceProxy section */
@@ -1472,7 +1920,6 @@
 				BACA026E12C95FC40058A595 /* TableCell.xib in Resources */,
 				BA654BB312D10A6E00F9D374 /* VideoOrientationSettings.plist in Resources */,
 				BAA00F4312D3BC7200263AEC /* INFO in Resources */,
-				977E3C8E15DB8CBF00F3FD26 /* ShareKit.bundle in Resources */,
 				BA82516612ED72C100F1FABE /* LivuConfigViewController.xib in Resources */,
 				BA2FDFBE12EE1982006AEF40 /* config_background.png in Resources */,
 				BA2FDFBF12EE1982006AEF40 /* config_background@2x.png in Resources */,
@@ -1697,12 +2144,6 @@
 				97D119F515D9C506002891D7 /* TabBarController.m in Sources */,
 				97D119FD15D9C76A002891D7 /* VideoFeedViewController.m in Sources */,
 				9723D2C315DA2B2000B6CBB8 /* SignUpPortraitViewController.m in Sources */,
-				97478A2F15DBAE9100D4C9C1 /* MPCJSONDataSerializer.m in Sources */,
-				97478A3015DBAE9100D4C9C1 /* MPCJSONSerializer.m in Sources */,
-				97478A3115DBAE9100D4C9C1 /* MPCSerializedJSONData.m in Sources */,
-				97478A3215DBAE9100D4C9C1 /* NSData+MPBase64.m in Sources */,
-				97478A3315DBAE9100D4C9C1 /* MixpanelAPI.m in Sources */,
-				97478A3415DBAE9100D4C9C1 /* MixpanelEvent.m in Sources */,
 				970EAF7915DBCEFD00219240 /* MPContainerViewController.m in Sources */,
 				97B8FDC115E81BC7009D4790 /* FriendFeedView.m in Sources */,
 				97E732D5160903C200FE8F53 /* TCPBufferMonitor.m in Sources */,
@@ -1711,6 +2152,12 @@
 				97798159161666E8003C8845 /* AVCamRecorder.m in Sources */,
 				9779815A161666E8003C8845 /* AVCamUtilities.m in Sources */,
 				9779815B161666E8003C8845 /* AVCamViewController.m in Sources */,
+				DA206AD6161B040F00CDC9E4 /* MPCJSONDataSerializer.m in Sources */,
+				DA206AD7161B040F00CDC9E4 /* MPCJSONSerializer.m in Sources */,
+				DA206AD8161B040F00CDC9E4 /* MPCSerializedJSONData.m in Sources */,
+				DA206AD9161B040F00CDC9E4 /* NSData+MPBase64.m in Sources */,
+				DA206ADA161B040F00CDC9E4 /* MixpanelAPI.m in Sources */,
+				DA206ADB161B040F00CDC9E4 /* MixpanelEvent.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1752,19 +2199,6 @@
 		};
 /* End PBXSourcesBuildPhase section */
 
-/* Begin PBXTargetDependency section */
-		977E3C8A15DB8C7600F3FD26 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = "Static Library";
-			targetProxy = 977E3C8915DB8C7600F3FD26 /* PBXContainerItemProxy */;
-		};
-		977E3C8C15DB8C7B00F3FD26 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = "Resource Bundle";
-			targetProxy = 977E3C8B15DB8C7B00F3FD26 /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
-
 /* Begin PBXVariantGroup section */
 		BA45D5B313369A620084E2EC /* InfoPlist.strings */ = {
 			isa = PBXVariantGroup;
@@ -1782,8 +2216,8 @@
 			buildSettings = {
 				ADDITIONAL_SDKS = "";
 				ALWAYS_SEARCH_USER_PATHS = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer: Vu Tran (V36ZY6STMM)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Vu Tran (V36ZY6STMM)";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Paul Cretu (NAB482WB5L)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Paul Cretu (NAB482WB5L)";
 				COPY_PHASE_STRIP = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1796,7 +2230,7 @@
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				HEADER_SEARCH_PATHS = /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator6.0.sdk/usr/include;
 				INFOPLIST_FILE = "TapIn-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/../AVCEncoder/DerivedData/AVCEncoder/Build/Products/Release-iphoneos\"",
@@ -1826,8 +2260,8 @@
 			buildSettings = {
 				ADDITIONAL_SDKS = "";
 				ALWAYS_SEARCH_USER_PATHS = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer: Vu Tran (V36ZY6STMM)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Vu Tran (V36ZY6STMM)";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Paul Cretu (NAB482WB5L)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Paul Cretu (NAB482WB5L)";
 				COPY_PHASE_STRIP = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1839,7 +2273,7 @@
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				HEADER_SEARCH_PATHS = /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator6.0.sdk/usr/include;
 				INFOPLIST_FILE = "TapIn-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/../AVCEncoder/DerivedData/AVCEncoder/Build/Products/Release-iphoneos\"",
@@ -1894,9 +2328,9 @@
 			buildSettings = {
 				ADDITIONAL_SDKS = "";
 				ALWAYS_SEARCH_USER_PATHS = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer: Vu Tran (V36ZY6STMM)";
-				"CODE_SIGN_IDENTITY[sdk=*]" = "iPhone Developer: Vu Tran (V36ZY6STMM)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Vu Tran (V36ZY6STMM)";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Paul Cretu (NAB482WB5L)";
+				"CODE_SIGN_IDENTITY[sdk=*]" = "iPhone Developer: Paul Cretu (NAB482WB5L)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Paul Cretu (NAB482WB5L)";
 				COPY_PHASE_STRIP = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1909,7 +2343,7 @@
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				HEADER_SEARCH_PATHS = /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator6.0.sdk/usr/include;
 				INFOPLIST_FILE = "TapIn-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/../AVCEncoder/DerivedData/AVCEncoder/Build/Products/Release-iphoneos\"",
@@ -2075,8 +2509,8 @@
 			buildSettings = {
 				ADDITIONAL_SDKS = "";
 				ALWAYS_SEARCH_USER_PATHS = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer: Vu Tran (V36ZY6STMM)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Vu Tran (V36ZY6STMM)";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Paul Cretu (NAB482WB5L)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Paul Cretu (NAB482WB5L)";
 				COPY_PHASE_STRIP = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -2089,7 +2523,7 @@
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				HEADER_SEARCH_PATHS = /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator6.0.sdk/usr/include;
 				INFOPLIST_FILE = "TapIn-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/../AVCEncoder/DerivedData/AVCEncoder/Build/Products/Release-iphoneos\"",
