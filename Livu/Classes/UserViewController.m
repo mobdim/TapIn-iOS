@@ -50,6 +50,15 @@
 
 }
 
+- (BOOL)shouldAutorotate {
+    return YES;
+}
+
+- (BOOL)supportedInterfaceOrientations {
+    return UIInterfaceOrientationMaskPortrait;
+}
+
+
 -(void)viewWillAppear:(BOOL)animated
 {
 

@@ -27,6 +27,15 @@
     return self;
 }
 
+- (BOOL)shouldAutorotate {
+    return YES;
+}
+
+- (BOOL)supportedInterfaceOrientations {
+    return UIInterfaceOrientationMaskPortrait;
+}
+
+
 -(IBAction)loginWithFacebook:(id)sender
 {
     NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"http://s.tapin.tv/fb/%@/"]];

@@ -66,7 +66,8 @@
     [AssetLoader copyAssetsToDocumentsDirectory];
 
     // Add the view controller's view to the window and display.
-    [self.window addSubview:viewController.view];
+    [self.window setRootViewController:viewController];
+
     [self.window makeKeyAndVisible];
         
     // Let the device know we want to receive push notifications

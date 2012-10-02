@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "Utilities.h"
+#import "AVCamViewController.h"
 
 @class SUIMaxSlider, LivuConfigViewController, LivuCaptureManager, LivuBroadcastManager, AVCaptureVideoPreviewLayer, LivuVideoView;
 @class AVCEncoder, AACEncoder, SUIMaxSlider;
@@ -40,6 +41,8 @@
     IBOutlet UILabel * activityText;
     IBOutlet UILabel * viewerCount;
     IBOutlet UIButton * userButton;
+    
+    AVCamViewController * cam;
         
     SUIMaxSlider                *bitrateSlider;
     LivuConfigViewController    *configViewController;

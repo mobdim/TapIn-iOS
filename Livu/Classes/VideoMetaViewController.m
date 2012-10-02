@@ -17,6 +17,7 @@
 #import "SHK.h"
 #import "MixpanelAPI.h"
 #import "MPContainerViewController.h"
+#import "UserViewController.h"
 
 @interface UIView (ViewHierarchyLogging)
 
@@ -169,6 +170,24 @@
     }
 }
 
+-(IBAction)deleteButtonTouched:(id)sender
+{
+    UIAlertView * alert = [[UIAlertView alloc]initWithTitle:@"Delete" message:@"Are you sure you want to delete this video?" delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"Delete", nil];
+    [alert show];
+
+}
+
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+    if(buttonIndex==1)
+    {
+        NSMutableDictionary * params = [[NSMutableDictionary alloc]initWithObjectsAndKeys:@"yes", @"delete", @"delete", @"wrapper", nil];
+        [[Utilities sharedInstance] sendGet:[NSString stringWithFormat:@"web/update/stream/%@", self.streamID] params:params delegate:self]; 
+        [params release];
+    }   
+    NSLog(@"This is the button index: %i", buttonIndex);
+}
+
 -(float)getCommentHeight
 {
     float height = 0;
@@ -199,28 +218,29 @@
     NSLog(@"%@", [data description]);
     if([data objectForKey:@"timestream"])
     {
-        NSArray * arr = [[data objectForKey:@"timestream"] objectAtIndex:0];
-        NSDictionary * sub = [arr objectAtIndex:1];
-        NSArray * coord = [sub objectForKey:@"coord"];
-        
-        int lat = [[coord objectAtIndex:0] intValue];
-        int lon = [[coord objectAtIndex:1] intValue];
-
-        CLLocation * location = [[CLLocation alloc]initWithLatitude:lat longitude:lon];
-        CLGeocoder * geoCoder = [[CLGeocoder alloc] init];
-        [geoCoder reverseGeocodeLocation:location completionHandler:^(NSArray *placemarks, NSError *error) {
-            for (CLPlacemark * placemark in placemarks) {
-                if([placemark.addressDictionary objectForKey:@"State"])
-                {
-                    metaLabel.text = [NSString stringWithFormat:@"Near %@, %@", [placemark.addressDictionary objectForKey:@"City"], [placemark.addressDictionary objectForKey:@"State"]];
-                }
-                else {
-                    metaLabel.text = [NSString stringWithFormat:@"Near %@", [placemark.addressDictionary objectForKey:@"City"]];
-
-                }
-                    NSLog(@"Placemark is : %@", [placemark.addressDictionary description]);     
-            }    
-        }];     
+        // This is for phone reverse geo.. we don't need it for now
+//        NSArray * arr = [[data objectForKey:@"timestream"] objectAtIndex:0];
+//        NSDictionary * sub = [arr objectAtIndex:1];
+//        NSArray * coord = [sub objectForKey:@"coord"];
+//        
+//        int lat = [[coord objectAtIndex:0] intValue];
+//        int lon = [[coord objectAtIndex:1] intValue];
+//
+//        CLLocation * location = [[CLLocation alloc]initWithLatitude:lat longitude:lon];
+//        CLGeocoder * geoCoder = [[CLGeocoder alloc] init];
+//        [geoCoder reverseGeocodeLocation:location completionHandler:^(NSArray *placemarks, NSError *error) {
+//            for (CLPlacemark * placemark in placemarks) {
+//                if([placemark.addressDictionary objectForKey:@"State"])
+//                {
+//                    metaLabel.text = [NSString stringWithFormat:@"Near %@, %@", [placemark.addressDictionary objectForKey:@"City"], [placemark.addressDictionary objectForKey:@"State"]];
+//                }
+//                else {
+//                    metaLabel.text = [NSString stringWithFormat:@"Near %@", [placemark.addressDictionary objectForKey:@"City"]];
+//
+//                }
+//                    NSLog(@"Placemark is : %@", [placemark.addressDictionary description]);     
+//            }    
+//        }];     
     }
     
     else if([data objectForKey:@"vote"])
@@ -295,6 +315,11 @@
         }
         else [userButton setTitle:[data objectForKey:@"user"] forState:UIControlStateNormal];
         userButton.titleLabel.adjustsFontSizeToFitWidth = TRUE;
+    }
+    
+    else if([data objectForKey:@"delete"])
+    {
+        [self dismissModalViewControllerAnimated:YES];
     }
 }
 

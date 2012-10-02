@@ -60,7 +60,7 @@
         [postData setObject:[Utilities userDefaultValueforKey:@"pushtoken"] forKey:@"pushtoken"];
     }
     
-    [[Utilities sharedInstance] sendPost:@"http://api.tapin.tv/web/login" params:postData];
+    [[Utilities sharedInstance] sendPost:@"http://debug.api.tapin.tv/web/login" params:postData];
     }
     else {
         if([username.text length]<3)
@@ -84,7 +84,7 @@
             {
                 [postData setObject:[Utilities userDefaultValueforKey:@"pushtoken"] forKey:@"pushtoken"];
             }
-            [[Utilities sharedInstance] sendPost:@"http://api.tapin.tv/web/register" params:postData];
+            [[Utilities sharedInstance] sendPost:@"http://debug.api.tapin.tv/web/register" params:postData];
         }
 
     }

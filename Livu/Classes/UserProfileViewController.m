@@ -77,6 +77,8 @@
 
 -(void)viewWillAppear:(BOOL)animated
 {
+    self.user = [Utilities userDefaultValueforKey:@"user"];
+    NSLog(@"THIS IS WHAT IT IS WHEN IT GETS HERE...%@", self.user);
 //    if (![Utilities userDefaultValueforKey:@"user"]) {
 //        SignupViewController * vc = [[SignupViewController alloc]init];
 //        vc.root = self;
@@ -261,7 +263,7 @@
 -(void)viewDidDisappear:(BOOL)animated{
     if(didShowLogin)
     {
-        [vc.view removeFromSuperview];
+//        [vc.view removeFromSuperview];
 
     }
 }
@@ -286,6 +288,7 @@
     {
         followButton.title = @"Sign Up";
     }
+        [self loadPage];
     }
 
 
@@ -294,10 +297,11 @@
 }
 
 -(void)loadPage {
-//    self.user = [Utilities userDefaultValueforKey:@"user"];
-      
+    self.user = [Utilities userDefaultValueforKey:@"user"];
+    if(self.user)
+    {
     self.tabBarItem.title = @"Videos";
-    navBar.topItem.title = user;
+    navBar.topItem.title = self.user;
     [[Utilities sharedInstance] setDelegate:self];
     userVideos.text = [NSString stringWithFormat: @"%@ Videos", user];
     [self queryForUserData];
@@ -306,25 +310,34 @@
     UIImage *img = [UIImage imageNamed:@"scrollbg.png"];
     [scrollview setBackgroundColor:[UIColor colorWithPatternImage:img]];
     [img release];
-}
-
--(void)viewDidLoad
-{
+    }
+    
     if([self.user isEqualToString:[[Utilities sharedInstance] user]])
     {
-        scrollview.frame = CGRectMake(0, 165, 320, 291);
-        userIcon.center = CGPointMake(userIcon.frame.origin.x+30, userIcon.frame.origin.y+24);    
-        userVideos.hidden = YES;
-        upperView.frame = CGRectMake(0, 50, 320, 112);
+//        scrollview.frame = CGRectMake(0, 165, 320, 291);
+//        userIcon.center = CGPointMake(userIcon.frame.origin.x+30, userIcon.frame.origin.y+24);    
+//        userVideos.hidden = YES;
+//        upperView.frame = CGRectMake(0, 50, 320, 112);
         followButton.title = @"Sign Out";
-
+        
     }
     else {
         
     }
+}
 
-    [self loadPage];
-    upperView.layer.masksToBounds = NO;
+- (BOOL)shouldAutorotate {
+    return YES;
+}
+
+- (BOOL)supportedInterfaceOrientations {
+    return UIInterfaceOrientationMaskPortrait;
+}
+
+
+-(void)viewDidLoad
+{
+     upperView.layer.masksToBounds = NO;
     upperView.layer.shadowOffset = CGSizeMake(0, 4);
     upperView.layer.shadowRadius = 2;
     upperView.layer.shadowOpacity = 0.3;

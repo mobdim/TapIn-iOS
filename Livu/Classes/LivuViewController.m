@@ -36,6 +36,7 @@
 #import "VideoFeedViewController.h"
 #import "SignUpPortraitViewController.h"
 #import "MixpanelAPI.h"
+#import "AVCamViewController.h"
 
 #define kIPadScale 1
 
@@ -229,6 +230,14 @@ static const unichar delta = 0x0394 ;
     self.captureManager = nil;
 }
 
+- (BOOL)shouldAutorotate {
+    return YES;
+}
+
+- (BOOL)supportedInterfaceOrientations {
+    return UIInterfaceOrientationMaskLandscapeRight;
+}
+
 - (BOOL) shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation {
 	switch (toInterfaceOrientation) {
         case UIInterfaceOrientationLandscapeLeft:
@@ -267,7 +276,7 @@ static const unichar delta = 0x0394 ;
 }
 
 -(void)updateUserData {
-    [[Utilities sharedInstance] sendGet:[NSString stringWithFormat:@"web/get/user/%@", [Utilities userDefaultValueforKey:@"user"]] params:NULL delegate:self];
+//    [[Utilities sharedInstance] sendGet:[NSString stringWithFormat:@"web/get/user/%@", [Utilities userDefaultValueforKey:@"user"]] params:NULL delegate:self];
 }
 
 
@@ -301,8 +310,10 @@ static const unichar delta = 0x0394 ;
 // Implement viewDidLoad to do additional setup after loading the view, typically from a nib.
 - (void)viewDidLoad {
     [super viewDidLoad];
+//    cam = [[AVCamViewController alloc]init];
+//    [self.view addSubview:cam.view];
     
-    fuckYouPaul = YES;
+    fuckYouPaul = NO;
     ticker = 0;
     
     LivuBroadcastProfile* profile = [LivuBroadcastConfig activeProfile]; 
@@ -417,30 +428,32 @@ static const unichar delta = 0x0394 ;
 
 - (IBAction) userButtonToucehd:(id)sender
 {
-    VideoFeedViewController *vc1 = [[VideoFeedViewController alloc]init];
-    VideosViewController * vc2 = [[VideosViewController alloc]init];
+//    VideoFeedViewController *vc1 = [[VideoFeedViewController alloc]init];
+//    VideosViewController * vc2 = [[VideosViewController alloc]init];
+//    UserProfileViewController *vc3 = [[UserProfileViewController alloc]init];
+//    if([Utilities userDefaultValueforKey:@"user"]) vc3.user = [Utilities userDefaultValueforKey:@"user"];
+//    NSLog(@"ok here %@", [Utilities userDefaultValueforKey:@"user"]);
+//    vc2.tabBarItem.image = [UIImage imageNamed:@"hot.png"];
+//    vc3.tabBarItem.image = [UIImage imageNamed:@"me.png"];
+//    vc2.tabBarItem.title = @"Hot";
+//
+//    
+//    vc3.tabBarItem.title = @"Profile";
+//
+//    UITabBarController *tab = [[UITabBarController alloc] init];
+//    
+//    [[self.tabBarController.viewControllers objectAtIndex:0] setTitle:@"Featured"];
+//    [[self.tabBarController.viewControllers objectAtIndex:1] setTitle:@"Squares"];
+//    [[self.tabBarController.viewControllers objectAtIndex:2] setTitle:@"Profile"];
+//
+//    [tab setViewControllers:[NSArray arrayWithObjects: vc1, vc2, vc3, nil] animated:NO];
+//    [tab setSelectedIndex:0 ];
+//
+//    
+//    vc2.root = self;
     UserProfileViewController *vc3 = [[UserProfileViewController alloc]init];
-    if([Utilities userDefaultValueforKey:@"user"]) vc3.user = [Utilities userDefaultValueforKey:@"user"];
-    NSLog(@"ok here %@", [Utilities userDefaultValueforKey:@"user"]);
-    vc2.tabBarItem.image = [UIImage imageNamed:@"hot.png"];
-    vc3.tabBarItem.image = [UIImage imageNamed:@"me.png"];
-    vc2.tabBarItem.title = @"Hot";
 
-    
-    vc3.tabBarItem.title = @"Profile";
-
-    UITabBarController *tab = [[UITabBarController alloc] init];
-    
-    [[self.tabBarController.viewControllers objectAtIndex:0] setTitle:@"Featured"];
-    [[self.tabBarController.viewControllers objectAtIndex:1] setTitle:@"Squares"];
-    [[self.tabBarController.viewControllers objectAtIndex:2] setTitle:@"Profile"];
-
-    [tab setViewControllers:[NSArray arrayWithObjects: vc1, vc2, vc3, nil] animated:NO];
-    [tab setSelectedIndex:0 ];
-
-    
-    vc2.root = self;
-    [self presentModalViewController:tab animated:YES];
+    [self presentModalViewController:vc3 animated:YES];
 //    [self.view addSubview:vc.view];
 //    vc.view.frame = CGRectMake(310,0, 480, 300);;
 //    [self.view addSubview:vc.view];
@@ -763,6 +776,9 @@ static const unichar delta = 0x0394 ;
 //    [[Utilities sharedInstance] setDelegate:self];
     helperText.text = @"REC";
     helperText.textColor = [UIColor redColor];
+    
+//    Start local recorrding
+//    [cam toggleRecording:self];
 
 //    helperText.alpha = 0;
     if([self remoteHostStatus] == NotReachable) {
@@ -1294,6 +1310,7 @@ static const unichar delta = 0x0394 ;
     if(!fuckYouPaul) {
         NSLog(@"moment of truth %@", [response objectForKey:@"host"]);
         profile.application = [NSString stringWithFormat:@"/live/%@/stream", [response objectForKey:@"streamid"]];
+        profile.address = [response objectForKey:@"host"];
         NSLog(@"%@", profile.application);
         profile.keyFrameInterval = [[response objectForKey:@"keyframeinterval"] intValue];
         [Utilities setUserDefaultValue:[response objectForKey:@"streamid"] forKey:@"laststream"];
@@ -1332,7 +1349,7 @@ static const unichar delta = 0x0394 ;
     self.streamBitrate.text = @"";
     
     self.previewButton.enabled = YES;
-    NSLog(@"%@", [viewCountTimer isValid]);
+//    NSLog(@"%@", [viewCountTimer isValid]);
     if(![viewCountTimer isValid])
     {
         viewCountTimer = [NSTimer scheduledTimerWithTimeInterval:5.0f

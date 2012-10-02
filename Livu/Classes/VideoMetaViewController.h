@@ -32,4 +32,5 @@
 -(IBAction)userButtonTouched:(id)sender;
 -(IBAction)doneButtonTouched:(id)sender;
 -(IBAction)segmentedControlTouched:(UISegmentedControl*)sender;
+-(IBAction)deleteButtonTouched:(id)sender;
 @end

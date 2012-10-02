@@ -114,7 +114,6 @@ void rtp_avc_session_callback(struct rtp *session, rtp_event *e) {
 
 
 void rtcp_session_callback(struct rtp *session, uint32_t rtp_ts, int max_size) {
-     LOG_EXPR(session);
     
 	//NSLog(@"Received RTCP Callback");
 }
