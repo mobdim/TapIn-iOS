@@ -35,6 +35,7 @@
 		972960371592DB21009587E9 /* user@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 972960351592DB20009587E9 /* user@2x.png */; };
 		97336F2D159119DF00653EE3 /* SignupViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 97336F2B159119DF00653EE3 /* SignupViewController.m */; };
 		97336F2E159119DF00653EE3 /* SignupViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 97336F2C159119DF00653EE3 /* SignupViewController.xib */; };
+		973FB74A161C0F8500B70C30 /* ShareKit.bundle in Frameworks */ = {isa = PBXBuildFile; fileRef = DA206B0B161B04E200CDC9E4 /* ShareKit.bundle */; };
 		974789C915DBA89B00D4C9C1 /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 974789C815DBA89B00D4C9C1 /* CoreTelephony.framework */; };
 		9747FE1115DAEF3B002D25DF /* triangle.png in Resources */ = {isa = PBXBuildFile; fileRef = 9747FE1015DAEF3B002D25DF /* triangle.png */; };
 		975B2B1A15DB839A007F04BB /* MySHKSharers.plist in Resources */ = {isa = PBXBuildFile; fileRef = 975B2B1915DB839A007F04BB /* MySHKSharers.plist */; };
@@ -859,6 +860,7 @@
 				97E3180715747733003C9126 /* CoreLocation.framework in Frameworks */,
 				97E31802157473EA003C9126 /* libxml2.dylib in Frameworks */,
 				1996ADB3154461FD00EF20A9 /* libAVCEncoder.a in Frameworks */,
+				973FB74A161C0F8500B70C30 /* ShareKit.bundle in Frameworks */,
 				97E3175715747288003C9126 /* libz.dylib in Frameworks */,
 				BA9CD2BF12F69BFD00481B67 /* MediaPlayer.framework in Frameworks */,
 				1D60589F0D05DD5A006BFB54 /* Foundation.framework in Frameworks */,
@@ -2216,8 +2218,8 @@
 			buildSettings = {
 				ADDITIONAL_SDKS = "";
 				ALWAYS_SEARCH_USER_PATHS = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer: Paul Cretu (NAB482WB5L)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Paul Cretu (NAB482WB5L)";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Vu Tran (V36ZY6STMM)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Vu Tran (V36ZY6STMM)";
 				COPY_PHASE_STRIP = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -2230,7 +2232,7 @@
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				HEADER_SEARCH_PATHS = /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator6.0.sdk/usr/include;
 				INFOPLIST_FILE = "TapIn-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/../AVCEncoder/DerivedData/AVCEncoder/Build/Products/Release-iphoneos\"",
@@ -2250,6 +2252,7 @@
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "6C935D87-964B-4C14-AC79-4C30ACA2777C";
 				RUN_CLANG_STATIC_ANALYZER = NO;
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				TARGETED_DEVICE_FAMILY = 1;
 				USER_HEADER_SEARCH_PATHS = "../Submodules/**";
 				VALID_ARCHS = "armv7 i386";
 			};
@@ -2260,8 +2263,8 @@
 			buildSettings = {
 				ADDITIONAL_SDKS = "";
 				ALWAYS_SEARCH_USER_PATHS = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer: Paul Cretu (NAB482WB5L)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Paul Cretu (NAB482WB5L)";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Vu Tran (V36ZY6STMM)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Vu Tran (V36ZY6STMM)";
 				COPY_PHASE_STRIP = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -2273,7 +2276,7 @@
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				HEADER_SEARCH_PATHS = /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator6.0.sdk/usr/include;
 				INFOPLIST_FILE = "TapIn-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/../AVCEncoder/DerivedData/AVCEncoder/Build/Products/Release-iphoneos\"",
@@ -2288,6 +2291,7 @@
 				PROVISIONING_PROFILE = "6C935D87-964B-4C14-AC79-4C30ACA2777C";
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "6C935D87-964B-4C14-AC79-4C30ACA2777C";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				TARGETED_DEVICE_FAMILY = 1;
 				USER_HEADER_SEARCH_PATHS = "../Submodules/**";
 				VALIDATE_PRODUCT = YES;
 				VALID_ARCHS = "armv7 i386";
@@ -2328,9 +2332,9 @@
 			buildSettings = {
 				ADDITIONAL_SDKS = "";
 				ALWAYS_SEARCH_USER_PATHS = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer: Paul Cretu (NAB482WB5L)";
-				"CODE_SIGN_IDENTITY[sdk=*]" = "iPhone Developer: Paul Cretu (NAB482WB5L)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Paul Cretu (NAB482WB5L)";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Vu Tran (V36ZY6STMM)";
+				"CODE_SIGN_IDENTITY[sdk=*]" = "iPhone Developer: Vu Tran (V36ZY6STMM)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Vu Tran (V36ZY6STMM)";
 				COPY_PHASE_STRIP = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -2343,7 +2347,7 @@
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				HEADER_SEARCH_PATHS = /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator6.0.sdk/usr/include;
 				INFOPLIST_FILE = "TapIn-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/../AVCEncoder/DerivedData/AVCEncoder/Build/Products/Release-iphoneos\"",
@@ -2359,6 +2363,7 @@
 				"PROVISIONING_PROFILE[sdk=*]" = "6C935D87-964B-4C14-AC79-4C30ACA2777C";
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "6C935D87-964B-4C14-AC79-4C30ACA2777C";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				TARGETED_DEVICE_FAMILY = 1;
 				USER_HEADER_SEARCH_PATHS = "../Submodules/**";
 				VALIDATE_PRODUCT = YES;
 				VALID_ARCHS = "armv7 i386";
@@ -2509,8 +2514,8 @@
 			buildSettings = {
 				ADDITIONAL_SDKS = "";
 				ALWAYS_SEARCH_USER_PATHS = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer: Paul Cretu (NAB482WB5L)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Paul Cretu (NAB482WB5L)";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Vu Tran (V36ZY6STMM)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Vu Tran (V36ZY6STMM)";
 				COPY_PHASE_STRIP = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -2523,7 +2528,7 @@
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				HEADER_SEARCH_PATHS = /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator6.0.sdk/usr/include;
 				INFOPLIST_FILE = "TapIn-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/../AVCEncoder/DerivedData/AVCEncoder/Build/Products/Release-iphoneos\"",
@@ -2538,6 +2543,7 @@
 				PROVISIONING_PROFILE = "6C935D87-964B-4C14-AC79-4C30ACA2777C";
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "6C935D87-964B-4C14-AC79-4C30ACA2777C";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				TARGETED_DEVICE_FAMILY = 1;
 				USER_HEADER_SEARCH_PATHS = "../Submodules/**";
 				VALIDATE_PRODUCT = YES;
 				VALID_ARCHS = "armv7 i386";

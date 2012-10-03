@@ -1,6 +1,6 @@
-[submodule "Submodules/ShareKit"]
-	path = Submodules/ShareKit
-	url = git://github.com/ShareKit/ShareKit.git
 [submodule "Submodules/Mixpanel"]
 	path = Submodules/Mixpanel
 	url = git://github.com/mixpanel/mixpanel-iphone.git
+[submodule "Submodules/ShareKit"]
+	path = Submodules/ShareKit
+	url = git://github.com/FS-Stack/ShareKit.git

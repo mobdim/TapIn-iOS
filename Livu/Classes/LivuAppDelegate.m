@@ -36,7 +36,6 @@
 #include <stdio.h>
 #include <sys/sysctl.h>
 #include <sys/time.h>
-#import "DefaultSHKConfigurator.h"
 #import "MySHKConfigurator.h"
 #import "SHKConfiguration.h"
 #import "SHKFacebook.h"
