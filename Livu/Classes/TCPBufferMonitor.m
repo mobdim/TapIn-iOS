@@ -75,7 +75,23 @@ static int64_t bitrate_increase_delay = 0;
 int tcpcb_data_index = 0;
 dispatch_source_t timer = NULL;
 dispatch_queue_t timer_queue = NULL;
-static uint64_t maximum_bitrate;
+
+static uint64_t minimum_bitrate = 102400; //config // 100kbps
+static uint64_t maximum_bitrate = 2097152 * 2; //config // 2 * 2mbps
+int bitrateUpdateFrequency = 2000; //config //milliseconds
+int exponentialWeightDivisor = 100; //config
+int exponentialWeightAlpha = 90; //config // Divide by divisor
+int exponentialWeightBeta = 90; //config
+int exponentialWeightGamma = 90; //config
+int increaseOnZeroConstant = 20; //config
+
+uint64_t bwWeightedAlpha = 0; //config
+uint64_t bwWeightedBeta = 0; //config
+uint64_t bwWeightedGamma = 0; //config
+
+static uint64_t aggregate_time = 0;
+uint64_t bwRawBits = 0;
+
 
 //Stops TCP monitor
 void tcp_monitor_stop() {
@@ -95,7 +111,7 @@ void tcp_monitor_start(AVCEncoder *encoder, int tcp_fd, const char *host, BOOL a
  
 	//    NSLog(@"The Socket File Discriptor is: %d", tcp_fd);
     static char dstr[32];
-	maximum_bitrate = maxBitrate;
+	//maximum_bitrate = maxBitrate;
     
     /* resolve the domain name into a list of addresses */
     struct hostent *he;
@@ -160,7 +176,6 @@ void tcp_monitor_start(AVCEncoder *encoder, int tcp_fd, const char *host, BOOL a
                 if (sysctlbyname("net.inet.tcp.pcblist", &buf, &len, 0, 0)<0)
                     printf("ERRROR sysctlbyname");
                 else {
-                    
                     static mach_timebase_info_data_t    sTimebaseInfo;
                     if(sTimebaseInfo.denom == 0)
                         (void) mach_timebase_info(&sTimebaseInfo); 
@@ -199,90 +214,63 @@ void tcp_monitor_start(AVCEncoder *encoder, int tcp_fd, const char *host, BOOL a
                     if(found) {
                         
                         if(!timestamp_prev) timestamp_prev = timestamp_curr;
-                        snd_next_curr = tcpcb->snd_nxt ;
+                        snd_next_curr = tcpcb->snd_una ;
                         
-                        uint64_t bw = 0;
+                        uint64_t bwRawBytes = 0;
                         
                         if(snd_next_prev == 0) {
                             snd_next_prev = snd_next_curr;
                             timestamp_prev = timestamp_curr - 1;
                         }
                         
+                        uint64_t deltaTime = (timestamp_curr - timestamp_prev);
+                        aggregate_time += deltaTime;
+                        
                         if(snd_next_curr > snd_next_prev)
                         {
-                            NSLog(@"Send delta: %llu", snd_next_curr - snd_next_prev);
-                            NSLog(@"Time delta: %llu", timestamp_curr - timestamp_prev);
-                            bw = (snd_next_curr - snd_next_prev) / (timestamp_curr - timestamp_prev);
+                            bwRawBytes = (snd_next_curr - snd_next_prev) / deltaTime;
                         }
                         else
                         {
-                            NSLog(@"Send delta: %llu", snd_next_curr - snd_next_prev);
-                            NSLog(@"Time delta: %llu", timestamp_curr - timestamp_prev);
-                            bw = (snd_next_prev - snd_next_curr) / (timestamp_curr - timestamp_prev);
-                        }
-                        bw *= 8;
-                        bandwidth = bw * kBWLowPasFilterScalar + bandwidth * (1.0 - kBWLowPasFilterScalar);
-                        
-                        
-                        int32_t tmp = tcpcb->snd_una + tcpcb->snd_wnd - tcpcb->snd_nxt;
-                        
-                        //Note filtering could be bad. We may need to 
-                        usable_win = tmp * kWINLowPasFilterScalar + usable_win * (1.0 - kWINLowPasFilterScalar);
-                        
-                        //This is the part you want paul
-                        uint32_t usable_wnd_min = tcpcb->snd_wnd * kSendWindowMinimumScalar + usable_win_floor;
-                        
-                        bitrate_drop_delay--;
-                        bitrate_increase_delay--;
-                        if(adjustBitrate && bitrate_drop_delay < 1 && usable_win < usable_wnd_min) {
-							unsigned min = maximum_bitrate * 0.1;
-							if(encoder.averagebps > min) {
-								float scalar = 1.0 - ((float)usable_win / usable_wnd_min);
-								unsigned reduce = encoder.averagebps - (kMaxBitrateReduction * scalar);
-								encoder.averagebps = reduce; 
-								NSLog(@"BITRATE DROP TO: %u", encoder.averagebps);
-							}
-							
-							bitrate_drop_delay = kBitrateDropDelay;
-							bitrate_increase_delay = kBitrateIncreaseDelay;
+                            bwRawBytes = (snd_next_prev - snd_next_curr) / deltaTime;
                         }
                         
-                        if(adjustBitrate && bitrate_increase_delay < 1) {
-                            //NSLog(@"Average %u - Max %llu", encoder.averagebps, maximum_bitrate);
-							//NSLog(@"Bitrate Increase delay < 1: ");
-                            //By doing this here we introduce a level of probability into the increase.
-                            //every time we get here will reset the bitrate_increase_delay. It is possible
-                            //That the calculation is below the threashold at this instantat. 
-                            if(usable_win > (usable_wnd_min + kUsableWindowMinRange)) {
-                                if(encoder.averagebps < maximum_bitrate) {
-									uint64_t avg = encoder.averagebps + kBitrateIncrease;
-									encoder.averagebps = (maximum_bitrate < avg) ? maximum_bitrate : avg;
-									NSLog(@"BITRATE INCREASE TO: %u", encoder.averagebps);
-                                }
+                        if (bwRawBytes == 0)
+                        {
+                            bwWeightedAlpha += (maximum_bitrate - bwWeightedGamma)/increaseOnZeroConstant;
+                        }
+                        else
+                        {
+                            bwRawBits = bwRawBytes * 8 * 1000;
+                        }
+                        
+                        bwWeightedAlpha = ((bwRawBits * (exponentialWeightDivisor - exponentialWeightAlpha)) + (bwWeightedAlpha * exponentialWeightAlpha))/exponentialWeightDivisor;
+                        bwWeightedBeta = ((bwWeightedAlpha * (exponentialWeightDivisor - exponentialWeightBeta)) + (bwWeightedBeta * exponentialWeightBeta))/exponentialWeightDivisor;
+                        bwWeightedGamma = ((bwWeightedBeta * (exponentialWeightDivisor - exponentialWeightGamma)) + (bwWeightedGamma * exponentialWeightGamma))/exponentialWeightDivisor;
+                        
+                        
+                        if(adjustBitrate && (aggregate_time >= bitrateUpdateFrequency)) {
+                            if (bwWeightedGamma <=  minimum_bitrate)
+                            {
+                                encoder.averagebps = minimum_bitrate;
                             }
-                            bitrate_increase_delay = kBitrateIncreaseDelay;
+                            else if (bwWeightedGamma >= maximum_bitrate)
+                            {
+                                encoder.averagebps = maximum_bitrate;
+                            }
+                            else
+                            {
+								encoder.averagebps = bwWeightedGamma;
+							}
+                            encoder.averagebps = bwWeightedGamma;
+							aggregate_time = 0;
                         }
                         
-                        counter++;
-                        if(counter % 10 == 0) {
-                            
-                            dispatch_async(dispatch_get_main_queue(), ^{
-                                float brs = (float) encoder.averagebps / (float) maximum_bitrate;
-                                NSDictionary *data = [NSDictionary dictionaryWithObjectsAndKeys:[NSString stringWithFormat:@"Streaming %ukbps", bandwidth], @"bitrate", [NSNumber numberWithFloat:brs], @"bitrateScalar" ,nil];
-                                [[NSNotificationCenter defaultCenter] postNotificationName:@"bitrate" object:nil userInfo:data];
-                            });
-                            
-//                                printf("bandwidth = %llukbps - bw = %llu\n", bandwidth, bw);
-                                //printf("snd_window - %u, snd_una - %u, snd_next - %llu, snd_prev - %llu\n", tcpcb->snd_wnd, tcpcb->snd_una, snd_next_curr, snd_next_prev);
-                                //printf("usable - %u, usable_20 - %u, floor - %u\n", usable_win, usable_wnd_min, usable_win_floor);
-//                                
-//                                if(usable_win < usable_wnd_min) {
-//                                    printf("Dropped below threash\n");
-//                                }
-                        }
-                        
+                                                 
                         snd_next_prev = snd_next_curr;
                         timestamp_prev = timestamp_curr;
+                        
+                        NSLog(@"%llu %llu %llu %llu %llu %u", timestamp_curr, bwRawBits, bwWeightedAlpha, bwWeightedBeta, bwWeightedGamma, encoder.averagebps);
                         
                     }
                     
